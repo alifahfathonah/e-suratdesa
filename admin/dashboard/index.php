@@ -1,5 +1,5 @@
 <?php
-  include ('part/header.php');
+  include ('../part/header.php');
 ?>
 
   <!-- Left side column. contains the logo and sidebar -->
@@ -9,7 +9,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../assets/img/user.jpg" class="img-circle" alt="User Image">
+          <img src="../../assets/img/user.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Administrator</p>
@@ -19,13 +19,13 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li>
+        <li class="active">
           <a href="#">
             <i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="penduduk.php">
+          <a href="../penduduk/index.php">
             <i class="fa fa-users"></i> <span>Data Penduduk</span>
           </a>
         </li>
@@ -38,18 +38,18 @@
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="#">
+              <a href="../surat/permintaan_surat/index.php">
                 <i class="fa fa-circle-notch"></i> Permintaan Surat
               </a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-circle-notch"></i> Surat Selesai
+              <a href="../surat/surat_selesai/index.php"><i class="fa fa-circle-notch"></i> Surat Selesai
               </a>
             </li>
           </ul>
         </li>
-        <li class="active">
-          <a href="#">
+        <li>
+          <a href="../laporan/index.php">
             <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span>
           </a>
         </li>
@@ -204,5 +204,5 @@
   </div>
   <!-- /.content-wrapper -->
 <?php 
-  include ('part/footer.php');
+  include ('../part/footer.php');
 ?>
