@@ -1,7 +1,4 @@
-<footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.0
-    </div>
+  <footer class="main-footer">
     <strong>Copyright &copy; 2019 <a href="../../../index.php">e-SuratDesa</a>.</strong> All rights
     reserved.
   </footer>

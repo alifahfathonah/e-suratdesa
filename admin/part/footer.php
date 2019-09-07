@@ -1,7 +1,4 @@
-<footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.0
-    </div>
+  <footer class="main-footer">
     <strong>Copyright &copy; 2019 <a href="../../index.php">e-SuratDesa</a>.</strong> All rights
     reserved.
   </footer>
@@ -240,7 +237,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../../assets/AdminLTE/dist/js/demo.js"></script>
 <!-- DataTable Plugin -->
-<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.1.0.js"></script> -->
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 <script>
