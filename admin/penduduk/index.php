@@ -74,8 +74,8 @@
     <section class="content">      
         <div class="row">
           <div class="col-md-12">
-            <a class="btn btn-success btn-md" href='#'><i class="fa fa-user-plus"></i> Tambah Anggota</a>
-            <a class="btn btn-warning btn-md" href='#'><i class="fa fa-print"></i> Cetak Data Anggota</a><hr>
+            <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Penduduk</a>
+            <a class="btn btn-warning btn-md" href='#'><i class="fas fa-file-excel"></i> Import Data Anggota</a><hr>
             <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
               <thead>
                 <tr>
