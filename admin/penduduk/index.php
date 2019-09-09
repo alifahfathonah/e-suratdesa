@@ -74,8 +74,9 @@
     <section class="content">      
         <div class="row">
           <div class="col-md-12">
-            <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Penduduk</a>
-            <a class="btn btn-warning btn-md" href='#'><i class="fas fa-file-excel"></i> Import Data Anggota</a><hr>
+            <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Penduduk</a>
+            <a class="btn btn-danger btn-md" href='kosongkan-penduduk.php'><i class="fas fa-trash-alt"></i> Kosongkan Data Penduduk</a>
+            <br><br>
             <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
               <thead>
                 <tr>
@@ -85,7 +86,7 @@
                   <th><strong>Tempat Lahir</strong></th>
                   <th><strong>Jenis Kelamin</strong></th>
                   <th><strong>Agama</strong></th>
-                  <th><strong>Aksi</strong></th>
+<!--                   <th><strong>Aksi</strong></th> -->
                 </tr>
               </thead>
               <tbody>
@@ -103,10 +104,10 @@
                   <td><?php echo $row['t_lahir']; ?></td>
                   <td><?php echo $row['j_kelamin']; ?></td>
                   <td><?php echo $row['agama']; ?></td>
-                  <td>
-                    <button class="btn btn-success"><i class="fas fa-pen"></i></button>
-                    <button class="btn btn-danger" ><i class="fa fa-trash"></i></button>
-                  </td>
+<!--                   <td>
+                    <a class="btn btn-success btn-sm" href='edit-anggota.php?id=<?php echo $row['id']; ?>'><i class="fa fa-edit"></i></a> 
+                    <a class="btn btn-danger btn-sm" href='hapus-anggota.php?id=<?php echo $row['id']; ?>'><i class="fa fa-trash"></i></a>
+                  </td> -->
                 </tr>
 
                 <?php

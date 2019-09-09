@@ -72,6 +72,16 @@
     <section class="content">      
         <div class="row">
           <div class="col-md-12">
+            <form method="post" enctype="multipart/form-data" action="import-penduduk.php">
+              <div class="col-md-3">
+                <input name="datapenduduk" type="file" required="required">
+              </div>
+              <div>
+                <input name="upload" type="submit" class="btn btn-primary" value="Import .XLS">
+              </div>
+            </form><br>
+          </div>
+          <div class="col-md-12">
             <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
@@ -85,98 +95,63 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
+            <form class="form-horizontal" method="post" action="simpan-penduduk.php">
             <div class="col-md-6">
               <!-- form start -->
-            <form class="form-horizontal">
+            
               <div class="box-body">
                 <div class="form-group">
                   <label class="col-sm-3 control-label">NIK</label>
 
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="NIK">
+                    <input type="text" name="fnik" class="form-control" placeholder="NIK">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Nama</label>
 
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Nama">
+                    <input type="text" name="fnama" class="form-control" placeholder="Nama">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Tempat Lahir</label>
 
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Tempat Lahir">
+                    <input type="text" name="ft_lahir" class="form-control" placeholder="Tempat Lahir">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Jenis Kelamin</label>
 
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Jenis Kelamin">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Agama</label>
-
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Agama">
+                    <input type="text" name="fj_kelamin" class="form-control" placeholder="Jenis Kelamin">
                   </div>
                 </div>
               </div>
-            </form>
             </div>
             <!-- /.col -->
             <div class="col-md-6">
               <!-- form start -->
-            <form class="form-horizontal">
               <div class="box-body">
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">NIK</label>
-
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="NIK">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Nama</label>
-
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Nama">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Tempat Lahir</label>
-
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Tempat Lahir">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Jenis Kelamin</label>
-
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Jenis Kelamin">
-                  </div>
-                </div>
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Agama</label>
 
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Agama">
+                    <input type="text" name="fagama" class="form-control" placeholder="Agama">
                   </div>
                 </div>
               </div>
               <!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Sign in</button>
+              <div class="box-footer pull-right">
+                <input type="reset" class="btn btn-default" value="Reset">
+                <input type="submit" name="submit" class="btn btn-info" value="Submit">
               </div>
               <!-- /.box-footer -->
-            </form>
+            
             </div>
             <!-- /.col -->
+            </form>
           </div>
           <!-- /.row -->
         </div>
