@@ -52,7 +52,7 @@
 	<img src="assets/img/logo-jombang.png"><hr>
 	<a class="text-light" style="font-size:15pt"><strong>Web Aplikasi Pelayanan Surat Desa</strong></a><br>
 	<a class="text-light" style="font-size:15pt"><strong>Kabupaten Jombang</strong></a><hr>
-	<a href="#" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
+	<a href="surat/index.php" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
 </div>
 <div class="footer bg-transparent text-center mb-3 ">
     	<span class="text-light"><strong>Copyright &copy; 2019 <a href="../../../index.php" class="text-decoration-none text-white">e-SuratDesa</a>.</strong> All rights reserved.</span>
