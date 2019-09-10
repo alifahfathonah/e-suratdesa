@@ -36,10 +36,10 @@
 	        <a class="nav-link" href="#"><i class="fas fa-home"></i>&nbsp;HOME</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#"></i>BUAT SURAT</a>
+	        <a class="nav-link" href="surat/index.php"></i>BUAT SURAT</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#"></i>TENTANG <b>e-SuratDesa</b></a>
+	        <a class="nav-link" href="tentang/index.php"></i>TENTANG <b>e-SuratDesa</b></a>
 	      </li>
 	      <li class="nav-item active ml-5">
 	        <a class="btn btn-dark" href="login/index.php"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>
@@ -55,7 +55,7 @@
 	<a href="surat/index.php" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
 </div>
 <div class="footer bg-transparent text-center mb-3 ">
-    	<span class="text-light"><strong>Copyright &copy; 2019 <a href="../../../index.php" class="text-decoration-none text-white">e-SuratDesa</a>.</strong> All rights reserved.</span>
+    	<span class="text-light"><strong>Copyright &copy; 2019 <a href="index.php" class="text-decoration-none text-white">e-SuratDesa</a>.</strong> All rights reserved.</span>
 </div>
 </body>
 </html>
