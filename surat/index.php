@@ -37,13 +37,14 @@
 	        <a class="nav-link" href="../tentang/index.php"></i>TENTANG <b>e-SuratDesa</b></a>
 	      </li>
 	      <li class="nav-item active ml-5">
-	        <a class="btn btn-light text-info" href="login/index.php"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>
+	        <a class="btn btn-light text-info" href="../login/index.php"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>
 	      </li>
 	    </ul>
 	  </div>
 	</navbar>
 </div>
-<div class="container" style="max-height:cover; padding-top:30px; padding-bottom:120px">
+<div class="container-fluid">
+<div style="max-height:cover; padding-top:30px; padding-bottom:120px">
 	<div class="row">
 	  <div class="col-sm-3">
 	    <div class="card">
@@ -119,6 +120,7 @@
 	  </div>
 
 	</div>
+</div>
 </div>
 <div class="footer bg-dark text-center">
     <span class="text-light"><strong>Copyright &copy; 2019 <a href="../index.php" class="text-decoration-none text-white">e-SuratDesa</a>.</strong> All rights reserved.</span>
