@@ -83,9 +83,10 @@
                   <th><strong>No</strong></th>
                   <th><strong>NIK</strong></th>
                   <th><strong>Nama</strong></th>
-                  <th><strong>Tempat Lahir</strong></th>
+                  <th><strong>Tempat/Tgl Lahir</strong></th>
                   <th><strong>Jenis Kelamin</strong></th>
                   <th><strong>Agama</strong></th>
+                  <th><strong>Alamat</strong></th>
 <!--                   <th><strong>Aksi</strong></th> -->
                 </tr>
               </thead>
