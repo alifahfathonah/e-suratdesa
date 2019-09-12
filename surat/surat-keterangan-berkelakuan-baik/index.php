@@ -32,10 +32,17 @@
 <div class="card col-md-4">
             <div class="card-content">
               <div class="card-body">
-                <form action="https://surat-app.bismalabs.co.id/surat/surat-pengantar-skck/" method="post"> 
-                  <img src="../../assets/img/logo-jombang1.png"><hr>                                                                                                                
+                <form action="cek-nik.php" method="post"> 
+                  <?php 
+                    if(isset($_GET['pesan'])){
+                      if($_GET['pesan']=="gagal"){
+                        echo "<div class='alert alert-danger'><center>NIK Anda tidak terdaftar. Silahkan hubungi Kantor Desa Asdfgh!</center></div>";
+                      }
+                    }
+                  ?>
+                  <img src="../../assets/img/logo-jombang1.png"><hr>
                   <label style="font-weight: 700"><i class="fas fa-id-card"></i> NIK  <i>(Nomor Induk Kependudukan)</i></label>
-                  <input type="text" class="form-control form-control-md" name="nik" value="" id="iconLeft2" placeholder="Masukkan Nomor NIK">
+                  <input type="text" class="form-control form-control-md" name="fnik" placeholder="Masukkan NIK Anda..." required>
                   <div class="form-control-position">
                     <i class="ft-search primary font-medium-4"></i>
                   </div>
@@ -46,31 +53,6 @@
             </div>
           </div>
 </div>
-
-<!-- <div class="container" align="center">
-  <div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
-    <div class="row">
-      <div class="col-md-4">
-          <div class="card">
-            <div class="card-content">
-              <div class="card-body">
-                <form action="https://surat-app.bismalabs.co.id/surat/surat-pengantar-skck/" method="post" accept-charset="utf-8">
-                  <input type="hidden" name="csrf_token" value="0b3b2c5a6d669b990783e51b6d91ac96" />                                                                                                                  
-                  <label style="font-weight: 700">NIK  <i>(Nomor Induk Kependudukan)</i></label>
-                  <input type="text" class="form-control form-control-md" name="nik" value="" id="iconLeft2" placeholder="Masukkan Nomor NIK">
-                  <div class="form-control-position">
-                    <i class="ft-search primary font-medium-4"></i>
-                  </div>
-                  <br>
-                  <button type="submit" class="btn btn-primary btn-md"><i class="fa fa-exchange"></i> CEK NIK</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</div> -->
 <?php 
   include ('../part/footer.php');
 ?>
