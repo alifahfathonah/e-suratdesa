@@ -85,7 +85,7 @@
             <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Tambah Data Penduduk</h3>
+          <h3 class="box-title"><i class="fas fa-user-plus"></i> Tambah Data Penduduk</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -144,7 +144,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer pull-right">
-                <input type="reset" class="btn btn-default" value="Reset">
+                <input type="reset" class="btn btn-default" value="Batal">
                 <input type="submit" name="submit" class="btn btn-info" value="Submit">
               </div>
               <!-- /.box-footer -->
