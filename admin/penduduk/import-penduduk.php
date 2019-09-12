@@ -25,13 +25,30 @@ for ($i=2; $i<=$jumlah_baris; $i++){
 	// menangkap data dan memasukkan ke variabel sesuai dengan kolumnya masing-masing
 	$nik     = $data->val($i, 1);
 	$nama   = $data->val($i, 2);
-	$t_lahir  = $data->val($i, 3);
-	$j_kelamin  = $data->val($i, 4);
-	$agama  = $data->val($i, 4);
+	$tempat_lahir  = $data->val($i, 3);
+	$tgl_lahir  = $data->val($i, 4);
+	$jenis_kelamin  = $data->val($i, 5);
+	$agama  = $data->val($i, 6);
+	$dusun  = $data->val($i, 7);
+	$rw  = $data->val($i, 8);
+	$rt  = $data->val($i, 9);
+	$no_kk  = $data->val($i, 10);
+	$pend_kk  = $data->val($i, 11);
+	$pend_terakhir  = $data->val($i, 12);
+	$pend_ditempuh  = $data->val($i, 13);
+	$pekerjaan  = $data->val($i, 14);
+	$status_perkawinan  = $data->val($i, 15);
+	$status_dlm_keluarga  = $data->val($i, 16);
+	$kewarganegaraan  = $data->val($i, 17);
+	$nama_ayah  = $data->val($i, 18);
+	$nama_ibu  = $data->val($i, 19);
+	$gol_darah  = $data->val($i, 20);
+	$jamkesmas  = $data->val($i, 21);
+	
 
-	if($nik != "" && $nama != "" && $t_lahir != "" && $j_kelamin != "" && $agama != ""){
+	if($nik != "" && $nama != "" && $tempat_lahir != "" && $tgl_lahir != "" && $jenis_kelamin != "" && $agama != "" && $dusun != "" && $rw != "" && $rt != "" && $no_kk != "" && $pend_kk != "" && $pend_terakhir != "" && $pend_ditempuh != "" && $pekerjaan != "" && $status_perkawinan != "" && $status_dlm_keluarga != "" && $kewarganegaraan != "" && $nama_ayah != "" && $nama_ibu != "" && $gol_darah != "" && $jamkesmas != ""){
 		// input data ke database (table data_pegawai)
-		mysqli_query($connect,"INSERT INTO penduduk VALUES('$nik','$nama','$t_lahir','$j_kelamin','$agama')");
+		mysqli_query($connect,"INSERT INTO penduduk VALUES('$nik','$nama','$tempat_lahir','$tgl_lahir','$jenis_kelamin','$agama','$dusun','$rw','$rt','$no_kk','$pend_kk','$pend_terakhir','$pend_ditempuh','$pekerjaan','$status_perkawinan','$status_dlm_keluarga','$kewarganegaraan','$nama_ayah','$nama_ibu','$gol_darah','$jamkesmas')");
 		$berhasil++;
 	}
 }

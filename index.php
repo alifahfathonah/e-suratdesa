@@ -36,10 +36,10 @@
 	        <a class="nav-link" href="#"><i class="fas fa-home"></i>&nbsp;HOME</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="surat/"></i>BUAT SURAT</a>
+	        <a class="nav-link" href="surat/">BUAT SURAT</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="tentang/"></i>TENTANG <b>e-SuratDesa</b></a>
+	        <a class="nav-link" href="tentang/">TENTANG <b>e-SuratDesa</b></a>
 	      </li>
 	      <li class="nav-item active ml-5">
 	        <a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>

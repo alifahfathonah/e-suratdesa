@@ -14,7 +14,7 @@
 			$_SESSION['username'] = $username;
 			$_SESSION['admin'] = "admin";
 
-			header("location:../admin/index.php");
+			header("location:../admin/");
 		}else{
 			header("location:index.php?pesan=login-gagal");
 		}	
