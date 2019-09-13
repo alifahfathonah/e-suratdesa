@@ -77,11 +77,6 @@
             <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Penduduk</a>
             <a class="btn btn-danger btn-md" data-toggle="modal" data-target="#deleteConfirm"><i class="fas fa-trash-alt"></i> Kosongkan Data Penduduk</a>
 
-            <!-- Button trigger modal -->
-<!--             <button type="button" class="btn btn-primary" >
-              Launch demo modal
-            </button> -->
-
             <!-- Modal -->
             <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">

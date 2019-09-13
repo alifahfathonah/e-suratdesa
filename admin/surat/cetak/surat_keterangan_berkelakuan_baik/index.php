@@ -10,7 +10,7 @@
 <body>
 		<div>
 			<table width="100%">
-				<tr><img src="../assets/img/logo-jombang-90x90.png" alt="" class="logo"></tr>
+				<tr><img src="../../../../assets/img/logo-jombang-90x90.png" alt="" class="logo"></tr>
 				<div class="header">
 					<h4 class="kop" style="text-transform: uppercase">PEMERINTAH
 						KABUPATEN JOMBANG </h4>
@@ -35,7 +35,8 @@
 					</tr>
 				</table>
 				<br><br>
-				<table width="100%" class="indentasi">
+
+				<table width="100%" class="indentasi">					
 					<tr>
 						<td width="30%">NIK</td>
 						<td width="5%">:</td>
@@ -77,6 +78,7 @@
 						<td></td>
 					</tr>
 				</table>
+
 				<br><br>
 				<table width="100%">
 					<tr>

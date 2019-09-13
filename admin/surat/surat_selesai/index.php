@@ -67,16 +67,59 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="../../dashboard/index.php"><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
-        <li class="active">Surat</li>
         <li class="active">Surat Selesai</li>
       </ol>
     </section>
 
     <!-- Main content -->
-    <section class="content">
-      
-      KONTEN
+    <section class="content">      
+        <div class="row">
+          <div class="col-md-12">
+            <br><br>
+            <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th><strong>No. Surat</strong></th>
+                  <th><strong>NIK</strong></th>
+                  <th><strong>Nama</strong></th>
+                  <th><strong>Jenis Surat</strong></th>
+                  <th><strong>Status</strong></th>
+                  <th><strong>Tanggal</strong></th>
+                  <th><strong>Aksi</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                  include ('../../../config/koneksi.php');
+                  $no = 1;
+                  $qTampil = mysqli_query($connect, "SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai'");
+                  foreach($qTampil as $row){
+                ?>
 
+                <tr>
+                  <td><?php echo $row['no_surat']; ?></td>
+                  <td><?php echo $row['nik']; ?></td>
+                  <td><?php echo $row['nama']; ?></td>
+                  <td>Surat Keterangan Berkelakuan Baik</td>
+                  <td><a class="btn btn-success btn-sm" href='#'><i class="fa fa-check"> <?php echo $row['status_surat']; ?></i></a></td>
+                  <td><?php echo $row['tanggal_surat']; ?></td>
+                  
+                  <td><!-- 
+                    <a class="btn btn-success btn-sm" href='edit-anggota.php?id=<?php echo $row['id']; ?>'><i class="fa fa-edit"></i></a>  -->
+                    <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_berkelakuan_baik/index.php?id=<?php echo $row['id_skbb']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                  </td>
+                </tr>
+
+                <?php
+                  }
+                ?>
+              </tbody>
+            </table>
+            <div class="form-group">
+              <input type="hidden" name="id_skbb" class="form-control" value="<?php echo $row['id_skbb']; ?>">
+            </div>
+          </div>
+        </div>
     </section>
     <!-- /.content -->
   </div>
