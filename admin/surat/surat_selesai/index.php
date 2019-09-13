@@ -115,9 +115,6 @@
                 ?>
               </tbody>
             </table>
-            <div class="form-group">
-              <input type="hidden" name="id_skbb" class="form-control" value="<?php echo $row['id_skbb']; ?>">
-            </div>
           </div>
         </div>
     </section>

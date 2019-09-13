@@ -35,8 +35,7 @@
 					</tr>
 				</table>
 				<br><br>
-
-				<table width="100%" class="indentasi">					
+				<table width="100%" class="indentasi">
 					<tr>
 						<td width="30%">NIK</td>
 						<td width="5%">:</td>
@@ -78,7 +77,6 @@
 						<td></td>
 					</tr>
 				</table>
-
 				<br><br>
 				<table width="100%">
 					<tr>
