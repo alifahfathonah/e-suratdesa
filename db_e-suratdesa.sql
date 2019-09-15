@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Sep 2019 pada 09.19
+-- Generation Time: 15 Sep 2019 pada 05.04
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -109,8 +109,8 @@ INSERT INTO `penduduk` (`nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jenis_kelam
 ('3517112233440017', 'Abu Jahal17', 'Jombang', '2000-02-27', 'Laki-laki', 'Islam', 'Mojosongo', '003', '008', '3517112233449999', 'TAMAT SD/SEDERAJAT', 'SMP/SEDERAJAT', 'SMA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'BELUM KAWIN', 'ANAK', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB', 'TIDAK ADA'),
 ('3517112233440018', 'Abu Jahal18', 'Jombang', '2000-02-28', 'Laki-laki', 'Islam', 'Mojosongo', '003', '008', '3517112233449999', 'TAMAT SD/SEDERAJAT', 'SMP/SEDERAJAT', 'SMA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'BELUM KAWIN', 'ANAK', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB', 'TIDAK ADA'),
 ('3517112233440019', 'Abu Jahal19', 'Jombang', '2000-02-29', 'Laki-laki', 'Islam', 'Mojosongo', '003', '008', '3517112233449999', 'TAMAT SD/SEDERAJAT', 'SMP/SEDERAJAT', 'SMA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'BELUM KAWIN', 'ANAK', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB', 'TIDAK ADA'),
-('3517112233440020', 'Abu Jahal20', 'Jombang', '0000-00-00', 'Laki-laki', 'Islam', 'Mojosongo', '003', '008', '3517112233449999', 'TAMAT SD/SEDERAJAT', 'SMP/SEDERAJAT', 'SMA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'BELUM KAWIN', 'ANAK', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB', 'TIDAK ADA'),
-('3517112233440021', 'Abu Jahal21', 'Jombang', '0000-00-00', 'Laki-laki', 'Islam', 'Mojosongo', '003', '008', '3517112233449999', 'TAMAT SD/SEDERAJAT', 'SMP/SEDERAJAT', 'SMA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'BELUM KAWIN', 'ANAK', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB', 'TIDAK ADA');
+('3517112233440020', 'Abu Jahal20', 'Jombang', '2000-03-01', 'Laki-laki', 'Islam', 'Mojosongo', '003', '008', '3517112233449999', 'TAMAT SD/SEDERAJAT', 'SMP/SEDERAJAT', 'SMA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'BELUM KAWIN', 'ANAK', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB', 'TIDAK ADA'),
+('3517112233440021', 'Abu Jahal21', 'Jombang', '2000-03-02', 'Laki-laki', 'Islam', 'Mojosongo', '003', '008', '3517112233449999', 'TAMAT SD/SEDERAJAT', 'SMP/SEDERAJAT', 'SMA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'BELUM KAWIN', 'ANAK', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB', 'TIDAK ADA');
 
 -- --------------------------------------------------------
 
@@ -134,16 +134,32 @@ CREATE TABLE `profil_desa` (
 
 CREATE TABLE `surat_keterangan_berkelakuan_baik` (
   `id_skbb` int(11) NOT NULL,
+  `no_surat` varchar(20) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
+  `nama` varchar(100) NOT NULL,
   `tempat_tgl_lahir` varchar(50) NOT NULL,
-  `jenis_kelamin` varchar(15) NOT NULL,
-  `alamat` varchar(50) NOT NULL,
+  `jenis_kelamin` varchar(10) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
   `agama` varchar(15) NOT NULL,
-  `pekerjaan` varchar(30) NOT NULL,
+  `pekerjaan` varchar(50) NOT NULL,
   `kewarganegaraan` varchar(5) NOT NULL,
-  `keperluan` varchar(30) NOT NULL
+  `keperluan` varchar(50) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status_surat` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `surat_keterangan_berkelakuan_baik`
+--
+
+INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `no_surat`, `nik`, `nama`, `tempat_tgl_lahir`, `jenis_kelamin`, `alamat`, `agama`, `pekerjaan`, `kewarganegaraan`, `keperluan`, `tanggal_surat`, `status_surat`) VALUES
+(1, ' 111', '3517112233440001', 'Adi F', 'Jombang, 14 Desember 1997', 'Laki-laki', 'Dsn. Mojosongo RT003/RW008', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-13 10:26:15', 'SELESAI'),
+(2, '222', '3517112233440002', 'Adi F H', 'Jombang, 14 Desember 1997', 'Laki-laki', 'Dsn. Mojosongo RT003/RW008', 'Islam', 'PELAJAR/MAHASISWA', 'WNA', 'Persyaratan Melamar Pekerjaan', '2019-09-12 12:26:19', 'SELESAI'),
+(3, NULL, '3517112233440014', 'Abu Jahal14', 'Jombang, 24 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '0000-00-00 00:00:00', 'Pending'),
+(4, NULL, '3517112233440001', 'Abu Jahal1', 'Jombang, 11 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '0000-00-00 00:00:00', 'Pending'),
+(5, NULL, '3517112233440014', 'Abu Jahal14', 'Jombang, 24 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-13 13:57:14', 'Pending'),
+(6, NULL, '3517112233440001', 'Abu Jahal1', 'Jombang, 11 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-13 18:56:33', 'Pending'),
+(7, NULL, '3517112233440001', 'Abu Jahal1', 'Jombang, 11 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-13 19:27:04', 'Pending');
 
 --
 -- Indexes for dumped tables
@@ -202,7 +218,7 @@ ALTER TABLE `profil_desa`
 -- AUTO_INCREMENT for table `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
-  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

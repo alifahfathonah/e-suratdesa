@@ -1,6 +1,7 @@
 <?php
 	include ('../../config/koneksi.php');
-	 
+	include ('../part/header.php');
+		 
 	$nik = $_POST['fnik'];
 	 
 	$qCekNik = mysqli_query($connect,"SELECT * FROM penduduk WHERE nik = '$nik'");
@@ -10,9 +11,6 @@
 		$data = mysqli_fetch_assoc($qCekNik);
 		if($data['nik']==$nik){
 			$_SESSION['nik'] = $nik;
-?>
-<?php 
-  include ('../part/header.php');
 ?>
 <body class="bg-light">
 	<div class="container" style="max-height:cover; padding-top:30px;  padding-bottom:60px; position:relative; min-height: 100%;">
@@ -124,12 +122,12 @@
 		</div>
 	</div>
 </body>
+
 <?php 
-  include ('../part/footer.php');
-?>
-<?php
 		}
 	}else{
 		header("location:index.php?pesan=gagal");
 	}
+
+	include ('../part/footer.php');
 ?>

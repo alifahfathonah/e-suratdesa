@@ -1,2 +1,2 @@
 # e-suratdesa
-Sistem Pelayanan Surat Menyurat Desa Berbasis Web
+Web Aplikasi Pelayanan Surat Administrasi Desa Online
