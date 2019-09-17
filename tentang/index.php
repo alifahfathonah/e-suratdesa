@@ -34,8 +34,32 @@
 	</navbar>
 </div>
 <div class="container-fluid">
-	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
-		KONTEN
+	<div class="container shadow p-3 mb-5 mt-lg-5 bg-white rounded">
+		<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
+			<div class="card-body">
+				<div class="card-text">
+					<p class="card-text">
+						<label style="font-weight: 700;font-size: 25px">APLIKASI SURAT</label>
+						<hr>
+						<blockquote>
+							Web Aplikasi untuk pelayanan surat administrasi desa yang dikembangkan oleh <b><a href="#">Kelompok 12 PI FTI UNHASY - 2019</a></b> untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
+							<br>
+							<br>
+						</blockquote>
+					</p>
+					<br>
+					<br>
+					<p class="card-text">
+						<label style="font-weight: 700;font-size: 25px">HAK CIPTA DAN KETENTUAN</label>
+					</p>
+					<hr>
+					© e-<b>SuratDesa</b> 2019. Hak Cipta Dilindungi
+					<br>
+					<br>
+					Trademark By <b><a href="#">Kelompok 12 PI FTI UNHASY - 2019</a></b>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <div class="footer bg-dark text-center">

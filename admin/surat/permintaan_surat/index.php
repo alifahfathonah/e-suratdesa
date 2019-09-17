@@ -86,10 +86,10 @@
               <td><?php echo $row['nik']; ?></td>
               <td><?php echo $row['nama']; ?></td>
               <td>Surat Keterangan Berkelakuan Baik</td>
-              <td><a class="btn btn-danger btn-sm" href='#'><i class="fa fa-pause-circle"> <?php echo $row['status_surat']; ?></i></a></td>
-              <td><?php echo $row['tanggal_surat']; ?></td>             
+              <td><a class="btn btn-danger btn-sm" href='#'><i class="fa fa-spinner"> <?php echo $row['status_surat']; ?></i></a></td>
+              <td><?php echo $row['tanggal_surat']; ?></td>
               <td>
-                <a class="btn btn-success btn-sm" href='konfirmasi/'><i class="fa fa-check"> Konfirmasi</i></a>
+                <a class="btn btn-success btn-sm" href='konfirmasi/index.php?id=<?php echo $row['id_skbb']; ?>'><i class="fa fa-check"> KONFIRMASI</i></a>
               </td>
             </tr>
             <?php

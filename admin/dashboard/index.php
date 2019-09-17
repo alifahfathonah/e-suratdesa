@@ -107,8 +107,7 @@
           				<div class="row">
             				<form class="form-horizontal" method="post" action="simpan-penduduk.php">
             					<div class="col-md-12">
-              						SEK MIKIR ISINE
-            					</div>
+              					SEK MIKIR ISINE
             				</form>
           				</div>
         			</div>

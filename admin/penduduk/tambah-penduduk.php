@@ -83,31 +83,96 @@
             </div>
           <div class="box-body">
             <div class="row">
-              <form class="form-horizontal" method="post" action="simpan-penduduk.php">
+              <form class="form-horizontal" method="post" action="#">
                 <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">
                       <label class="col-sm-3 control-label">NIK</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fnik" class="form-control" placeholder="NIK">
+                        <input type="text" name="fnik" class="form-control" placeholder="NIK" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Nama</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fnama" class="form-control" placeholder="Nama">
+                        <input type="text" name="fnama" class="form-control" placeholder="Nama" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Tempat Lahir</label>
                       <div class="col-sm-9">
-                        <input type="text" name="ft_lahir" class="form-control" placeholder="Tempat Lahir">
+                        <input type="text" name="ft_lahir" class="form-control" placeholder="Tempat Lahir" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tanggal Lahir</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftgl_lahir" class="form-control" placeholder="Tanggal Lahir" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Jenis Kelamin</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fj_kelamin" class="form-control" placeholder="Jenis Kelamin">
+                        <select name="fj_kelamin" class="form-control" required>
+                          <option value="">-- Jenis Kelamin --</option>
+                          <option value="Laki-laki">Laki-laki</option>
+                          <option value="Perempuan">Perempuan</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Agama</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fagama" class="form-control" placeholder="Agama" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Dusun</label>
+                      <div class="col-sm-9">
+                        <select name="fdusun" class="form-control" required>
+                          <option value="">-- Dusun --</option>
+                          <option value="Dusun A">Dusun A</option>
+                          <option value="Dusun B">Dusun B</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">RW</label>
+                      <div class="col-sm-9">
+                        <select name="frw" class="form-control" required>
+                          <option value="">-- RW --</option>
+                          <option value="001">001</option>
+                          <option value="002">002</option>
+                          <option value="003">003</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">RT</label>
+                      <div class="col-sm-9">
+                        <select name="frw" class="form-control" required>
+                          <option value="">-- RT --</option>
+                          <option value="001">001</option>
+                          <option value="002">002</option>
+                          <option value="003">003</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nomor KK</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fno_kk" class="form-control" placeholder="Nomor KK" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Pendidikan di KK</label>
+                      <div class="col-sm-9">
+                        <select name="fpend_kk" class="form-control" required>
+                          <option value="">-- Pendidikan di KK --</option>
+                          <option value="SD/SEDERAJAT">SD/SEDERAJAT</option>
+                          <option value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
+                          <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -115,9 +180,88 @@
                 <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Agama</label>
+                      <label class="col-sm-3 control-label">Pendidikan Terakhir</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fagama" class="form-control" placeholder="Agama">
+                        <select name="fpend_terakhir" class="form-control" required>
+                          <option value="">-- Pendidikan Terakhir --</option>
+                          <option value="SD/SEDERAJAT">SD/SEDERAJAT</option>
+                          <option value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
+                          <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Pendidikan Ditempuh</label>
+                      <div class="col-sm-9">
+                        <select name="fpend_ditempuh" class="form-control" required>
+                          <option value="">-- Pendidikan Ditempuh --</option>
+                          <option value="SD/SEDERAJAT">SD/SEDERAJAT</option>
+                          <option value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
+                          <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Pekerjaan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fpekerjaan" class="form-control" placeholder="Pekerjaan" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Status Perkawinan</label>
+                      <div class="col-sm-9">
+                        <select name="fstatus_perkawinan" class="form-control" required>
+                          <option value="">-- Status Perkawinan --</option>
+                          <option value="Belum Menikah">Belum Menikah</option>
+                          <option value="Menikah">Menikah</option>
+                          <option value="Cerai">Cerai</option>
+                          <option value="Cerai Mati">Cerai Mati</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Status Dlm Keluarga</label>
+                      <div class="col-sm-9">
+                        <select name="fstatus_dlm_keluarga" class="form-control" required>
+                          <option value="">-- Status Dlm Keluarga --</option>
+                          <option value="Ayah">Ayah</option>
+                          <option value="Ibu">Ibu</option>
+                          <option value="Anak">Anak</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Kewarganegaraan</label>
+                      <div class="col-sm-9">
+                        <select name="fkewarganegaraan" class="form-control" required>
+                          <option value="">-- Kewarganegaraan --</option>
+                          <option value="WNI">WNI</option>
+                          <option value="WNA">WNA</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nama Ayah</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnama_ayah" class="form-control" placeholder="Nama Ayah" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nama Ibu</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnama_ibu" class="form-control" placeholder="Nama Ibu" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Golongan Darah</label>
+                      <div class="col-sm-9">
+                        <select name="fgol_darah" class="form-control" required>
+                          <option value="">-- Golongan Darah --</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="AB">AB</option>
+                          <option value="O">O</option>
+                        </select>
                       </div>
                     </div>
                   </div>

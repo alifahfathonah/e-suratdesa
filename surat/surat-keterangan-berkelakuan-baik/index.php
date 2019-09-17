@@ -10,10 +10,10 @@
     	            <?php 
         	            if(isset($_GET['pesan'])){
             		        if($_GET['pesan']=="gagal"){
-                    		    echo "<div class='alert alert-danger'><center>NIK Anda tidak terdaftar. Silahkan hubungi Kantor Desa Asdfgh!</center></div>";
+                    		    echo "<div class='alert alert-danger'><center>NIK Anda tidak terdaftar. Silahkan hubungi Kantor Desa!</center></div>";
                       		}
                       		if($_GET['pesan']=="berhasil"){
-                        		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa Asdfgh!</center></div>";
+                        		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa!</center></div>";
                       		}
                     	}
                   	?>
