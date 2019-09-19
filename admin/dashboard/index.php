@@ -1,4 +1,5 @@
 <?php
+    include ('../part/akses.php');
   	include ('../part/header.php');
 ?>
 
@@ -59,13 +60,21 @@
         	<div class="col-lg-4 col-xs-6">
           		<div class="small-box bg-aqua">
             		<div class="inner">
-              			<h3>150</h3>
+              			<h3>
+                      <?php
+                        include ('../../config/koneksi.php');
+
+                        $qTampil = mysqli_query($connect, "SELECT * FROM penduduk");
+                        $jumlahPenduduk = mysqli_num_rows($qTampil);
+                        echo $jumlahPenduduk;
+                      ?>
+                    </h3>
               			<p>Data Penduduk</p>
             		</div>
             		<div class="icon">
               			<i class="fas fa-users" style="font-size:70px"></i>
             		</div>
-            		<a href="#" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+            		<a href="../penduduk/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
           		</div>
         	</div>
 	        <div class="col-lg-4 col-xs-6">
@@ -77,7 +86,7 @@
 	            	<div class="icon">
 	              		<i class="fas fa-envelope-open-text" style="font-size:70px"></i>
 	            	</div>
-	            	<a href="#" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+	            	<a href="../surat/permintaan_surat/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
 	          	</div>
 	        </div>
 	        <div class="col-lg-4 col-xs-6">
@@ -89,7 +98,7 @@
 	            	<div class="icon">
 	              		<i class="fas fa-envelope" style="font-size:70px"></i>
 	            	</div>
-	            	<a href="#" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+	            	<a href="../surat/surat_selesai/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
 	          	</div>
 	        </div>
     	</div>
@@ -97,7 +106,7 @@
       		<div class="row">
       			<div class="box box-default">
         			<div class="box-header with-border">
-          				<h3 class="box-title"><i class="fas fa-info-circle"></i> Tentang e-SuratDesa</h3>
+          				<h3 class="box-title">Welcome Home!</h3>
           				<div class="box-tools pull-right">
             				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
             				<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -107,7 +116,15 @@
           				<div class="row">
             				<form class="form-horizontal" method="post" action="simpan-penduduk.php">
             					<div class="col-md-12">
-              					SEK MIKIR ISINE
+                        <div class="col-md-4">
+                          <img src="../../assets/img/logo-jombang.png"><br>
+                          <p style="font-size: 20pt; font-weight: 500; text-align: center;"><strong>DESA KEDAWONG</strong>
+                        </div>
+                        <div class="col-md-8">
+                          <div style="font-size: 35pt; font-weight: 500;"><p>Hai, <strong><?php echo $_SESSION['admin']; ?></strong></div>
+                          <div style="font-size: 15pt; font-weight: 500;"><p>Selamat datang di <a href="#"><strong>Web Aplikasi Pelayanan Surat Administrasi Desa Online.</strong></a></p></div><br><br><br>
+                          <div style="font-size: 10pt; font-weight: 500;">© e-<b>SuratDesa</b> 2019. Hak Cipta Dilindungi.</div>
+                        </div>
             				</form>
           				</div>
         			</div>

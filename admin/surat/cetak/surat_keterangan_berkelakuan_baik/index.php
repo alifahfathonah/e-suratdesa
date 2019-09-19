@@ -1,3 +1,12 @@
+<?php 
+	include ('../../permintaan_surat/konfirmasi/part/akses.php');
+  	include ('../../../../config/koneksi.php');
+
+  	$id = $_GET['id'];
+  	$qCek = mysqli_query($connect,"SELECT * FROM surat_keterangan_berkelakuan_baik WHERE id_skbb='$id'");
+  	while($row = mysqli_fetch_array($qCek)){
+?>
+
 <html>
 <head>
 	<title>CETAK SURAT</title>
@@ -13,67 +22,59 @@
 		<tr><img src="../../../../assets/img/logo-jombang-90x90.png" alt="" class="logo"></tr>
 		<div class="header">
 			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH KABUPATEN JOMBANG </h4>
-			<h4 class="kop" style="text-transform: uppercase">KECAMATAN ASDFGH</h4>
-			<h4 class="kop" style="text-transform: uppercase">DESA ASDFGH</h4>
-			<h5 class="kop2">Jl. Asdfgh No. 00 Dsn. Asdfgh Ds. Asdfgh</h5>
+			<h4 class="kop" style="text-transform: uppercase">KECAMATAN DIWEK</h4>
+			<h4 class="kop" style="text-transform: uppercase">DESA KEDAWONG</h4>
+			<h5 class="kop2">Jl. Gajahmada No. 49 Ds. Kedawong, Kec. Diwek, Kab. Jombang 61471</h5>
 			<div style="text-align: center;">
 				<hr>
 			</div>
 		</div>
 		<br><br>
 		<div align="center"><u><h4 class="kop">SURAT KETERANGAN BERKELAKUAN BAIK</h4></u></div>
-		<div align="center"><h4 class="kop3">Nomor :</h4></div>
+		<div align="center"><h4 class="kop3">Nomor :&nbsp;&nbsp;&nbsp;<?php echo $row['no_surat']; ?></h4></div>
 	</table>
 	<br>
 	<div class="clear"></div>
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini Penjabat Kepala Desa Asdfgh, Kecamatan Asdfgh, Kabupaten Jombang, Provinsi Jawa Timur menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini Penjabat Kepala Desa Kedawong, Kecamatan Diwek, Kabupaten Jombang, Provinsi Jawa Timur menerangkan dengan sebenarnya bahwa :
 				</td>
 			</tr>
 		</table>
 		<br><br>
 		<table width="100%" class="indentasi">
 			<tr>
-				<td width="30%">NIK</td>
-				<td width="5%">:</td>
-				<td width="65%"></td>
+				<td width="25%">NIK</td>
+				<td width="75%">:&nbsp;&nbsp;&nbsp;<?php echo $row['nik']; ?></td>
 			</tr>
 			<tr>
 				<td>N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
-				<td>:</td>
-				<td></td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['nama']; ?></td>
 			</tr>
 			<tr>
 				<td>Tempat/Tgl. Lahir</td>
-				<td>:</td>
-				<td></td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['tempat_tgl_lahir']; ?></td>
 			</tr>
 			<tr>
 				<td>Jenis Kelamin</td>
-				<td>:</td>
-				<td></td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['jenis_kelamin']; ?></td>
 			</tr>
 			<tr>
 				<td>Alamat</td>
-				<td>:</td>
-				<td></td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['alamat']; ?></td>
 			</tr>
 			<tr>
 				<td>Agama</td>
-				<td>:</td>
-				<td></td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['agama']; ?></td>
 			</tr>
 			<tr>
 				<td>Pekerjaan</td>
-				<td>:</td>
-				<td></td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
 				<td>Kewarganegaraan</td>
-				<td>:</td>
-				<td></td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['kewarganegaraan']; ?></td>
 			</tr>
 		</table>
 		<br><br>
@@ -84,7 +85,7 @@
 			</tr>
 		</table>
 		<br>
-		<div style="text-size: 12pt; text-align: center;"><a><u>Persyaratan Melamar Pekerjaan</u></a></div>
+		<div style="text-align: center;"><a><u><?php echo $row['keperluan']; ?></u></a></div>
 		<br>
 		<table width="100%">
 			<tr>
@@ -106,12 +107,33 @@
 		<tr>
 			<td width="23%"></td>
 			<td width="30%"></td>
-			<td align="center">Jombang, 11 September 2019</td>
+			<td align="center">
+				Jombang, 
+				<?php
+					$tanggal = date('d F Y');
+					$bulan = date('F', strtotime($tanggal));
+					$bulanIndo = array(
+					    'January' => 'Januari',
+					    'February' => 'Februari',
+					    'March' => 'Maret',
+					    'April' => 'April',
+					    'May' => 'Mei',
+					    'June' => 'Juni',
+					    'July' => 'Juli',
+					    'August' => 'Agustus',
+					    'September' => 'September',
+					    'October' => 'Oktober',
+					    'November' => 'November',
+					    'December' => 'Desember'
+					);
+					echo date('d ') . $bulanIndo[$bulan] . date(' Y');
+				?>
+			</td>
 		</tr>
 		<tr>
 			<td width="23%"></td>
 			<td width="30%"></td>
-			<td align="center">Kepala Desa Asdfgh</td>
+			<td align="center"><?php echo $row['tanda_tangan']; ?> Kedawong</td>
 		</tr>
 		<tr></tr>
 		<tr></tr>
@@ -165,3 +187,7 @@
 </script>
 </body>
 </html>
+
+<?php
+  	}
+?>

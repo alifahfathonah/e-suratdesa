@@ -27,7 +27,15 @@
 	        		<a class="nav-link" href="#"><i class="fas fa-info-circle"></i>&nbsp;TENTANG <b>e-SuratDesa</b></a>
 	      		</li>
 	      		<li class="nav-item active ml-5">
-	        		<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>
+	        		<?php
+						session_start();
+
+						if(empty($_SESSION['username'])){
+						    echo '<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
+						}else if(isset($_SESSION['admin'])){
+							echo '<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i>&nbsp;admin</a>';
+						}
+					?>
 	      		</li>
 	    	</ul>
 	  	</div>
@@ -38,11 +46,11 @@
 		<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 			<div class="card-body">
 				<div class="card-text">
-					<p class="card-text">
+					<p>
 						<label style="font-weight: 700;font-size: 25px">APLIKASI SURAT</label>
 						<hr>
 						<blockquote>
-							Web Aplikasi untuk pelayanan surat administrasi desa yang dikembangkan oleh <b><a href="#">Kelompok 12 PI FTI UNHASY - 2019</a></b> untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
+							Web Aplikasi untuk pelayanan surat administrasi desa yang dikembangkan oleh <b><a href="#" style="text-decoration:none">Kelompok 12 PI FTI UNHASY - 2019</a></b> untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
 							<br>
 							<br>
 						</blockquote>
@@ -53,10 +61,10 @@
 						<label style="font-weight: 700;font-size: 25px">HAK CIPTA DAN KETENTUAN</label>
 					</p>
 					<hr>
-					© e-<b>SuratDesa</b> 2019. Hak Cipta Dilindungi
+					© e-<b>SuratDesa</b> 2019. Hak Cipta Dilindungi.
 					<br>
 					<br>
-					Trademark By <b><a href="#">Kelompok 12 PI FTI UNHASY - 2019</a></b>
+					Trademark By <b><a href="#" style="text-decoration:none">Kelompok 12 PI FTI UNHASY - 2019</a></b>
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,5 @@
 <?php 
+  include ('part/akses.php');
   include ('../../../../config/koneksi.php');
   include ('part/header.php');
 

@@ -26,7 +26,15 @@
 	        		<a class="nav-link" href="../tentang/">TENTANG <b>e-SuratDesa</b></a>
 	      		</li>
 	      		<li class="nav-item active ml-5">
-	        		<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>
+	        		<?php
+						session_start();
+
+						if(empty($_SESSION['username'])){
+						    echo '<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
+						}else if(isset($_SESSION['admin'])){
+							echo '<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i>&nbsp;admin</a>';
+						}
+					?>
 	      		</li>
 	    	</ul>
 	  	</div>
@@ -34,11 +42,20 @@
 <div class="container-fluid">
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 		<div class="row">
+			<div class="col-sm-3">
+		    	<div class="card">
+		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
+		      		<div class="card-body text-center">
+		        		<h5 class="card-title">SURAT KETERANGAN</h5><br>
+		        		<a href="#" class="btn btn-info">Buat Surat</a>
+		      		</div>
+		    	</div>
+		  	</div>
 		  	<div class="col-sm-3">
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">Surat Keterangan Berkelakuan Baik</h5>
+		        		<h5 class="card-title">SURAT KETERANGAN BERKELAKUAN BAIK</h5>
 		        		<a href="surat-keterangan-berkelakuan-baik/" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
@@ -47,7 +64,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">Surat B</h5>
+		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5>
 		        		<a href="#" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
@@ -56,16 +73,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">Surat C</h5>
-		        		<a href="#" class="btn btn-info">Buat Surat</a>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col-sm-3">
-		    	<div class="card">
-		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">Surat D</h5>
+		        		<h5 class="card-title">SURAT KETERANGAN KURANG MAMPU</h5>
 		        		<a href="#" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
@@ -74,7 +82,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">Surat E</h5>
+		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5>
 		        		<a href="#" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
@@ -83,7 +91,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">Surat F</h5>
+		        		<h5 class="card-title">SURAT PENGANTAR</h5>
 		        		<a href="#" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
@@ -92,7 +100,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">Surat G</h5>
+		        		<h5 class="card-title">SURAT PENGANTAR SKCK</h5>
 		        		<a href="#" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
@@ -101,7 +109,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">Surat H</h5>
+		        		<h5 class="card-title">SURAT PENGANTAR PERMOHONAN KTP</h5>
 		        		<a href="#" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>

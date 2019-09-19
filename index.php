@@ -20,7 +20,7 @@
 <body>
 <div>
 	<navbar class="navbar navbar-expand-lg navbar-dark bg-transparent">
-	  	<a class="navbar-brand ml-4 mt-3" href="index.php" style="font-size:25pt">e-<b>SuratDesa</b></a>
+	  	<a class="navbar-brand ml-4 mt-3" href="#" style="font-size:25pt">e-<b>SuratDesa</b></a>
 	  	<button class="navbar-toggler mr-4 mt-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 	    	<span class="navbar-toggler-icon"></span>
 	  	</button>
@@ -37,16 +37,25 @@
 	        		<a class="nav-link" href="tentang/">TENTANG <b>e-SuratDesa</b></a>
 	      		</li>
 	      		<li class="nav-item active ml-5">
-	        		<a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>
+	      			<?php
+						session_start();
+
+						if(empty($_SESSION['username'])){
+						    echo '<a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
+						}else if(isset($_SESSION['admin'])){
+							echo '<a class="btn btn-transparent text-light" href="admin/"><i class="fa fa-user-cog"></i>&nbsp;admin</a>';
+						}
+					?>
 	      		</li>
 	    	</ul>
 	  	</div>
 	</navbar>
 </div>
-<div class="container" style="max-height:cover; padding-top:70px; padding-bottom:120px" align="center">
+<div class="container" style="max-height:cover; padding-top:50px; padding-bottom:120px" align="center">
 	<img src="assets/img/logo-jombang.png"><hr>
-	<a class="text-light" style="font-size:15pt"><strong>Web Aplikasi Pelayanan Surat Desa</strong></a><br>
-	<a class="text-light" style="font-size:15pt"><strong>Kabupaten Jombang</strong></a><hr>
+	<a class="text-light" style="font-size:18pt"><strong>WEB APLIKASI PELAYANAN SURAT ADMINISTRASI DESA</strong></a><br>
+	<a class="text-light" style="font-size:15pt"><strong>DESA KEDAWONG</strong><br>
+	<a class="text-light" style="font-size:15pt"><strong>KABUPATEN JOMBANG</strong></a><hr>
 	<a href="surat/" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
 </div>
 <div class="footer bg-transparent text-center mb-3 ">

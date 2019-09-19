@@ -1,3 +1,11 @@
+<?php
+	session_start();
+ 
+	if(isset($_SESSION['admin'])){
+		header('location:../admin/dashboard/');
+	}
+?>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -35,10 +43,7 @@
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
 						<input type="password" class="form-control" name="password" placeholder="password" required>
-					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div>
+					</div><br>
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
