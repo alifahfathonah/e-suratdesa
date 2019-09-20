@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2019 <a href="../../../../">e-SuratDesa</a>.</strong> All rights
+    <strong>Copyright &copy; 2019 <a href="../../../../" style="text-decoration:none">e-SuratDesa</a>.</strong> All rights
     reserved.
 </footer>
 <script src="../../../../assets/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>

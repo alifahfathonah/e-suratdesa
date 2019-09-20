@@ -61,10 +61,10 @@
 						<label style="font-weight: 700;font-size: 25px"><i class="fas fa-shield-alt"></i> HAK CIPTA DAN KETENTUAN</label>
 					</p>
 					<hr>
-					© e-<b>SuratDesa</b> 2019. Hak Cipta Dilindungi.
+					<b>©</b> e-<b>SuratDesa</b> 2019. Hak Cipta Dilindungi.
 					<br>
 					<br>
-					Trademark By <b><a href="#" style="text-decoration:none">Kelompok 12 PI FTI UNHASY - 2019</a></b>
+					Trademark By <b><a href="#" style="text-decoration:none">Kelompok 12 PI FTI UNHASY - 2019.</a></b>
 				</div>
 			</div>
 		</div>

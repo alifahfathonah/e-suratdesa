@@ -92,11 +92,11 @@
                             while($rows = mysqli_fetch_assoc($tampilPejabat) ){
                               if($rows['jabatan'] == $selectedPejabat){
                           ?>
-                          <option value="<?php echo $rows['jabatan']; ?>" selected="selected"><?php echo $rows['jabatan']; ?></option>
+                          <option value="<?php echo $rows['id_pejabat_desa']; ?>" selected="selected"><?php echo $rows['jabatan']; ?></option>
                           <?php
                               }else{
                           ?>
-                          <option value="<?php echo $rows['jabatan']; ?>"><?php echo $rows['jabatan'], " (", $rows['nama'], ")"; ?></option>
+                          <option value="<?php echo $rows['id_pejabat_desa']; ?>"><?php echo $rows['jabatan'], " (", $rows['nama'], ")"; ?></option>
 
                           <?php 
                               } 

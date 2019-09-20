@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Sep 2019 pada 06.17
+-- Generation Time: 20 Sep 2019 pada 10.01
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -145,6 +145,30 @@ INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `kecamatan`,
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `surat_keterangan`
+--
+
+CREATE TABLE `surat_keterangan` (
+  `id_sk` int(11) NOT NULL,
+  `no_surat` varchar(20) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `tempat_tgl_lahir` varchar(50) NOT NULL,
+  `jenis_kelamin` varchar(10) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `agama` varchar(15) NOT NULL,
+  `pekerjaan` varchar(50) NOT NULL,
+  `kewarganegaraan` varchar(5) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `surat_keterangan_berkelakuan_baik`
 --
 
@@ -161,20 +185,67 @@ CREATE TABLE `surat_keterangan_berkelakuan_baik` (
   `kewarganegaraan` varchar(5) NOT NULL,
   `keperluan` varchar(50) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `tanda_tangan` varchar(50) NOT NULL,
-  `status_surat` varchar(15) NOT NULL
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `surat_keterangan_berkelakuan_baik`
 --
 
-INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `no_surat`, `nik`, `nama`, `tempat_tgl_lahir`, `jenis_kelamin`, `alamat`, `agama`, `pekerjaan`, `kewarganegaraan`, `keperluan`, `tanggal_surat`, `tanda_tangan`, `status_surat`) VALUES
-(10, '1927/1927/1927/1927', '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang, 11 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-19 09:15:42', 'Kepala Desa', 'SELESAI'),
-(11, NULL, '3517112233440002', 'Supriyanto', 'Jombang, 12 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-19 09:15:50', '', 'PENDING'),
-(12, NULL, '3517112233440003', 'Ahmad Ervan Satria', 'Jombang, 13 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-19 09:15:58', '', 'PENDING'),
-(13, NULL, '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang, 11 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan Gaes', '2019-09-19 09:18:49', '', 'PENDING'),
-(14, NULL, '3517112233440003', 'Ahmad Ervan Satria', 'Jombang, 13 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan Gaes', '2019-09-19 16:58:41', '', 'PENDING');
+INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `no_surat`, `nik`, `nama`, `tempat_tgl_lahir`, `jenis_kelamin`, `alamat`, `agama`, `pekerjaan`, `kewarganegaraan`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(10, '1927/1927/1927/1927', '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang, 11 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-19 09:15:42', 1, 'SELESAI', NULL),
+(11, '1927/1927/1927/1927', '3517112233440002', 'Supriyanto', 'Jombang, 12 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-19 09:15:50', 1, 'SELESAI', NULL),
+(12, '1927/1927/1927/1927', '3517112233440003', 'Ahmad Ervan Satria', 'Jombang, 13 February 2000', 'Laki-laki', 'Dsn. Mojosongo, RT008/RW003', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Persyaratan Melamar Pekerjaan', '2019-09-19 09:15:58', 2, 'SELESAI', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `surat_keterangan_domisili`
+--
+
+CREATE TABLE `surat_keterangan_domisili` (
+  `id_skd` int(11) NOT NULL,
+  `no_surat` varchar(20) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `tempat_tgl_lahir` varchar(50) NOT NULL,
+  `jenis_kelamin` varchar(10) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `agama` varchar(15) NOT NULL,
+  `pekerjaan` varchar(50) NOT NULL,
+  `kewarganegaraan` varchar(5) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `surat_keterangan_usaha`
+--
+
+CREATE TABLE `surat_keterangan_usaha` (
+  `id_sku` int(11) NOT NULL,
+  `no_surat` varchar(20) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `tempat_tgl_lahir` varchar(50) NOT NULL,
+  `jenis_kelamin` varchar(10) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `agama` varchar(15) NOT NULL,
+  `pekerjaan` varchar(50) NOT NULL,
+  `kewarganegaraan` varchar(5) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -205,10 +276,40 @@ ALTER TABLE `profil_desa`
   ADD PRIMARY KEY (`id_profil_desa`);
 
 --
+-- Indexes for table `surat_keterangan`
+--
+ALTER TABLE `surat_keterangan`
+  ADD PRIMARY KEY (`id_sk`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
 -- Indexes for table `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
-  ADD PRIMARY KEY (`id_skbb`);
+  ADD PRIMARY KEY (`id_skbb`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_keterangan_domisili`
+--
+ALTER TABLE `surat_keterangan_domisili`
+  ADD PRIMARY KEY (`id_skd`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_keterangan_usaha`
+--
+ALTER TABLE `surat_keterangan_usaha`
+  ADD PRIMARY KEY (`id_sku`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -230,10 +331,61 @@ ALTER TABLE `pejabat_desa`
 ALTER TABLE `profil_desa`
   MODIFY `id_profil_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `surat_keterangan`
+--
+ALTER TABLE `surat_keterangan`
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
   MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `surat_keterangan_domisili`
+--
+ALTER TABLE `surat_keterangan_domisili`
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `surat_keterangan_usaha`
+--
+ALTER TABLE `surat_keterangan_usaha`
+  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `surat_keterangan`
+--
+ALTER TABLE `surat_keterangan`
+  ADD CONSTRAINT `fi_id_profil_desa_sk` FOREIGN KEY (`id_profil_desa`) REFERENCES `profil_desa` (`id_profil_desa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_id_pejabat_desa_sk` FOREIGN KEY (`id_pejabat_desa`) REFERENCES `pejabat_desa` (`id_pejabat_desa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_nik_sk` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `surat_keterangan_berkelakuan_baik`
+--
+ALTER TABLE `surat_keterangan_berkelakuan_baik`
+  ADD CONSTRAINT `fi_id_profil_desa_skbb` FOREIGN KEY (`id_profil_desa`) REFERENCES `profil_desa` (`id_profil_desa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_id_pejabat_desa_skbb` FOREIGN KEY (`id_pejabat_desa`) REFERENCES `pejabat_desa` (`id_pejabat_desa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_nik_skbb` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `surat_keterangan_domisili`
+--
+ALTER TABLE `surat_keterangan_domisili`
+  ADD CONSTRAINT `fi_id_profil_desa_skd` FOREIGN KEY (`id_profil_desa`) REFERENCES `profil_desa` (`id_profil_desa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_id_pejabat_desa_skd` FOREIGN KEY (`id_pejabat_desa`) REFERENCES `pejabat_desa` (`id_pejabat_desa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_nik_skd` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `surat_keterangan_usaha`
+--
+ALTER TABLE `surat_keterangan_usaha`
+  ADD CONSTRAINT `fi_id_profil_desa_sku` FOREIGN KEY (`id_profil_desa`) REFERENCES `profil_desa` (`id_profil_desa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_id_pejabat_desa_sku` FOREIGN KEY (`id_pejabat_desa`) REFERENCES `pejabat_desa` (`id_pejabat_desa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_nik_sku` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
