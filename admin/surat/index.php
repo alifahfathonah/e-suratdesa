@@ -1,5 +1,4 @@
 <?php 
-	include ('../part/akses.php'); 
+	include ('../part/akses.php');
+	include ('../part/404-not-found.php'); 
 ?>
-
-404 Not Found
