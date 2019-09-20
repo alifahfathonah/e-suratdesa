@@ -47,7 +47,7 @@
 			<div class="card-body">
 				<div class="card-text">
 					<p>
-						<label style="font-weight: 700;font-size: 25px">APLIKASI SURAT</label>
+						<label style="font-weight: 700;font-size: 25px"><i class="fas fa-info-circle"></i> APLIKASI SURAT</label>
 						<hr>
 						<blockquote>
 							Web Aplikasi untuk pelayanan surat administrasi desa yang dikembangkan oleh <b><a href="#" style="text-decoration:none">Kelompok 12 PI FTI UNHASY - 2019</a></b> untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
@@ -58,7 +58,7 @@
 					<br>
 					<br>
 					<p class="card-text">
-						<label style="font-weight: 700;font-size: 25px">HAK CIPTA DAN KETENTUAN</label>
+						<label style="font-weight: 700;font-size: 25px"><i class="fas fa-shield-alt"></i> HAK CIPTA DAN KETENTUAN</label>
 					</p>
 					<hr>
 					© e-<b>SuratDesa</b> 2019. Hak Cipta Dilindungi.
