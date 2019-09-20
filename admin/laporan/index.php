@@ -52,16 +52,16 @@
   <section class="content">      
     <div class="row">
       <div class="col-md-12">
+        <a target="_blank" class="btn btn-info btn-md" href='export-excel.php'><i class="fas fa-file-export"></i> Export .XLS</a>
         <br><br>
         <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th><strong>No. Surat</strong></th>
-              <th><strong>NIK</strong></th>
+              <th><strong>Tanggal</strong></th>
               <th><strong>Nama</strong></th>
               <th><strong>Jenis Surat</strong></th>
-              <th><strong>Status</strong></th>
-              <th><strong>Tanggal</strong></th>
+              <th><strong>Alamat</strong></th>
             </tr>
           </thead>
           <tbody>
@@ -74,11 +74,29 @@
             ?>
             <tr>
               <td><?php echo $row['no_surat']; ?></td>
-              <td><?php echo $row['nik']; ?></td>
+              <?php
+                $tanggal = date('d', strtotime($row['tanggal_surat']));
+                $bulan = date('F', strtotime($row['tanggal_surat']));
+                $tahun = date('Y', strtotime($row['tanggal_surat']));
+                $bulanIndo = array(
+                    'January' => 'Januari',
+                    'February' => 'Februari',
+                    'March' => 'Maret',
+                    'April' => 'April',
+                    'May' => 'Mei',
+                    'June' => 'Juni',
+                    'July' => 'Juli',
+                    'August' => 'Agustus',
+                    'September' => 'September',
+                    'October' => 'Oktober',
+                    'November' => 'November',
+                    'December' => 'Desember'
+                );
+              ?>
+              <td><?php echo $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?></td>
               <td><?php echo $row['nama']; ?></td>
               <td><?php echo $row['jenis_surat']; ?></td>
-              <td><a class="btn btn-success btn-sm" href='#'><i class="fa fa-check"> <?php echo $row['status_surat']; ?></i></a></td>
-              <td><?php echo $row['tanggal_surat']; ?></td>
+              <td><?php echo $row['alamat']; ?></td>
             </tr>
             <?php
               }

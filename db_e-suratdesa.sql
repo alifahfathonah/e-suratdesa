@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Sep 2019 pada 17.53
+-- Generation Time: 20 Sep 2019 pada 18.49
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -154,9 +154,7 @@ CREATE TABLE `surat_keterangan` (
 --
 
 INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `nama`, `tempat_tgl_lahir`, `jenis_kelamin`, `alamat`, `agama`, `pekerjaan`, `kewarganegaraan`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(100, 'Surat Keterangan', '1927/1927/1927/1927', '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang, 14 December 1997', 'Laki-laki', 'Dsn. Dusun A, RT001/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:41:45', 1, 'SELESAI', 1),
-(101, 'Surat Keterangan', NULL, '3517112233440002', 'Supriyanto', 'Jombang, 02 March 2000', 'Laki-laki', 'Dsn. Dusun B, RT002/RW002', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:41:53', NULL, 'PENDING', 1),
-(102, 'Surat Keterangan', NULL, '3517112233440003', 'Ahmad Ervan Satria', 'Pontianak, 11 February 2000', 'Laki-laki', 'Dsn. Dusun A, RT003/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:41:59', NULL, 'PENDING', 1);
+(103, 'Surat Keterangan', '1927/1927/1927/1927', '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang, 14 December 1997', 'Laki-laki', 'Dsn. Dusun A, RT001/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 23:30:40', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -189,9 +187,7 @@ CREATE TABLE `surat_keterangan_berkelakuan_baik` (
 --
 
 INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `jenis_surat`, `no_surat`, `nik`, `nama`, `tempat_tgl_lahir`, `jenis_kelamin`, `alamat`, `agama`, `pekerjaan`, `kewarganegaraan`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(16, 'Surat Keterangan Berkelakuan Baik', NULL, '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang, 14 December 1997', 'Laki-laki', 'Dsn. Dusun A, RT001/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:42:10', NULL, 'PENDING', 1),
-(17, 'Surat Keterangan Berkelakuan Baik', '1927/1927/1927/1927', '3517112233440002', 'Supriyanto', 'Jombang, 02 March 2000', 'Laki-laki', 'Dsn. Dusun B, RT002/RW002', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:42:17', 2, 'SELESAI', 1),
-(18, 'Surat Keterangan Berkelakuan Baik', NULL, '3517112233440003', 'Ahmad Ervan Satria', 'Pontianak, 11 February 2000', 'Laki-laki', 'Dsn. Dusun A, RT003/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:42:23', NULL, 'PENDING', 1);
+(22, 'Surat Keterangan Berkelakuan Baik', NULL, '3517112233440002', 'Supriyanto', 'Jombang, 02 March 2000', 'Laki-laki', 'Dsn. Dusun B, RT002/RW002', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 23:30:53', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -224,9 +220,7 @@ CREATE TABLE `surat_keterangan_domisili` (
 --
 
 INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `nik`, `nama`, `tempat_tgl_lahir`, `jenis_kelamin`, `alamat`, `agama`, `pekerjaan`, `kewarganegaraan`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(7, 'Surat Keterangan Domisili', NULL, '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang, 14 December 1997', 'Laki-laki', 'Dsn. Dusun A, RT001/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:42:31', NULL, 'PENDING', 1),
-(8, 'Surat Keterangan Domisili', NULL, '3517112233440002', 'Supriyanto', 'Jombang, 02 March 2000', 'Laki-laki', 'Dsn. Dusun B, RT002/RW002', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:42:37', NULL, 'PENDING', 1),
-(9, 'Surat Keterangan Domisili', '1927/1927/1927/1927', '3517112233440003', 'Ahmad Ervan Satria', 'Pontianak, 11 February 2000', 'Laki-laki', 'Dsn. Dusun A, RT003/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:42:42', 1, 'SELESAI', 1);
+(10, 'Surat Keterangan Domisili', NULL, '3517112233440003', 'Ahmad Ervan Satria', 'Pontianak, 11 February 2000', 'Laki-laki', 'Dsn. Dusun A, RT003/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', NULL, 'Persyaratan Melamar Pekerjaan', '2019-09-20 23:31:02', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -259,9 +253,7 @@ CREATE TABLE `surat_keterangan_usaha` (
 --
 
 INSERT INTO `surat_keterangan_usaha` (`id_sku`, `jenis_surat`, `no_surat`, `nik`, `nama`, `tempat_tgl_lahir`, `jenis_kelamin`, `alamat`, `agama`, `pekerjaan`, `kewarganegaraan`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(6, 'Surat Keterangan Usaha', NULL, '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang, 14 December 1997', 'Laki-laki', 'Dsn. Dusun A, RT001/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Jual Tahu', 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:44:40', NULL, 'PENDING', 1),
-(7, 'Surat Keterangan Usaha', NULL, '3517112233440002', 'Supriyanto', 'Jombang, 02 March 2000', 'Laki-laki', 'Dsn. Dusun B, RT002/RW002', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Jual Tempe', 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:44:47', NULL, 'PENDING', 1),
-(8, 'Surat Keterangan Usaha', '1927/1927/1927/1927', '3517112233440003', 'Ahmad Ervan Satria', 'Pontianak, 11 February 2000', 'Laki-laki', 'Dsn. Dusun A, RT003/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Jual Tewel', 'Persyaratan Melamar Pekerjaan', '2019-09-20 22:44:54', 2, 'SELESAI', 1);
+(9, 'Surat Keterangan Usaha', NULL, '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang, 14 December 1997', 'Laki-laki', 'Dsn. Dusun A, RT001/RW001', 'Islam', 'PELAJAR/MAHASISWA', 'WNI', 'Toko Emas', 'Persyaratan Pengajuan Pinjaman', '2019-09-20 23:31:50', NULL, 'PENDING', 1);
 
 --
 -- Indexes for dumped tables
@@ -350,22 +342,22 @@ ALTER TABLE `profil_desa`
 -- AUTO_INCREMENT for table `surat_keterangan`
 --
 ALTER TABLE `surat_keterangan`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 --
 -- AUTO_INCREMENT for table `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
-  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `surat_keterangan_usaha`
 --
 ALTER TABLE `surat_keterangan_usaha`
-  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --

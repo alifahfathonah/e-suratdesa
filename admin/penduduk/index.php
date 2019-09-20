@@ -58,6 +58,7 @@
       <div class="col-md-12">
         <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Penduduk</a>
         <a class="btn btn-danger btn-md" data-toggle="modal" data-target="#deleteConfirm"><i class="fas fa-trash-alt"></i> Kosongkan Data Penduduk</a>
+        <a target="_blank" class="btn btn-info btn-md" href='export-excel.php'><i class="fas fa-file-export"></i> Export .XLS</a>
         <!-- Modal -->
         <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -105,7 +106,26 @@
               <td><?php echo $no++; ?></td>
               <td><?php echo $row['nik']; ?></td>
               <td><?php echo $row['nama']; ?></td>
-              <td><?php echo $row['tempat_lahir'], ', ', date("d F Y", strtotime($tanggal));?></td>
+              <?php
+                $tanggal = date('d', strtotime($row['tgl_lahir']));
+                $bulan = date('F', strtotime($row['tgl_lahir']));
+                $tahun = date('Y', strtotime($row['tgl_lahir']));
+                $bulanIndo = array(
+                    'January' => 'Januari',
+                    'February' => 'Februari',
+                    'March' => 'Maret',
+                    'April' => 'April',
+                    'May' => 'Mei',
+                    'June' => 'Juni',
+                    'July' => 'Juli',
+                    'August' => 'Agustus',
+                    'September' => 'September',
+                    'October' => 'Oktober',
+                    'November' => 'November',
+                    'December' => 'Desember'
+                );
+              ?>
+              <td><?php echo $row['tempat_lahir'] . ", " . $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?></td>
               <td><?php echo $row['jenis_kelamin']; ?></td>
               <td><?php echo $row['agama']; ?></td>
               <td><?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?></td>
