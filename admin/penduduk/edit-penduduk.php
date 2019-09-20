@@ -1,7 +1,12 @@
 <?php 
   include ('../part/akses.php');
+  include ('../../config/koneksi.php');
   include ('../part/header.php');
-?> 
+
+  $nik = $_GET['nik'];
+  $qCek = mysqli_query($connect,"SELECT * FROM penduduk WHERE nik='$nik'");
+  while($row = mysqli_fetch_array($qCek)){
+?>
 
 <aside class="main-sidebar">
   <section class="sidebar">
@@ -22,7 +27,7 @@
         </a>
       </li>
       <li class="active">
-        <a href="../penduduk/">
+        <a href="#">
           <i class="fa fa-users"></i><span>&nbsp;Data Penduduk</span>
         </a>
       </li>
@@ -63,20 +68,10 @@
   </section>
   <section class="content">      
     <div class="row">
-      <div class="col-md-12">
-        <form method="post" enctype="multipart/form-data" action="import-penduduk.php">
-          <div class="col-md-3">
-            <input name="datapenduduk" type="file" required="required">
-          </div>
-          <div>
-            <input name="upload" type="submit" class="btn btn-primary" value="Import .XLS">
-          </div>
-        </form><br>
-      </div>
         <div class="col-md-12">
           <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title"><i class="fas fa-user-plus"></i> Tambah Data Penduduk</h3>
+              <h3 class="box-title"><i class="fas fa-edit"></i> Edit Data Penduduk</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -84,94 +79,85 @@
             </div>
           <div class="box-body">
             <div class="row">
-              <form class="form-horizontal" method="post" action="simpan-penduduk.php">
+              <form class="form-horizontal" method="post" action="update-penduduk.php">
                 <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">
                       <label class="col-sm-4 control-label">NIK</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnik" maxlength="16" onkeypress="return hanyaAngka(event)" class="form-control" placeholder="NIK" required>
-                          <script>
-                            function hanyaAngka(evt) {
-                                var charCode = (evt.which) ? evt.which : event.keyCode
-                                if (charCode > 31 && (charCode < 48 || charCode > 57))
-                           
-                                return false;
-                                return true;
-                            }
-                          </script>
+                        <input type="text" name="fnik" class="form-control" value="<?php echo $row['nik']; ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama" class="form-control" placeholder="Nama" required>
+                        <input type="text" name="fnama" class="form-control" placeholder="Nama" value="<?php echo $row['nama']; ?>" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Tempat Lahir</label>
                       <div class="col-sm-8">
-                        <input type="text" name="ftempat_lahir" class="form-control" placeholder="Tempat Lahir" required>                   
+                        <input type="text" name="ftempat_lahir" class="form-control" value="<?php echo $row['tempat_lahir']; ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Tanggal Lahir</label>
                       <div class="col-sm-8">
-                        <input type="date" name="ftgl_lahir" class="form-control" required>
+                        <input type="date" name="ftgl_lahir" class="form-control" value="<?php echo $row['tgl_lahir']; ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Jenis Kelamin</label>
                       <div class="col-sm-8">
-                        <select name="fjenis_kelamin" class="form-control" required>
-                          <option value="">-- Jenis Kelamin --</option>
-                          <option value="Laki-laki">Laki-laki</option>
-                          <option value="Perempuan">Perempuan</option>
+                        <select name="fjenis_kelamin" class="form-control" value="<?php echo $row['jenis_kelamin']; ?>" required>
+                          <option value="">--Jenis Kelamin--</option>
+                          <option <?php if($row['jenis_kelamin'] == 'Laki-laki'){ echo 'selected'; } ?> value="Laki-laki">Laki-laki</option>
+                          <option <?php if($row['jenis_kelamin'] == 'Perempuan'){ echo 'selected'; } ?> value="Perempuan">Perempuan</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Agama</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fagama" class="form-control" placeholder="Agama" required>
+                        <input type="text" name="fagama" class="form-control" placeholder="Agama" value="<?php echo $row['agama']; ?>" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Dusun</label>
                       <div class="col-sm-8">
-                        <select name="fdusun" class="form-control" required>
+                        <select name="fdusun" class="form-control" value="<?php echo $row['dusun']; ?>" required>
                           <option value="">-- Dusun --</option>
-                          <option value="Dusun A">Dusun A</option>
-                          <option value="Dusun B">Dusun B</option>
+                          <option <?php if($row['dusun'] == 'Dusun A'){ echo 'selected'; } ?> value="Dusun A">Dusun A</option>
+                          <option <?php if($row['dusun'] == 'Dusun B'){ echo 'selected'; } ?> value="Dusun B">Dusun B</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">RW</label>
                       <div class="col-sm-8">
-                        <select name="frw" class="form-control" required>
+                        <select name="frw" class="form-control" value="<?php echo $row['rw']; ?>" required>
                           <option value="">-- RW --</option>
-                          <option value="001">001</option>
-                          <option value="002">002</option>
-                          <option value="003">003</option>
+                          <option <?php if($row['rw'] == '001'){ echo 'selected'; } ?> value="001">001</option>
+                          <option <?php if($row['rw'] == '002'){ echo 'selected'; } ?> value="002">002</option>
+                          <option <?php if($row['rw'] == '003'){ echo 'selected'; } ?> value="003">003</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">RT</label>
                       <div class="col-sm-8">
-                        <select name="frt" class="form-control" required>
+                        <select name="frt" class="form-control" value="<?php echo $row['rt']; ?>" required>
                           <option value="">-- RT --</option>
-                          <option value="001">001</option>
-                          <option value="002">002</option>
-                          <option value="003">003</option>
+                          <option <?php if($row['rt'] == '001'){ echo 'selected'; } ?> value="001">001</option>
+                          <option <?php if($row['rt'] == '002'){ echo 'selected'; } ?> value="002">002</option>
+                          <option <?php if($row['rt'] == '003'){ echo 'selected'; } ?> value="003">003</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nomor KK</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fno_kk" class="form-control" placeholder="Nomor KK" required>
+                        <input type="text" name="fno_kk" class="form-control" placeholder="Nomor KK" value="<?php echo $row['no_kk']; ?>" required>
                       </div>
                     </div>
                   </div>
@@ -181,97 +167,91 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Pendidikan di KK</label>
                       <div class="col-sm-8">
-                        <select name="fpend_kk" class="form-control" required>
+                        <select name="fpend_kk" class="form-control" value="<?php echo $row['pend_kk']; ?>" required>
                           <option value="">-- Pendidikan di KK --</option>
-                          <option value="SD/SEDERAJAT">SD/SEDERAJAT</option>
-                          <option value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
-                          <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
+                          <option <?php if($row['pend_kk'] == 'SD/SEDERAJAT'){ echo 'selected'; } ?> value="SD/SEDERAJAT">SD/SEDERAJAT</option>
+                          <option <?php if($row['pend_kk'] == 'SMP/SEDERAJAT'){ echo 'selected'; } ?> value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
+                          <option <?php if($row['pend_kk'] == 'SLTA/SEDERAJAT'){ echo 'selected'; } ?> value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Pendidikan Terakhir</label>
                       <div class="col-sm-8">
-                        <select name="fpend_terakhir" class="form-control" required>
+                        <select name="fpend_terakhr" class="form-control" value="<?php echo $row['pend_terakhir']; ?>" required>
                           <option value="">-- Pendidikan Terakhir --</option>
-                          <option value="SD/SEDERAJAT">SD/SEDERAJAT</option>
-                          <option value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
-                          <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
+                          <option <?php if($row['pend_terakhir'] == 'SD/SEDERAJAT'){ echo 'selected'; } ?> value="SD/SEDERAJAT">SD/SEDERAJAT</option>
+                          <option <?php if($row['pend_terakhir'] == 'SMP/SEDERAJAT'){ echo 'selected'; } ?> value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
+                          <option <?php if($row['pend_terakhir'] == 'SLTA/SEDERAJAT'){ echo 'selected'; } ?> value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Pendidikan Ditempuh</label>
                       <div class="col-sm-8">
-                        <select name="fpend_ditempuh" class="form-control" required>
+                        <select name="fpend_ditempuh" class="form-control" value="<?php echo $row['pend_ditempuh']; ?>" required>
                           <option value="">-- Pendidikan Ditempuh --</option>
-                          <option value="SD/SEDERAJAT">SD/SEDERAJAT</option>
-                          <option value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
-                          <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
+                          <option <?php if($row['pend_ditempuh'] == 'SD/SEDERAJAT'){ echo 'selected'; } ?> value="SD/SEDERAJAT">SD/SEDERAJAT</option>
+                          <option <?php if($row['pend_ditempuh'] == 'SMP/SEDERAJAT'){ echo 'selected'; } ?> value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
+                          <option <?php if($row['pend_ditempuh'] == 'SLTA/SEDERAJAT'){ echo 'selected'; } ?> value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Pekerjaan</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fpekerjaan" class="form-control" placeholder="Pekerjaan" required>
+                        <input type="text" name="fpekerjaan" class="form-control" placeholder="Pekerjaan" value="<?php echo $row['pekerjaan']; ?>" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Status Perkawinan</label>
                       <div class="col-sm-8">
-                        <select name="fstatus_perkawinan" class="form-control" required>
+                        <select name="fstatus_perkawinan" class="form-control" value="<?php echo $row['status_perkawinan']; ?>" required>
                           <option value="">-- Status Perkawinan --</option>
-                          <option value="Belum Menikah">Belum Menikah</option>
-                          <option value="Menikah">Menikah</option>
-                          <option value="Cerai">Cerai</option>
-                          <option value="Cerai Mati">Cerai Mati</option>
+                          <option <?php if($row['status_perkawinan'] == 'Belum Menikah'){ echo 'selected'; } ?> value="Belum Menikah">Belum Menikah</option>
+                          <option <?php if($row['status_perkawinan'] == 'Menikah'){ echo 'selected'; } ?> value="Menikah">Menikah</option>
+                          <option <?php if($row['status_perkawinan'] == 'Cerai'){ echo 'selected'; } ?> value="Cerai">Cerai</option>
+                          <option <?php if($row['status_perkawinan'] == 'Cerai Mati'){ echo 'selected'; } ?> value="Cerai Mati">Cerai Mati</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Status Dlm Keluarga</label>
                       <div class="col-sm-8">
-                        <select name="fstatus_dlm_keluarga" class="form-control" required>
+                        <select name="fstatus_dlm_keluarga" class="form-control" value="<?php echo $row['status_dlm_keluarga']; ?>" required>
                           <option value="">-- Status Dlm Keluarga --</option>
-                          <option value="Ayah">Ayah</option>
-                          <option value="Ibu">Ibu</option>
-                          <option value="Anak">Anak</option>
+                          <option <?php if($row['status_dlm_keluarga'] == 'Ayah'){ echo 'selected'; } ?> value="Ayah">Ayah</option>
+                          <option <?php if($row['status_dlm_keluarga'] == 'Ibu'){ echo 'selected'; } ?> value="Ibu">Ibu</option>
+                          <option <?php if($row['status_dlm_keluarga'] == 'Anak'){ echo 'selected'; } ?> value="Anak">Anak</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Kewarganegaraan</label>
                       <div class="col-sm-8">
-                        <select name="fkewarganegaraan" class="form-control" required>
+                        <select name="fkewarganegaraan" class="form-control" value="<?php echo $row['kewarganegaraan']; ?>" required>
                           <option value="">-- Kewarganegaraan --</option>
-                          <option value="WNI">WNI</option>
-                          <option value="WNA">WNA</option>
+                          <option <?php if($row['kewarganegaraan'] == 'WNI'){ echo 'selected'; } ?> value="WNI">WNI</option>
+                          <option <?php if($row['kewarganegaraan'] == 'WNA'){ echo 'selected'; } ?> value="WNA">WNA</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama Ayah</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama_ayah" class="form-control" placeholder="Nama Ayah" required>
+                        <input type="text" name="fnama_ayah" class="form-control" value="<?php echo $row['nama_ayah']; ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama Ibu</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama_ibu" class="form-control" placeholder="Nama Ibu" required>
+                        <input type="text" name="fnama_ibu" class="form-control" value="<?php echo $row['nama_ibu']; ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Golongan Darah</label>
                       <div class="col-sm-8">
-                        <select name="fgol_darah" class="form-control" required>
-                          <option value="">-- Golongan Darah --</option>
-                          <option value="A">A</option>
-                          <option value="B">B</option>
-                          <option value="AB">AB</option>
-                          <option value="O">O</option>
-                        </select>
+                        <input type="text" name="fgol_darah" class="form-control" value="<?php echo $row['gol_darah']; ?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -291,6 +271,8 @@
   </section>
 </div>
 
-<?php 
+<?php
+  }
+
   include ('../part/footer.php');
 ?>

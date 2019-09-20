@@ -136,7 +136,7 @@
                         <input type="text" name="fkeperluan" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div>
                       <input type="hidden" name="id" value="<?php echo $row['id_skbb']; ?>" class="form-control">
                     </div>
                   </div>

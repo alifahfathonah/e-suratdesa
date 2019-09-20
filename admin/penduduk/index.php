@@ -110,8 +110,8 @@
               <td><?php echo $row['agama']; ?></td>
               <td><?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?></td>
               <td>
-                <a class="btn btn-success btn-sm" href='#'><i class="fa fa-edit"></i></a> 
-                <a class="btn btn-danger btn-sm" href='#'><i class="fa fa-trash"></i></a>
+                <a class="btn btn-success btn-sm" href='edit-penduduk.php?nik=<?php echo $row['nik']; ?>'><i class="fa fa-edit"></i></a> 
+                <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?nik=<?php echo $row['nik']; ?>'><i class="fa fa-trash"></i></a>
               </td>
             </tr>
             <?php

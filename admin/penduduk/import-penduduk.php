@@ -35,11 +35,10 @@
 		$nama_ayah  = $data->val($i, 18);
 		$nama_ibu  = $data->val($i, 19);
 		$gol_darah  = $data->val($i, 20);
-		$jamkesmas  = $data->val($i, 21);
 		
-		if($nik != "" && $nama != "" && $tempat_lahir != "" && $tgl_lahir != "" && $jenis_kelamin != "" && $agama != "" && $dusun != "" && $rw != "" && $rt != "" && $no_kk != "" && $pend_kk != "" && $pend_terakhir != "" && $pend_ditempuh != "" && $pekerjaan != "" && $status_perkawinan != "" && $status_dlm_keluarga != "" && $kewarganegaraan != "" && $nama_ayah != "" && $nama_ibu != "" && $gol_darah != "" && $jamkesmas != ""){
+		if($nik != "" && $nama != "" && $tempat_lahir != "" && $tgl_lahir != "" && $jenis_kelamin != "" && $agama != "" && $dusun != "" && $rw != "" && $rt != "" && $no_kk != "" && $pend_kk != "" && $pend_terakhir != "" && $pend_ditempuh != "" && $pekerjaan != "" && $status_perkawinan != "" && $status_dlm_keluarga != "" && $kewarganegaraan != "" && $nama_ayah != "" && $nama_ibu != "" && $gol_darah != ""){
 			// input data ke database (table data_pegawai)
-			mysqli_query($connect,"INSERT INTO penduduk VALUES('$nik','$nama','$tempat_lahir','$tgl_lahir','$jenis_kelamin','$agama','$dusun','$rw','$rt','$no_kk','$pend_kk','$pend_terakhir','$pend_ditempuh','$pekerjaan','$status_perkawinan','$status_dlm_keluarga','$kewarganegaraan','$nama_ayah','$nama_ibu','$gol_darah','$jamkesmas')");
+			mysqli_query($connect,"INSERT INTO penduduk VALUES('$nik','$nama','$tempat_lahir','$tgl_lahir','$jenis_kelamin','$agama','$dusun','$rw','$rt','$no_kk','$pend_kk','$pend_terakhir','$pend_ditempuh','$pekerjaan','$status_perkawinan','$status_dlm_keluarga','$kewarganegaraan','$nama_ayah','$nama_ibu','$gol_darah')");
 			$berhasil++;
 		}
 	}

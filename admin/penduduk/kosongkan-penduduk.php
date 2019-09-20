@@ -1,7 +1,9 @@
 <?php
 	include ('../../config/koneksi.php');
 
-	$qDelete 	= "DELETE FROM penduduk";
-	mysqli_query($connect, $qDelete);
-	header('location:index.php');
+	$qHapus	= mysqli_query($connect, "DELETE FROM penduduk");
+
+	if($qHapus){
+		header('location:index.php');
+	}
 ?>
