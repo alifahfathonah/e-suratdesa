@@ -26,7 +26,15 @@
           			<a class="nav-link" href="../../tentang/">TENTANG <b>e-SuratDesa</b></a>
         		</li>
         		<li class="nav-item active ml-5">
-          			<a class="btn btn-light text-info" href="../../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>
+          			<?php
+                  session_start();
+
+                  if(empty($_SESSION['username'])){
+                      echo '<a class="btn btn-dark" href="../../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
+                  }else if(isset($_SESSION['admin'])){
+                    echo '<a class="btn btn-transparent text-light" href="../../admin/"><i class="fa fa-user-cog"></i>&nbsp;admin</a>';
+                  }
+                ?>
         		</li>
       		</ul>
     	</div>

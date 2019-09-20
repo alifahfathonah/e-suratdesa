@@ -3,7 +3,7 @@
   	include ('../../../../config/koneksi.php');
 
   	$id = $_GET['id'];
-  	$qCek = mysqli_query($connect,"SELECT * FROM surat_keterangan_berkelakuan_baik WHERE id_skbb='$id'");
+  	$qCek = mysqli_query($connect,"SELECT * FROM surat_keterangan_domisili WHERE id_skd='$id'");
   	while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<br><br>
-		<div align="center"><u><h4 class="kop">SURAT KETERANGAN BERKELAKUAN BAIK</h4></u></div>
+		<div align="center"><u><h4 class="kop">SURAT KETERANGAN DOMISILI</h4></u></div>
 		<div align="center"><h4 class="kop3">Nomor :&nbsp;&nbsp;&nbsp;<?php echo $row['no_surat']; ?></h4></div>
 	</table>
 	<br>
@@ -80,17 +80,15 @@
 		<br><br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Menurut pengamatan kami orang tersebut di atas, baik langsung maupun tidak langsung, tidak pernah tersangkut urusan polisi. Adapun surat keterangan ini dibuat untuk :
+				<td class="indentasi">Bahwa benar-benar penduduk kami Dusun Kedawong, Desa Kedawong, Kecamatan Diwek, Kabupaten Jombang. Bahwa nama yang bersangkutan berdomisili di Dusun <?php echo $row['alamat']; ?>.
 				</td>
 			</tr>
 		</table>
 		<br>
-		<div style="font-size: 12pt; text-align: center;"><a><u><b><?php echo $row['keperluan']; ?></b></u></a></div>
-		<br>
 		<table width="100%">
 			<tr>
 				<td>
-				<td class="indentasi">Demikian surat keterangan ini dibuat untuk menjadikan periksa dan apabila dikemudian hari ternyata terdapat kekeliruan/kesalahan akan diadakan pembetulan seperlunya.
+				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
 				</td>
 		</table>
 	</div>

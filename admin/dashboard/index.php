@@ -80,7 +80,13 @@
 	        <div class="col-lg-4 col-xs-6">
 	          	<div class="small-box bg-green">
 	            	<div class="inner">
-	              		<h3>53</h3>
+	              		<h3>
+                      <?php
+                        $qTampil = mysqli_query($connect, "SELECT * FROM surat_keterangan WHERE status_surat='pending' UNION SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='pending' UNION SELECT * FROM surat_keterangan_domisili WHERE status_surat='pending' UNION SELECT * FROM surat_keterangan_usaha WHERE status_surat='pending'");
+                        $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
+                        echo $jumlahPermintaanSurat;
+                      ?>
+                    </h3>
 	              		<p>Permintaan Surat</p>
 	            	</div>
 	            	<div class="icon">
@@ -92,7 +98,13 @@
 	        <div class="col-lg-4 col-xs-6">
 	          	<div class="small-box bg-yellow">
 	            	<div class="inner">
-	              		<h3>44</h3>
+	              		<h3>
+                      <?php
+                        $qTampil = mysqli_query($connect, "SELECT * FROM surat_keterangan WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_domisili WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_usaha WHERE status_surat='selesai'");
+                        $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
+                        echo $jumlahPermintaanSurat;
+                      ?>
+                    </h3>
 	              		<p>Surat Selesai</p>
 	            	</div>
 	            	<div class="icon">
@@ -116,9 +128,9 @@
           				<div class="row">
             				<form class="form-horizontal" method="post" action="simpan-penduduk.php">
             					<div class="col-md-12">
-                        <div class="col-md-4">
+                        <div class="col-md-4" style="text-align: center;">
                           <img src="../../assets/img/logo-jombang.png"><br>
-                          <p style="font-size: 20pt; font-weight: 500; text-align: center;"><strong>DESA KEDAWONG</strong>
+                          <p style="font-size: 20pt; font-weight: 500;"><strong>DESA KEDAWONG</strong><hr>
                         </div>
                         <div class="col-md-8">
                           <div style="font-size: 35pt; font-weight: 500;"><p>Hai, <strong><?php echo $_SESSION['admin']; ?></strong></div>

@@ -47,7 +47,7 @@
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN</h5><br>
-		        		<a href="#" class="btn btn-info">Buat Surat</a>
+		        		<a href="surat_keterangan/" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -56,7 +56,7 @@
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN BERKELAKUAN BAIK</h5>
-		        		<a href="surat-keterangan-berkelakuan-baik/" class="btn btn-info">Buat Surat</a>
+		        		<a href="surat_keterangan_berkelakuan_baik/" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -65,7 +65,7 @@
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5>
-		        		<a href="#" class="btn btn-info">Buat Surat</a>
+		        		<a href="surat_keterangan_domisili/" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -74,7 +74,7 @@
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN KURANG MAMPU</h5>
-		        		<a href="#" class="btn btn-info">Buat Surat</a>
+		        		<a href="#" class="btn btn-info">Under Development</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -83,7 +83,7 @@
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5>
-		        		<a href="#" class="btn btn-info">Buat Surat</a>
+		        		<a href="surat_keterangan_usaha/" class="btn btn-info">Buat Surat</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -91,8 +91,8 @@
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT PENGANTAR</h5>
-		        		<a href="#" class="btn btn-info">Buat Surat</a>
+		        		<h5 class="card-title">SURAT PENGANTAR</h5><br>
+		        		<a href="#" class="btn btn-info">Under Development</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -100,8 +100,8 @@
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT PENGANTAR SKCK</h5>
-		        		<a href="#" class="btn btn-info">Buat Surat</a>
+		        		<h5 class="card-title">SURAT PENGANTAR SKCK</h5><br>
+		        		<a href="#" class="btn btn-info">Under Development</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -110,7 +110,7 @@
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT PENGANTAR PERMOHONAN KTP</h5>
-		        		<a href="#" class="btn btn-info">Buat Surat</a>
+		        		<a href="#" class="btn btn-info">Under Development</a>
 		      		</div>
 		    	</div>
 		  	</div>

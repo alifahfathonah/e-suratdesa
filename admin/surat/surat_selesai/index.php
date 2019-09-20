@@ -80,18 +80,36 @@
               include ('../../../config/koneksi.php');
 
               $no = 1;
-              $qTampil = mysqli_query($connect, "SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai'");
+              $qTampil = mysqli_query($connect, "SELECT * FROM surat_keterangan WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_domisili WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_usaha WHERE status_surat='selesai'");
               foreach($qTampil as $row){
             ?>
             <tr>
               <td><?php echo $row['no_surat']; ?></td>
               <td><?php echo $row['nik']; ?></td>
               <td><?php echo $row['nama']; ?></td>
-              <td>Surat Keterangan Berkelakuan Baik</td>
+              <td><?php echo $row['jenis_surat']; ?></td>
               <td><a class="btn btn-success btn-sm" href='#'><i class="fa fa-check"> <?php echo $row['status_surat']; ?></i></a></td>
               <td><?php echo $row['tanggal_surat']; ?></td>
               <td>
-                <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_berkelakuan_baik/index.php?id=<?php echo $row['id_skbb']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                <?php  
+                  if($row['jenis_surat']=="Surat Keterangan"){
+                ?>
+                <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                <?php
+                  } else if($row['jenis_surat']=="Surat Keterangan Berkelakuan Baik"){
+                ?>
+                <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_berkelakuan_baik/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                <?php
+                  } else if($row['jenis_surat']=="Surat Keterangan Domisili"){
+                ?>
+                <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_domisili/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                <?php
+                  } else if($row['jenis_surat']=="Surat Keterangan Usaha"){
+                ?>
+                <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_usaha/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                <?php
+                  }
+                ?>
               </td>
             </tr>
             <?php

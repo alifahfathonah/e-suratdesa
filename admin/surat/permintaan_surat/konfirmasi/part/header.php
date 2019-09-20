@@ -8,33 +8,33 @@
   	<!-- Tell the browser to be responsive to screen width -->
   	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   	<!-- Bootstrap 3.3.7 -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
   	<!-- Font Awesome -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
   	<!-- Ionicons -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
   	<!-- Theme style -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/dist/css/AdminLTE.min.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/dist/css/AdminLTE.min.css">
   	<!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/dist/css/skins/_all-skins.min.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/dist/css/skins/_all-skins.min.css">
   	<!-- Morris chart -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/bower_components/morris.js/morris.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/bower_components/morris.js/morris.css">
   	<!-- jvectormap -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/bower_components/jvectormap/jquery-jvectormap.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/bower_components/jvectormap/jquery-jvectormap.css">
   	<!-- Date Picker -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   	<!-- Daterange picker -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   	<!-- bootstrap wysihtml5 - text editor -->
-  	<link rel="stylesheet" href="../../../../assets/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  	<link rel="stylesheet" href="../../../../../assets/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   	<!-- Font Awesome v5.8.2 -->
-  	<link rel="stylesheet" href="../../../../assets/fontawesome-5.10.2/css/all.css">
+  	<link rel="stylesheet" href="../../../../../assets/fontawesome-5.10.2/css/all.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 	<header class="main-header">
-  	<a href="../../../../" class="logo" style="text-decoration:none">
+  	<a href="../../../../../" class="logo" style="text-decoration:none">
   		<span class="logo-mini">e-<b>SD</b></span>
   		<span class="logo-lg">e-<b>SuratDesa</b></span>
   	</a>
@@ -45,7 +45,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="user user-menu">
-            <a href="../../../../login/logout.php">
+            <a href="../../../../../login/logout.php">
               <i class="fas fa-sign-out-alt"></i><span class="hidden-xs"> Logout</span>
                 </a>
             </li>

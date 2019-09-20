@@ -1,9 +1,9 @@
 <?php
-session_start();
+	session_start();
 
-if(empty($_SESSION['username'])){
-    header("location:../../../../");
-}else if(!isset($_SESSION['admin'])){
-	header("location:../../../../");
-}
+	if(empty($_SESSION['username'])){
+	    header("location:../../../../../");
+	}else if(!isset($_SESSION['admin'])){
+		header("location:../../../../../");
+	}
 ?>
