@@ -133,6 +133,37 @@
                           <p style="font-size: 20pt; font-weight: 500;"><strong>DESA KEDAWONG</strong><hr>
                         </div>
                         <div class="col-md-8">
+                          <div class="pull-right">
+                            <?php
+                              $tanggal = date('D d F Y');
+                              $hari = date('D', strtotime($tanggal));
+                              $bulan = date('F', strtotime($tanggal));
+                              $hariIndo = array(
+                                'Mon' => 'Senin',
+                                'Tue' => 'Selasa',
+                                'Wed' => 'Rabu',
+                                'Thu' => 'Kamis',
+                                'Fri' => 'Jumat',
+                                'Sat' => 'Sabtu',
+                                'Sun' => 'Minggu',
+                              );
+                              $bulanIndo = array(
+                                'January' => 'Januari',
+                                'February' => 'Februari',
+                                'March' => 'Maret',
+                                'April' => 'April',
+                                'May' => 'Mei',
+                                'June' => 'Juni',
+                                'July' => 'Juli',
+                                'August' => 'Agustus',
+                                'September' => 'September',
+                                'October' => 'Oktober',
+                                'November' => 'November',
+                                'December' => 'Desember'
+                              );
+                              echo $hariIndo[$hari] . ', ' . date('d ') . $bulanIndo[$bulan] . date(' Y');
+                            ?>
+                          </div>
                           <div style="font-size: 35pt; font-weight: 500;"><p>Hai, <strong><?php echo $_SESSION['admin']; ?></strong></div>
                           <div style="font-size: 15pt; font-weight: 500;"><p>Selamat datang di <a href="#" style="text-decoration:none"><strong>Web Aplikasi Pelayanan Surat Administrasi Desa Online.</strong></a></p></div><br><br><br>
                           <div style="font-size: 10pt; font-weight: 500;">© e-<b>SuratDesa</b> 2019. Hak Cipta Dilindungi.</div>

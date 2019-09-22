@@ -3,7 +3,7 @@
   	include ('../../../../config/koneksi.php');
 
   	$id = $_GET['id'];
-  	$qCek = mysqli_query($connect,"SELECT * FROM surat_keterangan_domisili WHERE id_skd='$id'");
+  	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.keperluan, surat_keterangan_domisili.id_pejabat_desa FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.id_skd='$id'");
   	while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -52,9 +52,29 @@
 				<td>N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['nama']; ?></td>
 			</tr>
+			<?php
+				$tgl_lhr = date($row['tgl_lahir']);
+				$tgl = date('d ', strtotime($tgl_lhr));
+				$bln = date('F', strtotime($tgl_lhr));
+				$thn = date(' Y', strtotime($tgl_lhr));
+				$blnIndo = array(
+				    'January' => 'Januari',
+				    'February' => 'Februari',
+				    'March' => 'Maret',
+				    'April' => 'April',
+				    'May' => 'Mei',
+				    'June' => 'Juni',
+				    'July' => 'Juli',
+				    'August' => 'Agustus',
+				    'September' => 'September',
+				    'October' => 'Oktober',
+				    'November' => 'November',
+				    'December' => 'Desember'
+				);
+			?>
 			<tr>
 				<td>Tempat/Tgl. Lahir</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['tempat_tgl_lahir']; ?></td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
 			</tr>
 			<tr>
 				<td>Jenis Kelamin</td>
@@ -62,7 +82,7 @@
 			</tr>
 			<tr>
 				<td>Alamat</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['alamat']; ?></td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?></td>
 			</tr>
 			<tr>
 				<td>Agama</td>
@@ -80,7 +100,7 @@
 		<br><br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Bahwa benar-benar penduduk kami Dusun Kedawong, Desa Kedawong, Kecamatan Diwek, Kabupaten Jombang. Bahwa nama yang bersangkutan berdomisili di Dusun <?php echo $row['alamat']; ?>.
+				<td class="indentasi">Bahwa benar-benar penduduk kami Dusun Kedawong, Desa Kedawong, Kecamatan Diwek, Kabupaten Jombang. Bahwa nama yang bersangkutan berdomisili di <b><?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?><b>.
 				</td>
 			</tr>
 		</table>
@@ -128,10 +148,16 @@
 				?>
 			</td>
 		</tr>
+		<?php
+			$id_pejabat_desa = $row['id_pejabat_desa'];
+		  	$qCek = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_keterangan_domisili.id_pejabat_desa = '$id_pejabat_desa'");
+
+		  	while($row = mysqli_fetch_array($qCek)){
+		?>
 		<tr>
 			<td width="23%"></td>
 			<td width="30%"></td>
-			<td align="center">Kepala Desa Kedawong</td>
+			<td align="center"><?php echo $row['jabatan']; ?> Kedawong</td>
 		</tr>
 		<tr></tr>
 		<tr></tr>
@@ -176,8 +202,11 @@
 		<tr>
 			<td>
 			<td></td>
-			<td align="center">(ABU LAHAB, S.Ag., S.PG., S.PP.)</td>
+			<td align="center"><b><?php echo $row['nama_pejabat_desa']; ?></b></td>
 		</tr>
+		<?php 
+			} 
+		?>
 	</table>
 </div>
 <script>

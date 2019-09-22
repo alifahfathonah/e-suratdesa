@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT * FROM surat_keterangan_berkelakuan_baik WHERE id_skbb='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_berkelakuan_baik.no_surat, surat_keterangan_berkelakuan_baik.keperluan, surat_keterangan_berkelakuan_baik.id_pejabat_desa FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.id_skbb='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -112,16 +112,36 @@
                         <input type="text" name="fnik" value="<?php echo $row['nik']; ?>" class="form-control" readonly>
                       </div>
                     </div>
+                    <?php
+                      $tgl_lhr = date($row['tgl_lahir']);
+                      $tgl = date('d ', strtotime($tgl_lhr));
+                      $bln = date('F', strtotime($tgl_lhr));
+                      $thn = date(' Y', strtotime($tgl_lhr));
+                      $blnIndo = array(
+                          'January' => 'Januari',
+                          'February' => 'Februari',
+                          'March' => 'Maret',
+                          'April' => 'April',
+                          'May' => 'Mei',
+                          'June' => 'Juni',
+                          'July' => 'Juli',
+                          'August' => 'Agustus',
+                          'September' => 'September',
+                          'October' => 'Oktober',
+                          'November' => 'November',
+                          'December' => 'Desember'
+                      );
+                    ?>
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Tempat Lahir</label>
+                      <label class="col-sm-3 control-label">Tempat, Tgl Lahir</label>
                       <div class="col-sm-9">
-                        <input type="text" name="ft_lahir" value="<?php echo $row['tempat_tgl_lahir']; ?>" class="form-control" readonly>
+                        <input type="text" name="ft_lahir" value="<?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Alamat</label>
                       <div class="col-sm-9">
-                        <input type="text" name="falamat" value="<?php echo $row['alamat']; ?>" class="form-control" readonly>
+                        <input type="text" name="falamat" value="<?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
