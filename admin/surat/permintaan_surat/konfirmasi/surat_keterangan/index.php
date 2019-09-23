@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan.no_surat, surat_keterangan.keperluan, surat_keterangan.id_pejabat_desa FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.id_sk='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.id_sk='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 

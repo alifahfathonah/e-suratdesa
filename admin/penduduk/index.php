@@ -56,29 +56,17 @@
   <section class="content">      
     <div class="row">
       <div class="col-md-12">
-        <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Penduduk</a>
-        <a class="btn btn-danger btn-md" data-toggle="modal" data-target="#deleteConfirm"><i class="fas fa-trash-alt"></i> Kosongkan Data Penduduk</a>
-        <a target="_blank" class="btn btn-info btn-md" href='export-excel.php'><i class="fas fa-file-export"></i> Export .XLS</a>
-        <!-- Modal -->
-        <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Kosongkan Data Penduduk</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Apakah Anda yakin ingin menghapus semua Data Penduduk?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" onclick="window.location.href='kosongkan-penduduk.php'">Ya, Hapus.</button>
-              </div>
-            </div>
-          </div>
+        <div>
+          <?php 
+              if(isset($_GET['pesan'])){
+                    if($_GET['pesan']=="gagal"){
+                      echo "<div class='alert alert-danger'><center>Anda tidak bisa menghapus data tersebut.</center></div>";
+                  }
+                }
+            ?>
         </div>
+        <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Penduduk</a>
+        <a target="_blank" class="btn btn-info btn-md" href='export-excel.php'><i class="fas fa-file-export"></i> Export .XLS</a>
         <br><br>
         <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
           <thead>
@@ -130,7 +118,7 @@
               <td><?php echo $row['agama']; ?></td>
               <td><?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?></td>
               <td>
-                <a class="btn btn-success btn-sm" href='edit-penduduk.php?nik=<?php echo $row['nik']; ?>'><i class="fa fa-edit"></i></a> 
+                <a class="btn btn-success btn-sm" href='edit-penduduk.php?nik=<?php echo $row['nik']; ?>'><i class="fa fa-edit"></i></a>
                 <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?nik=<?php echo $row['nik']; ?>'><i class="fa fa-trash"></i></a>
               </td>
             </tr>

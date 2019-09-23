@@ -152,7 +152,7 @@
 		</tr>
 		<?php
 			$id_pejabat_desa = $row['id_pejabat_desa'];
-		  	$qCek = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_keterangan_berkelakuan_baik.id_pejabat_desa = '$id_pejabat_desa'");
+		  	$qCek = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_keterangan_berkelakuan_baik.id_pejabat_desa = '$id_pejabat_desa' AND surat_keterangan_berkelakuan_baik.id_skbb='$id'");
 
 		  	while($row = mysqli_fetch_array($qCek)){
 		?>
