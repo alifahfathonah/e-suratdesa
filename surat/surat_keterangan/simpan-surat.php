@@ -10,6 +10,6 @@
 
         $qTambahSurat = "INSERT INTO surat_keterangan (jenis_surat, nik, keperluan, status_surat, id_profil_desa) VALUES('$jenis_surat', '$nik', '$keperluan', '$status_surat', '$id_profil_desa')";
         $TambahSurat = mysqli_query($connect, $qTambahSurat);
-        header("location:index.php?pesan=berhasil");
+        header("location:../index.php?pesan=berhasil");
     }
 ?>

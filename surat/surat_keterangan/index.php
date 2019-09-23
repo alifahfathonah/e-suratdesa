@@ -8,15 +8,12 @@
             <div class="card-body">
                 <form action="info-surat.php" method="post"> 
     	            <?php 
-        	            if(isset($_GET['pesan'])){
-            		        if($_GET['pesan']=="gagal"){
-                    		    echo "<div class='alert alert-danger'><center>NIK Anda tidak terdaftar. Silahkan hubungi Kantor Desa!</center></div>";
-                      		}
-                      		if($_GET['pesan']=="berhasil"){
-                        		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa!</center></div>";
-                      		}
+        	          if(isset($_GET['pesan'])){
+            		      if($_GET['pesan']=="gagal"){
+                 		    echo "<div class='alert alert-danger'><center>NIK Anda tidak terdaftar. Silahkan hubungi Kantor Desa!</center></div>";
                     	}
-                  	?>
+                  	}
+                	?>
                 	<img src="../../assets/img/logo-jombang1.png"><hr>
                   	<label style="font-weight: 700;"><i class="fas fa-id-card"></i> NIK  <i>(Nomor Induk Kependudukan)</i></label>
                   	<input type="text" class="form-control form-control-md" name="fnik" placeholder="Masukkan NIK Anda..." required>

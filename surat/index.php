@@ -41,6 +41,15 @@
 	</navbar>
 <div class="container-fluid">
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
+		<div>
+			<?php 
+   	        	if(isset($_GET['pesan'])){
+                   	if($_GET['pesan']=="berhasil"){
+                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa dalam 2-3 hari kerja!</center></div>";
+              		}
+              	}
+           	?>
+		</div>
 		<div class="row">
 			<div class="col-sm-3">
 		    	<div class="card">
