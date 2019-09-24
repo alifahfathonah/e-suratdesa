@@ -31,11 +31,9 @@
 	header("Content-type: application/vnd-ms-excel");
 	header("Content-Disposition: attachment; filename=Laporan Surat Ds. Kedawong.xls");
 	?>
- 
 	<center>
 		<h2>Data Penduduk <br/> Desa Kedawong</h2>
 	</center>
- 
 	<table border="1">
           <thead>
             <tr>

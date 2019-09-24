@@ -26,16 +26,13 @@
 		border-radius: 2px;
 	}
 	</style>
- 
 	<?php
 	header("Content-type: application/vnd-ms-excel");
 	header("Content-Disposition: attachment; filename=Data Penduduk Ds. Kedawong.xls");
 	?>
- 
 	<center>
 		<h2>Data Penduduk <br/> Desa Kedawong</h2>
 	</center>
- 
 	<table border="1">
     <thead>
       <tr>
