@@ -6,6 +6,13 @@
 	<title>e-SuratDesa</title>
 	<link rel="stylesheet" href="../assets/fontawesome-5.10.2/css/all.css">
 	<link rel="stylesheet" href="../assets/bootstrap-4.3.1/dist/css/bootstrap.min.css">
+	<style type="text/css">
+		img{
+			width: 150px;
+			height: 150px;
+			border-radius: 100%;
+		}
+	</style>
 </head>
 <body class="bg-light">
 <div>
@@ -56,7 +63,6 @@
 						</blockquote>
 					</p>
 					<br>
-					<br>
 					<p class="card-text">
 						<label style="font-weight: 700;font-size: 25px"><i class="fas fa-shield-alt"></i> HAK CIPTA DAN KETENTUAN</label>
 					</p>
@@ -65,6 +71,23 @@
 					<br>
 					<br>
 					Trademark By <b><a href="#" style="text-decoration:none">Kelompok 12 PI FTI UNHASY - 2019.</a></b>
+				</div>
+				<br><br><br>
+				<div class="row text-center">
+					<div class="col-md-3"></div>
+					<div class="col-md-2">
+						<img src="../assets/img/adi.jpg">
+						<p class="text-muted"><b>Programmer</b></p>
+					</div>
+					<div class="col-md-2">
+						<img src="../assets/img/supri.jpg">
+						<p class="text-muted"><b>Desain <i>Interface</i></b></p>
+					</div>
+					<div class="col-md-2">
+						<img src="../assets/img/ervan.jpg">
+						<p class="text-muted"><b>Analisis dan Perancangan</b></p>
+					</div>
+					<div class="col-md-3"></div>
 				</div>
 			</div>
 		</div>
