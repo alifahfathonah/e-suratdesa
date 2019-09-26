@@ -51,7 +51,7 @@
            	?>
 		</div>
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-3 mt-4">
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
@@ -60,7 +60,7 @@
 		      		</div>
 		    	</div>
 		  	</div>
-		  	<div class="col-sm-3">
+		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
@@ -69,7 +69,7 @@
 		      		</div>
 		    	</div>
 		  	</div>
-		  	<div class="col-sm-3">
+		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
@@ -78,7 +78,7 @@
 		      		</div>
 		    	</div>
 		  	</div>
-		  	<div class="col-sm-3">
+		  	<div class="col-sm-3 mt-4">
 		    	<div class="card">
 		      		<img src="../assets/img/logo-jombang.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
