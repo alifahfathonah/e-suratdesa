@@ -52,7 +52,7 @@
   <section class="content">      
     <div class="row">
       <div class="col-md-12">
-        <a target="_blank" class="btn btn-info btn-md" href='export-excel.php'><i class="fas fa-file-export"></i> Export .XLS</a>
+        <a target="_blank" class="btn btn-primary btn-md" href='export-excel.php'><i class="fas fa-print"></i> Cetak Laporan</a>
         <br><br>
         <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
           <thead>
