@@ -12,7 +12,12 @@
 		$login = mysqli_fetch_assoc($qLogin);
 		if($login['level']=="admin"){
 			$_SESSION['username'] = $username;
-			$_SESSION['admin'] = "admin";
+			$_SESSION['lvl'] = "Administrator";
+
+			header("location:../admin/");
+		}else if($login['level']=="kades"){
+			$_SESSION['username'] = $username;
+			$_SESSION['lvl'] = "Kepala Desa";
 
 			header("location:../admin/");
 		}else{

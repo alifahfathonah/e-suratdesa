@@ -39,8 +39,8 @@
 
 						if(empty($_SESSION['username'])){
 						    echo '<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
-						}else if(isset($_SESSION['admin'])){
-							echo '<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i>&nbsp;admin</a>';
+						}else if(isset($_SESSION['lvl'])){
+							echo '<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
 						}
 					?>
 	      		</li>

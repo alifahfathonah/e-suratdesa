@@ -3,7 +3,7 @@
 
 	if(empty($_SESSION['username'])){
 	    header("location:../../");
-	}else if(!isset($_SESSION['admin'])){
+	}else if(!isset($_SESSION['lvl'])){
 		header("location:../../");
 	}
 ?>

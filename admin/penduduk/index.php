@@ -7,10 +7,16 @@
   <section class="sidebar">
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="../../assets/img/user.jpg" class="img-circle" alt="User Image">
+        <?php  
+          if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+            echo '<img src="../../assets/img/ava-admin-female.png" class="img-circle" alt="User Image">';
+          }else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
+            echo '<img src="../../assets/img/ava-kades.png" class="img-circle" alt="User Image">';
+          }
+        ?>
       </div>
       <div class="pull-left info">
-        <p>Administrator</p>
+        <p><?php echo $_SESSION['lvl']; ?></p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
@@ -24,9 +30,15 @@
       <li class="active">
         <a href="#"><i class="fa fa-users"></i> <span>Data Penduduk</span></a>
       </li>
+      <?php
+        if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+      ?>
       <li class="treeview">
-        <a href="#"><i class="fas fa-envelope-open-text"></i> <span>&nbsp;&nbsp;Surat</span>
-          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        <a href="#">
+          <i class="fas fa-envelope-open-text"></i> <span>&nbsp;&nbsp;Surat</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
         </a>
         <ul class="treeview-menu">
           <li>
@@ -37,6 +49,11 @@
           </li>
         </ul>
       </li>
+      <?php 
+        }else{
+          
+        }
+      ?>
       <li>
         <a href="../laporan/">
           <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span>
@@ -65,8 +82,16 @@
                 }
             ?>
         </div>
+        <?php 
+          if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+        ?>
         <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Penduduk</a>
         <a target="_blank" class="btn btn-info btn-md" href='export-excel.php'><i class="fas fa-file-export"></i> Export .XLS</a>
+        <?php 
+          } else {
+
+          }
+        ?>
         <br><br>
         <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
           <thead>
@@ -78,7 +103,15 @@
               <th><strong>Jenis Kelamin</strong></th>
               <th><strong>Agama</strong></th>
               <th><strong>Alamat</strong></th>
+              <?php 
+                if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+              ?>
               <th><strong>Aksi</strong></th>
+              <?php  
+                } else {
+
+                }
+              ?>
             </tr>
           </thead>
           <tbody>
@@ -117,10 +150,18 @@
               <td><?php echo $row['jenis_kelamin']; ?></td>
               <td><?php echo $row['agama']; ?></td>
               <td><?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?></td>
+              <?php 
+                if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+              ?>
               <td>
                 <a class="btn btn-success btn-sm" href='edit-penduduk.php?nik=<?php echo $row['nik']; ?>'><i class="fa fa-edit"></i></a>
                 <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?nik=<?php echo $row['nik']; ?>'><i class="fa fa-trash"></i></a>
               </td>
+              <?php  
+                } else {
+                  
+                }
+              ?>
             </tr>
             <?php
               }

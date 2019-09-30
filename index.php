@@ -42,8 +42,8 @@
 
 						if(empty($_SESSION['username'])){
 						    echo '<a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
-						}else if(isset($_SESSION['admin'])){
-							echo '<a class="btn btn-transparent text-light" href="admin/"><i class="fa fa-user-cog"></i>&nbsp;admin</a>';
+						}else if(isset($_SESSION['lvl'])){
+							echo '<a class="btn btn-transparent text-light" href="admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
 						}
 					?>
 	      		</li>
@@ -54,8 +54,17 @@
 <div class="container" style="max-height:cover; padding-top:50px; padding-bottom:120px" align="center">
 	<img src="assets/img/logo-jombang.png"><hr>
 	<a class="text-light" style="font-size:18pt"><strong>WEB APLIKASI PELAYANAN SURAT ADMINISTRASI DESA</strong></a><br>
-	<a class="text-light" style="font-size:15pt"><strong>DESA KEDAWONG</strong><br>
-	<a class="text-light" style="font-size:15pt"><strong>KABUPATEN JOMBANG</strong></a><hr>
+	<?php  
+		include('config/koneksi.php');
+
+        $qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
+        foreach($qTampilDesa as $row){
+    ?>
+	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong><br>
+	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong>KABUPATEN <?php echo $row['kabupaten']; ?></strong></a><hr>
+	<?php  
+		}
+	?>
 	<a href="surat/" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
 </div>
 <div class="footer bg-transparent text-center mb-3 ">

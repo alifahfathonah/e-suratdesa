@@ -12,10 +12,16 @@
   <section class="sidebar">
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="../../assets/img/user.jpg" class="img-circle" alt="User Image">
+        <?php  
+          if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+            echo '<img src="../../assets/img/ava-admin-female.png" class="img-circle" alt="User Image">';
+          }else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
+            echo '<img src="../../assets/img/ava-kades.png" class="img-circle" alt="User Image">';
+          }
+        ?>
       </div>
       <div class="pull-left info">
-        <p>Administrator</p>
+        <p><?php echo $_SESSION['lvl']; ?></p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
@@ -68,15 +74,15 @@
   </section>
   <section class="content">      
     <div class="row">
-        <div class="col-md-12">
-          <div class="box box-default">
-            <div class="box-header with-border">
-              <h3 class="box-title"><i class="fas fa-edit"></i> Edit Data Penduduk</h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-              </div>
+      <div class="col-md-12">
+        <div class="box box-default">
+          <div class="box-header with-border">
+            <h3 class="box-title"><i class="fas fa-edit"></i> Edit Data Penduduk</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
             </div>
+          </div>
           <div class="box-body">
             <div class="row">
               <form class="form-horizontal" method="post" action="update-penduduk.php">

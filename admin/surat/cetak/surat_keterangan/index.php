@@ -5,6 +5,9 @@
   	$id = $_GET['id'];
   	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan.no_surat, surat_keterangan.keperluan, surat_keterangan.id_pejabat_desa FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.id_sk='$id'");
   	while($row = mysqli_fetch_array($qCek)){
+
+        $qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
+        foreach($qTampilDesa as $rows){
 ?>
 
 <html>
@@ -13,7 +16,10 @@
 	<link href="../../../../assets/formsuratCSS/formsurat.css" rel="stylesheet" type="text/css"/>
 	<style type="text/css" media="print">
 	    @page { margin: 0; }
-  		body { margin: 1cm; }
+  		body { 
+  			margin: 1cm;
+  			font-family: "Times New Roman", Times, serif;
+  		}
 	</style>
 </head>
 <body>
@@ -21,10 +27,10 @@
 	<table width="100%">
 		<tr><img src="../../../../assets/img/logo-jombang-90x90.png" alt="" class="logo"></tr>
 		<div class="header">
-			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH KABUPATEN JOMBANG </h4>
-			<h4 class="kop" style="text-transform: uppercase">KECAMATAN DIWEK</h4>
-			<h4 class="kop" style="text-transform: uppercase">DESA KEDAWONG</h4>
-			<h5 class="kop2">Jl. Gajahmada No. 49 Ds. Kedawong, Kec. Diwek, Kab. Jombang 61471</h5>
+			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH KABUPATEN <?php echo $rows['kabupaten']; ?></h4>
+			<h4 class="kop" style="text-transform: uppercase">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
+			<h4 class="kop" style="text-transform: uppercase">DESA <?php echo $rows['nama_desa']; ?></h4>
+			<h5 class="kop2"><?php echo $rows['alamat']; ?> Ds. <?php echo $rows['nama_desa']; ?>, Kec. <?php echo $rows['kecamatan']; ?>, Kab. <?php echo $rows['kabupaten'] . " " . $rows['kode_pos']; ?></h5>
 			<div style="text-align: center;">
 				<hr>
 			</div>
@@ -38,7 +44,7 @@
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini Penjabat Kepala Desa Kedawong, Kecamatan Diwek, Kabupaten Jombang, Provinsi Jawa Timur, menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini Penjabat Kepala Desa <?php echo $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, Kabupaten <?php echo $rows['kabupaten']; ?>, Provinsi <?php echo $rows['provinsi']; ?>, menerangkan dengan sebenarnya bahwa :
 				</td>
 			</tr>
 		</table>
@@ -100,18 +106,18 @@
 		<br><br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Orang tersebut diatas benar-benar penduduk kami Dusun Kedawong Desa Kedawong, Kecamatan Diwek, Kabupaten Jombang. Bahwa nama yang bersangkutan tidak berada di rumah dan tidak diketahui keberadaannya.
-				</td>
+				<td class="indentasi">Orang tersebut diatas benar-benar penduduk kami Dusun <?php echo $row['dusun']; ?> Desa <?php echo $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, Kabupaten <?php echo $rows['kabupaten']; ?>. Bahwa nama yang bersangkutan tidak berada di rumah dan tidak diketahui keberadaannya.</td>
 			</tr>
-		</table>
-		<br>
-		<div style="font-size: 12pt; text-align: center;"><a>Surat keterangan ini dipergunakan untuk <u><b><?php echo $row['keperluan']; ?>.</b></u></a></div>
-		<br>
+		</table><br>
 		<table width="100%">
 			<tr>
-				<td>
-				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
-				</td>
+				<td class="indentasi">Surat keterangan ini dipergunakan untuk <u><b><?php echo $row['keperluan']; ?>.</td>
+			</tr>
+		</table><br>
+		<table width="100%">
+			<tr>
+				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.</td>
+			</tr>
 		</table>
 	</div>
 	<br><br>
@@ -128,7 +134,7 @@
 			<td width="23%"></td>
 			<td width="30%"></td>
 			<td align="center">
-				Jombang, 
+				<?php echo $rows['kabupaten']; ?>, 
 				<?php
 					$tanggal = date('d F Y');
 					$bulan = date('F', strtotime($tanggal));
@@ -159,7 +165,7 @@
 		<tr>
 			<td width="23%"></td>
 			<td width="30%"></td>
-			<td align="center"><?php echo $row['jabatan']; ?> Kedawong</td>
+			<td align="center"><?php echo $row['jabatan'] . " " . $rows['nama_desa']; ?></td>
 		</tr>
 		<tr></tr>
 		<tr></tr>
@@ -218,5 +224,6 @@
 </html>
 
 <?php
+		}
   	}
 ?>

@@ -27,8 +27,8 @@
 	}
 	</style>
 	<?php
-	header("Content-type: application/vnd-ms-excel");
-	header("Content-Disposition: attachment; filename=Data Penduduk Ds. Kedawong.xls");
+  	header("Content-type: application/vnd-ms-excel");
+  	header("Content-Disposition: attachment; filename=Data Penduduk Ds. Kedawong.xls");
 	?>
 	<center>
 		<h2>Data Penduduk <br/> Desa Kedawong</h2>
@@ -63,18 +63,18 @@
           $bulan = date('F', strtotime($row['tgl_lahir']));
           $tahun = date('Y', strtotime($row['tgl_lahir']));
           $bulanIndo = array(
-              'January' => 'Januari',
-              'February' => 'Februari',
-              'March' => 'Maret',
-              'April' => 'April',
-              'May' => 'Mei',
-              'June' => 'Juni',
-              'July' => 'Juli',
-              'August' => 'Agustus',
-              'September' => 'September',
-              'October' => 'Oktober',
-              'November' => 'November',
-              'December' => 'Desember'
+            'January' => 'Januari',
+            'February' => 'Februari',
+            'March' => 'Maret',
+            'April' => 'April',
+            'May' => 'Mei',
+            'June' => 'Juni',
+            'July' => 'Juli',
+            'August' => 'Agustus',
+            'September' => 'September',
+            'October' => 'Oktober',
+            'November' => 'November',
+            'December' => 'Desember'
           );
         ?>
         <td><?php echo $row['tempat_lahir'] . ", " . $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?></td>
