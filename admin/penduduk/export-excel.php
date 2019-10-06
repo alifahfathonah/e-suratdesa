@@ -5,26 +5,29 @@
 </head>
 <body>
 	<style type="text/css">
-	body{
-		font-family: sans-serif;
-	}
-	table{
-		margin: 20px auto;
-		border-collapse: collapse;
-	}
-	table th,
-	table td{
-		border: 1px solid #3c3c3c;
-		padding: 3px 8px;
- 
-	}
-	a{
-		background: blue;
-		color: #fff;
-		padding: 8px 10px;
-		text-decoration: none;
-		border-radius: 2px;
-	}
+  	body{
+  		font-family: sans-serif;
+  	}
+  	table{
+  		margin: 20px auto;
+  		border-collapse: collapse;
+  	}
+  	table th,
+  	table td{
+  		border: 1px solid #3c3c3c;
+  		padding: 3px 8px;
+   
+  	}
+  	a{
+  		background: blue;
+  		color: #fff;
+  		padding: 8px 10px;
+  		text-decoration: none;
+  		border-radius: 2px;
+  	}
+    .str{ 
+      mso-number-format:\@; 
+    }
 	</style>
 	<?php
   	header("Content-type: application/vnd-ms-excel");
@@ -56,7 +59,7 @@
       ?>
       <tr>
         <td><?php echo $no++; ?></td>
-        <td><?php echo $row['nik']; ?></td>
+        <td class="str"><?php echo $row['nik']; ?></td>
         <td><?php echo $row['nama']; ?></td>
         <?php
           $tanggal = date('d', strtotime($row['tgl_lahir']));

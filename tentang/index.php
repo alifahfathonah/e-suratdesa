@@ -3,11 +3,12 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../assets/img/mini-logo.png">
 	<title>e-SuratDesa</title>
 	<link rel="stylesheet" href="../assets/fontawesome-5.10.2/css/all.css">
 	<link rel="stylesheet" href="../assets/bootstrap-4.3.1/dist/css/bootstrap.min.css">
 	<style type="text/css">
-		img{
+		.img-circle{
 			width: 150px;
 			height: 150px;
 			border-radius: 100%;
@@ -17,7 +18,7 @@
 <body class="bg-light">
 <div>
 	<navbar class="navbar navbar-expand-lg navbar-dark bg-info">
-	  	<a class="navbar-brand ml-4 mt-3" href="../" style="font-size:25pt">e-<b>SuratDesa</b></a>
+	  	<a class="navbar-brand ml-4 mt-1" href="../"><img src="../assets/img/e-SuratDesa.png"></a>
 	  	<button class="navbar-toggler mr-4 mt-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 	    	<span class="navbar-toggler-icon"></span>
 	  	</button>
@@ -76,15 +77,15 @@
 				<div class="row text-center">
 					<div class="col-md-3"></div>
 					<div class="col-md-2">
-						<img src="../assets/img/adi.jpg">
+						<img src="../assets/img/adi.jpg" class="img-circle">
 						<p class="text-muted"><b>Programmer</b></p>
 					</div>
 					<div class="col-md-2">
-						<img src="../assets/img/supri.jpg">
+						<img src="../assets/img/supri.jpg" class="img-circle">
 						<p class="text-muted"><b>Desain <i>Interface</i></b></p>
 					</div>
 					<div class="col-md-2">
-						<img src="../assets/img/ervan.jpg">
+						<img src="../assets/img/ervan.jpg" class="img-circle">
 						<p class="text-muted"><b>Analisis dan Perancangan</b></p>
 					</div>
 					<div class="col-md-3"></div>

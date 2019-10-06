@@ -103,19 +103,19 @@
                 <?php  
                   if($row['jenis_surat']=="Surat Keterangan"){
                 ?>
-                <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
                 <?php
                   } else if($row['jenis_surat']=="Surat Keterangan Berkelakuan Baik"){
                 ?>
-                <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_berkelakuan_baik/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_berkelakuan_baik/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
                 <?php
                   } else if($row['jenis_surat']=="Surat Keterangan Domisili"){
                 ?>
-                <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_domisili/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_domisili/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
                 <?php
                   } else if($row['jenis_surat']=="Surat Keterangan Usaha"){
                 ?>
-                <a name="cetak" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_usaha/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_usaha/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"> CETAK</i></a>
                 <?php
                   }
                 ?>

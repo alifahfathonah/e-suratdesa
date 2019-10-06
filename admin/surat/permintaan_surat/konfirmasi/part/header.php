@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="shortcut icon" href="../../../../../assets/img/mini-logo.png">
   <title>ADMIN | e-SuratDesa</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -27,8 +28,8 @@
 <div class="wrapper">
 	<header class="main-header">
   	<a href="../../../../../" class="logo" style="text-decoration:none">
-  		<span class="logo-mini">e-<b>SD</b></span>
-  		<span class="logo-lg">e-<b>SuratDesa</b></span>
+  		<span class="logo-mini"><img src="../../../../../assets/img/mini-logo.png"></span>
+      <span class="logo-lg"><img src="../../../../../assets/img/e-SuratDesa-mini.png"></span>
   	</a>
     <nav class="navbar navbar-static-top">
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">

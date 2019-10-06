@@ -147,8 +147,9 @@
                       <div class="col-sm-8">
                         <select name="fdusun" class="form-control" required>
                           <option value="">-- Dusun --</option>
-                          <option value="Dusun A">Dusun A</option>
-                          <option value="Dusun B">Dusun B</option>
+                          <option value="Babatan">Babatan</option>
+                          <option value="Bote">Bote</option>
+                          <option value="Kedawong">Kedawong</option>
                         </select>
                       </div>
                     </div>
@@ -171,6 +172,9 @@
                           <option value="001">001</option>
                           <option value="002">002</option>
                           <option value="003">003</option>
+                          <option value="004">004</option>
+                          <option value="005">005</option>
+                          <option value="006">006</option>
                         </select>
                       </div>
                     </div>
@@ -190,8 +194,16 @@
                         <select name="fpend_kk" class="form-control" required>
                           <option value="">-- Pendidikan di KK --</option>
                           <option value="SD/SEDERAJAT">SD/SEDERAJAT</option>
-                          <option value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
+                          <option value="SLTP/SEDERAJAT">SLTP/SEDERAJAT</option>
                           <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
+                          <option value="D1/SEDERAJAT">D1/SEDERAJAT</option>
+                          <option value="D2/SEDERAJAT">D2/SEDERAJAT</option>
+                          <option value="D3/SEDERAJAT">D3/SEDERAJAT</option>
+                          <option value="D4/SEDERAJAT">D4/SEDERAJAT</option>
+                          <option value="S1/SEDERAJAT">S1/SEDERAJAT</option>
+                          <option value="S2/SEDERAJAT">S2/SEDERAJAT</option>
+                          <option value="S3/SEDERAJAT">S3/SEDERAJAT</option>
+                          <option value="-">-</option>
                         </select>
                       </div>
                     </div>
@@ -201,8 +213,16 @@
                         <select name="fpend_terakhir" class="form-control" required>
                           <option value="">-- Pendidikan Terakhir --</option>
                           <option value="SD/SEDERAJAT">SD/SEDERAJAT</option>
-                          <option value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
+                          <option value="SLTP/SEDERAJAT">SLTP/SEDERAJAT</option>
                           <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
+                          <option value="D1/SEDERAJAT">D1/SEDERAJAT</option>
+                          <option value="D2/SEDERAJAT">D2/SEDERAJAT</option>
+                          <option value="D3/SEDERAJAT">D3/SEDERAJAT</option>
+                          <option value="D4/SEDERAJAT">D4/SEDERAJAT</option>
+                          <option value="S1/SEDERAJAT">S1/SEDERAJAT</option>
+                          <option value="S2/SEDERAJAT">S2/SEDERAJAT</option>
+                          <option value="S3/SEDERAJAT">S3/SEDERAJAT</option>
+                          <option value="-">-</option>
                         </select>
                       </div>
                     </div>
@@ -212,8 +232,16 @@
                         <select name="fpend_ditempuh" class="form-control" required>
                           <option value="">-- Pendidikan Ditempuh --</option>
                           <option value="SD/SEDERAJAT">SD/SEDERAJAT</option>
-                          <option value="SMP/SEDERAJAT">SMP/SEDERAJAT</option>
+                          <option value="SLTP/SEDERAJAT">SLTP/SEDERAJAT</option>
                           <option value="SLTA/SEDERAJAT">SLTA/SEDERAJAT</option>
+                          <option value="D1/SEDERAJAT">D1/SEDERAJAT</option>
+                          <option value="D2/SEDERAJAT">D2/SEDERAJAT</option>
+                          <option value="D3/SEDERAJAT">D3/SEDERAJAT</option>
+                          <option value="D4/SEDERAJAT">D4/SEDERAJAT</option>
+                          <option value="S1/SEDERAJAT">S1/SEDERAJAT</option>
+                          <option value="S2/SEDERAJAT">S2/SEDERAJAT</option>
+                          <option value="S3/SEDERAJAT">S3/SEDERAJAT</option>
+                          <option value="-">-</option>
                         </select>
                       </div>
                     </div>

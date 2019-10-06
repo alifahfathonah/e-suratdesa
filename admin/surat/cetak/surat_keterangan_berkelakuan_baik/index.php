@@ -12,6 +12,7 @@
 
 <html>
 <head>
+	<link rel="shortcut icon" href="../../../../assets/img/mini-logo.png">
 	<title>CETAK SURAT</title>
 	<link href="../../../../assets/formsuratCSS/formsurat.css" rel="stylesheet" type="text/css"/>
 	<style type="text/css" media="print">

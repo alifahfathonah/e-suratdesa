@@ -3,6 +3,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="assets/img/mini-logo.png">
 	<title>e-SuratDesa</title>
   	<link rel="stylesheet" href="assets/fontawesome-5.10.2/css/all.css">
 	<link rel="stylesheet" href="assets/bootstrap-4.3.1/dist/css/bootstrap.min.css">
@@ -20,7 +21,7 @@
 <body>
 <div>
 	<navbar class="navbar navbar-expand-lg navbar-dark bg-transparent">
-	  	<a class="navbar-brand ml-4 mt-3" href="#" style="font-size:25pt">e-<b>SuratDesa</b></a>
+	  	<a class="navbar-brand ml-4 mt-1" href="#"><img src="assets/img/e-SuratDesa.png"></a>
 	  	<button class="navbar-toggler mr-4 mt-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 	    	<span class="navbar-toggler-icon"></span>
 	  	</button>
