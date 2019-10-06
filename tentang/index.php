@@ -35,13 +35,14 @@
 	        		<a class="nav-link" href="#"><i class="fas fa-info-circle"></i>&nbsp;TENTANG <b>e-SuratDesa</b></a>
 	      		</li>
 	      		<li class="nav-item active ml-5">
-	        		<?php
+	      			<?php
 						session_start();
 
 						if(empty($_SESSION['username'])){
-						    echo '<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
+						    echo '<a class="btn btn-dark" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
 						}else if(isset($_SESSION['lvl'])){
 							echo '<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							echo '<a class="btn btn-transparent text-light" href="../login/logout.php"><i class="fas fa-power-off"></i></a>';
 						}
 					?>
 	      		</li>
