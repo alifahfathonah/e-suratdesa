@@ -35,8 +35,5 @@
                 header("location:index.php");
             }
         }
-
-
-
     }
 ?>
