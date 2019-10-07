@@ -44,7 +44,7 @@
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="#">
+            <a href="../../../permintaan_surat/">
               <i class="fa fa-circle-notch"></i> Permintaan Surat
             </a>
           </li>

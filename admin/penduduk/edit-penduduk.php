@@ -33,7 +33,7 @@
         </a>
       </li>
       <li class="active">
-        <a href="#">
+        <a href="../penduduk/">
           <i class="fa fa-users"></i><span>&nbsp;Data Penduduk</span>
         </a>
       </li>
