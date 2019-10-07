@@ -76,7 +76,7 @@
         <?php 
           if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
         ?>
-        <a name="cetak" target="output" class="btn btn-primary btn-md" href='cetak-laporan.php'><i class="fa fa-print"> Cetak Laporan</i></a>
+        <a name="cetak" target="output" class="btn btn-primary btn-md" href='cetak-laporan.php'><i class="fa fa-print"></i> Cetak Laporan</a>
         <?php  
           } else {
             
