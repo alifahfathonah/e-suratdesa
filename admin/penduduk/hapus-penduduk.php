@@ -7,6 +7,6 @@
 	if($qHapus){
 		header('location:index.php');
 	} else {
-		header('location:index.php?pesan=gagal');
+		header('location:index.php?pesan=gagal-menghapus');
 	}
 ?>

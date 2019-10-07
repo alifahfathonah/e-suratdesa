@@ -75,12 +75,15 @@
       <div class="col-md-12">
         <div>
           <?php 
-              if(isset($_GET['pesan'])){
-                    if($_GET['pesan']=="gagal"){
-                      echo "<div class='alert alert-danger'><center>Anda tidak bisa menghapus data tersebut.</center></div>";
-                  }
-                }
-            ?>
+            if(isset($_GET['pesan'])){
+              if($_GET['pesan']=="gagal-menambah"){
+                echo "<div class='alert alert-danger'><center>Anda tidak bisa menambah data. NIK tersebut sudah digunakan.</center></div>";
+              }
+              if($_GET['pesan']=="gagal-menghapus"){
+                echo "<div class='alert alert-danger'><center>Anda tidak bisa menghapus data tersebut.</center></div>";
+              }
+            }
+          ?>
         </div>
         <?php 
           if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
