@@ -1,8 +1,11 @@
 <?php
 	include ('../../config/koneksi.php');
 
+	$id = $_POST['id'];
 	$nik = $_POST['fnik'];
 	$nama = $_POST['fnama'];
+	$tempat_lahir = $_POST['ftempat_lahir'];
+	$tgl_lahir = $_POST['ftgl_lahir'];
 	$jenis_kelamin = $_POST['fjenis_kelamin'];
 	$agama = $_POST['fagama'];
 	$dusun = $_POST['fdusun'];
@@ -16,8 +19,11 @@
 	$status_perkawinan = $_POST['fstatus_perkawinan'];
 	$status_dlm_keluarga = $_POST['fstatus_dlm_keluarga'];
 	$kewarganegaraan = $_POST['fkewarganegaraan'];
+	$nama_ayah = $_POST['fnama_ayah'];
+	$nama_ibu = $_POST['fnama_ibu'];
+	$gol_darah = $_POST['fgol_darah'];
 
-	$qUpdate 	= "UPDATE penduduk SET nama='$nama', jenis_kelamin='$jenis_kelamin', agama='$agama', dusun='$dusun', rw='$rw', rt='$rt', no_kk='$no_kk', pend_kk='$pend_kk', pend_terakhir='$pend_terakhir', pend_ditempuh='$pend_ditempuh', pekerjaan='$pekerjaan', status_perkawinan='$status_perkawinan', status_dlm_keluarga='$status_dlm_keluarga', kewarganegaraan='$kewarganegaraan' WHERE nik='$nik'";
+	$qUpdate 	= "UPDATE penduduk SET nik = '$nik', nama='$nama', tempat_lahir='$tempat_lahir', tgl_lahir='$tgl_lahir', jenis_kelamin='$jenis_kelamin', agama='$agama', dusun='$dusun', rw='$rw', rt='$rt', no_kk='$no_kk', pend_kk='$pend_kk', pend_terakhir='$pend_terakhir', pend_ditempuh='$pend_ditempuh', pekerjaan='$pekerjaan', status_perkawinan='$status_perkawinan', status_dlm_keluarga='$status_dlm_keluarga', kewarganegaraan='$kewarganegaraan', nama_ayah='$nama_ayah', nama_ibu='$nama_ibu', gol_darah='$gol_darah' WHERE id_penduduk='$id'";
 	$update 	= mysqli_query($connect, $qUpdate);
 
 	if($update){

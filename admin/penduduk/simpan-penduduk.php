@@ -23,7 +23,7 @@
         $nama_ibu = $_POST['fnama_ibu'];
         $gol_darah = $_POST['fgol_darah'];
 
-        $qTambahPenduduk = "INSERT INTO penduduk VALUES('$nik' , '$nama' , '$tempat_lahir', '$tgl_lahir', '$jenis_kelamin', '$agama', '$dusun', '$rw', '$rt', '$no_kk', '$pend_kk', '$pend_terakhir', '$pend_ditempuh', '$pekerjaan', '$status_perkawinan', '$status_dlm_keluarga', '$kewarganegaraan', '$nama_ayah', '$nama_ibu', '$gol_darah')";
+        $qTambahPenduduk = "INSERT INTO penduduk VALUES(NULL, '$nik' , '$nama' , '$tempat_lahir', '$tgl_lahir', '$jenis_kelamin', '$agama', '$dusun', '$rw', '$rt', '$no_kk', '$pend_kk', '$pend_terakhir', '$pend_ditempuh', '$pekerjaan', '$status_perkawinan', '$status_dlm_keluarga', '$kewarganegaraan', '$nama_ayah', '$nama_ibu', '$gol_darah')";
         $TambahPenduduk = mysqli_query($connect, $qTambahPenduduk);
         header("location:index.php");
     }

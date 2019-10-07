@@ -154,8 +154,8 @@
                 if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
               ?>
               <td>
-                <a class="btn btn-success btn-sm" href='edit-penduduk.php?nik=<?php echo $row['nik']; ?>'><i class="fa fa-edit"></i></a>
-                <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?nik=<?php echo $row['nik']; ?>'><i class="fa fa-trash"></i></a>
+                <a class="btn btn-success btn-sm" href='edit-penduduk.php?id=<?php echo $row['id_penduduk']; ?>'><i class="fa fa-edit"></i></a>
+                <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?id=<?php echo $row['id_penduduk']; ?>'><i class="fa fa-trash"></i></a>
               </td>
               <?php  
                 } else {
