@@ -1,4 +1,5 @@
 <?php
+  include ('../../../config/koneksi.php');
   include ('../part/akses.php');
   include ('../part/header.php');
 ?>
@@ -83,48 +84,79 @@
           </thead>
           <tbody>
             <?php
-              include ('../../../config/koneksi.php');
-
-              $no = 1;
               $qTampil = mysqli_query($connect, "SELECT penduduk.nama, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='pending' 
                 UNION SELECT penduduk.nama, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='pending' 
                 UNION SELECT penduduk.nama, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='pending' 
                 UNION SELECT penduduk.nama, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='pending'");
-              foreach($qTampil as $row){
+                if ($qTampil->num_rows > 0){
+                  foreach ($qTampil as $row){ 
             ?>
-            <tr>
-              <td><?php echo $row['nik']; ?></td>
-              <td><?php echo $row['nama']; ?></td>
-              <td><?php echo $row['jenis_surat']; ?></td>
-              <td><a class="btn btn-danger btn-sm" href='#'><i class="fa fa-spinner"> <?php echo $row['status_surat']; ?></i></a></td>
-              <td><?php echo $row['tanggal_surat']; ?></td>
-              <td>
-                <?php  
-                  if($row['jenis_surat']=="Surat Keterangan"){
-                ?>
-                <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"> KONFIRMASI</i></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Berkelakuan Baik"){
-                ?>
-                <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_berkelakuan_baik/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"> KONFIRMASI</i></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Domisili"){
-                ?>
-                <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_domisili/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"> KONFIRMASI</i></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Usaha"){
-                ?>
-                <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_usaha/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"> KONFIRMASI</i></a>
-                <?php
-                  }
-                ?>
-              </td>
-            </tr>
-            <?php
-              }
+                    <tr>
+                      <td><?php echo $row['nik']; ?></td>
+                      <td><?php echo $row['nama']; ?></td>
+                      <td><?php echo $row['jenis_surat']; ?></td>
+                      <td><a class="btn btn-danger btn-sm" href='#'><i class="fa fa-spinner"> <?php echo $row['status_surat']; ?></i></a></td>
+                      <td><?php echo $row['tanggal_surat']; ?></td>
+                      <td><a href='#myModal' class='btn btn-primary btn-sm' data-toggle='modal' data-id="<?php echo $row['id_sk']; ?>"><i class="far fa-eye"></i></a>
+                        <?php  
+                          if($row['jenis_surat']=="Surat Keterangan"){
+                        ?>
+                        <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"> KONFIRMASI</i></a>
+                        <?php
+                          } else if($row['jenis_surat']=="Surat Keterangan Berkelakuan Baik"){
+                        ?>
+                        <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_berkelakuan_baik/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"> KONFIRMASI</i></a>
+                        <?php
+                          } else if($row['jenis_surat']=="Surat Keterangan Domisili"){
+                        ?>
+                        <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_domisili/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"> KONFIRMASI</i></a>
+                        <?php
+                          } else if($row['jenis_surat']=="Surat Keterangan Usaha"){
+                        ?>
+                        <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_usaha/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"> KONFIRMASI</i></a>
+                        <?php
+                          }
+                        ?>
+                      </td>
+                    </tr>
+            <?php 
+                  } 
+                }
             ?>
           </tbody>
         </table>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div class="fetched-data"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+              </div>
+            </div>
+          </div>
+        </div>
+   
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('#myModal').on('show.bs.modal', function (e){
+              var id_surat = $(e.relatedTarget).data('id');
+              $.ajax({
+                type : 'post',
+                url : 'detail-surat.php',
+                data :  'id_surat='+ id_surat,
+                success : function(data){
+                  $('.fetched-data').html(data);
+                }
+              });
+            });
+          });
+        </script>
       </div>
     </div>
   </section>
