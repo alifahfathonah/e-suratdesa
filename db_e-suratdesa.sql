@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Okt 2019 pada 15.14
--- Versi Server: 10.1.19-MariaDB
+-- Generation Time: Oct 13, 2019 at 08:55 AM
+-- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `login`
+-- Table structure for table `login`
 --
 
 CREATE TABLE `login` (
@@ -36,7 +36,7 @@ CREATE TABLE `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `login`
+-- Dumping data for table `login`
 --
 
 INSERT INTO `login` (`id`, `nama`, `username`, `email`, `password`, `level`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `login` (`id`, `nama`, `username`, `email`, `password`, `level`) VAL
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pejabat_desa`
+-- Table structure for table `pejabat_desa`
 --
 
 CREATE TABLE `pejabat_desa` (
@@ -57,7 +57,7 @@ CREATE TABLE `pejabat_desa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pejabat_desa`
+-- Dumping data for table `pejabat_desa`
 --
 
 INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `nik_pejabat_desa`, `jabatan`) VALUES
@@ -67,7 +67,7 @@ INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `nik_pejabat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penduduk`
+-- Table structure for table `penduduk`
 --
 
 CREATE TABLE `penduduk` (
@@ -95,10 +95,11 @@ CREATE TABLE `penduduk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `penduduk`
+-- Dumping data for table `penduduk`
 --
 
 INSERT INTO `penduduk` (`id_penduduk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `dusun`, `rw`, `rt`, `no_kk`, `pend_kk`, `pend_terakhir`, `pend_ditempuh`, `pekerjaan`, `status_perkawinan`, `status_dlm_keluarga`, `kewarganegaraan`, `nama_ayah`, `nama_ibu`, `gol_darah`) VALUES
+(13, '1927', 'a', 'a', '2019-10-03', 'Perempuan', 'aa', 'Babatan', '001', '001', 'a', 'SLTP/SEDERAJAT', 'SLTP/SEDERAJAT', 'SLTA/SEDERAJAT', 'a', 'Menikah', 'Ayah', 'WNA', 'a', 'a', 'A'),
 (9, '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang', '2000-02-11', 'Laki-laki', 'Islam', 'Babatan', '003', '006', '3517112233449999', 'SD/SEDERAJAT', 'SLTA/SEDERAJAT', 'SLTA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'Belum Menikah', 'Anak', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB'),
 (10, '3517112233440002', 'Supriyanto', 'Jombang', '2000-02-12', 'Laki-laki', 'Islam', 'Kedawong', '003', '006', '3517112233449999', 'SD/SEDERAJAT', 'SLTA/SEDERAJAT', 'SLTA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'Belum Menikah', 'Anak', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB'),
 (11, '3517112233440003', 'Ahmad Ervan Satria', 'Pontianak', '2000-02-13', 'Laki-laki', 'Islam', 'Bote', '003', '006', '3517112233449999', 'SD/SEDERAJAT', 'SLTA/SEDERAJAT', 'SLTA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'Belum Menikah', 'Anak', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB');
@@ -106,7 +107,7 @@ INSERT INTO `penduduk` (`id_penduduk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `profil_desa`
+-- Table structure for table `profil_desa`
 --
 
 CREATE TABLE `profil_desa` (
@@ -120,7 +121,7 @@ CREATE TABLE `profil_desa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `profil_desa`
+-- Dumping data for table `profil_desa`
 --
 
 INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`) VALUES
@@ -129,7 +130,7 @@ INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `kecamatan`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_keterangan`
+-- Table structure for table `surat_keterangan`
 --
 
 CREATE TABLE `surat_keterangan` (
@@ -145,10 +146,23 @@ CREATE TABLE `surat_keterangan` (
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `surat_keterangan`
+--
+
+INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(120, 'Surat Keterangan', '1927', '3517112233440001', NULL, 'Melamar Pekerjaan', '2020-01-01 17:56:22', 1, 'SELESAI', 1),
+(121, 'Surat Keterangan', '1927', '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-10 17:56:29', 2, 'SELESAI', 1),
+(122, 'Surat Keterangan', '1927', '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-12 18:10:04', 2, 'SELESAI', 1),
+(123, 'Surat Keterangan', '1927', '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-13 07:03:50', 1, 'SELESAI', 1),
+(124, 'Surat Keterangan', NULL, '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-13 13:38:35', NULL, 'PENDING', 1),
+(125, 'Surat Keterangan', NULL, '3517112233440003', NULL, 'Melamar Pekerjaan', '2019-10-13 13:45:19', NULL, 'PENDING', 1),
+(126, 'Surat Keterangan', NULL, '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-13 13:46:41', NULL, 'PENDING', 1);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_keterangan_berkelakuan_baik`
+-- Table structure for table `surat_keterangan_berkelakuan_baik`
 --
 
 CREATE TABLE `surat_keterangan_berkelakuan_baik` (
@@ -164,10 +178,20 @@ CREATE TABLE `surat_keterangan_berkelakuan_baik` (
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `surat_keterangan_berkelakuan_baik`
+--
+
+INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `jenis_surat`, `no_surat`, `nik`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Berkelakuan Baik', '1927', '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-12 09:10:17', 1, 'SELESAI', 1),
+(2, 'Surat Keterangan Berkelakuan Baik', '1927', '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-13 08:35:48', 1, 'SELESAI', 1),
+(3, 'Surat Keterangan Berkelakuan Baik', NULL, '3517112233440003', NULL, 'Melamar Pekerjaan', '2019-10-13 13:45:29', NULL, 'PENDING', 1),
+(4, 'Surat Keterangan Berkelakuan Baik', NULL, '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-13 13:48:40', NULL, 'PENDING', 1);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_keterangan_domisili`
+-- Table structure for table `surat_keterangan_domisili`
 --
 
 CREATE TABLE `surat_keterangan_domisili` (
@@ -183,10 +207,19 @@ CREATE TABLE `surat_keterangan_domisili` (
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `surat_keterangan_domisili`
+--
+
+INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `nik`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Domisili', '1927', '3517112233440001', NULL, 'Melamar Pekerjaan', '2020-02-01 02:00:56', 1, 'SELESAI', 1),
+(2, 'Surat Keterangan Domisili', NULL, '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-13 09:37:48', NULL, 'PENDING', 1),
+(3, 'Surat Keterangan Domisili', NULL, '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-13 13:47:24', NULL, 'PENDING', 1);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_keterangan_usaha`
+-- Table structure for table `surat_keterangan_usaha`
 --
 
 CREATE TABLE `surat_keterangan_usaha` (
@@ -201,6 +234,14 @@ CREATE TABLE `surat_keterangan_usaha` (
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_keterangan_usaha`
+--
+
+INSERT INTO `surat_keterangan_usaha` (`id_sku`, `jenis_surat`, `no_surat`, `nik`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Usaha', '1927', '3517112233440001', 'Toko BAngunan', 'Melamar Pekerjaan', '2019-10-13 02:01:06', 1, 'SELESAI', 1),
+(2, 'Surat Keterangan Usaha', NULL, '3517112233440001', 'Toko BAngunan', 'Melamar Pekerjaan', '2019-10-13 09:37:55', NULL, 'PENDING', 1);
 
 --
 -- Indexes for dumped tables
@@ -285,7 +326,7 @@ ALTER TABLE `pejabat_desa`
 -- AUTO_INCREMENT for table `penduduk`
 --
 ALTER TABLE `penduduk`
-  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `profil_desa`
 --
@@ -295,28 +336,28 @@ ALTER TABLE `profil_desa`
 -- AUTO_INCREMENT for table `surat_keterangan`
 --
 ALTER TABLE `surat_keterangan`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 --
 -- AUTO_INCREMENT for table `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
-  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `surat_keterangan_usaha`
 --
 ALTER TABLE `surat_keterangan_usaha`
-  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
+  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `surat_keterangan`
+-- Constraints for table `surat_keterangan`
 --
 ALTER TABLE `surat_keterangan`
   ADD CONSTRAINT `fi_id_profil_desa_sk` FOREIGN KEY (`id_profil_desa`) REFERENCES `profil_desa` (`id_profil_desa`) ON DELETE NO ACTION ON UPDATE CASCADE,
@@ -324,7 +365,7 @@ ALTER TABLE `surat_keterangan`
   ADD CONSTRAINT `fk_nik_sk` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `surat_keterangan_berkelakuan_baik`
+-- Constraints for table `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
   ADD CONSTRAINT `fi_id_profil_desa_skbb` FOREIGN KEY (`id_profil_desa`) REFERENCES `profil_desa` (`id_profil_desa`) ON DELETE NO ACTION ON UPDATE CASCADE,
@@ -332,7 +373,7 @@ ALTER TABLE `surat_keterangan_berkelakuan_baik`
   ADD CONSTRAINT `fk_nik_skbb` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `surat_keterangan_domisili`
+-- Constraints for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
   ADD CONSTRAINT `fi_id_profil_desa_skd` FOREIGN KEY (`id_profil_desa`) REFERENCES `profil_desa` (`id_profil_desa`) ON DELETE NO ACTION ON UPDATE CASCADE,
@@ -340,7 +381,7 @@ ALTER TABLE `surat_keterangan_domisili`
   ADD CONSTRAINT `fk_nik_skd` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `surat_keterangan_usaha`
+-- Constraints for table `surat_keterangan_usaha`
 --
 ALTER TABLE `surat_keterangan_usaha`
   ADD CONSTRAINT `fi_id_profil_desa_sku` FOREIGN KEY (`id_profil_desa`) REFERENCES `profil_desa` (`id_profil_desa`) ON DELETE NO ACTION ON UPDATE CASCADE,
