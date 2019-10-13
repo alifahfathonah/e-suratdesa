@@ -196,31 +196,31 @@
           if(isset($_GET['filter']) && ! empty($_GET['filter'])){
             $filter = $_GET['filter'];
             if($filter == '1'){
-              $query = "SELECT * FROM surat_keterangan WHERE status_surat='selesai' 
-                UNION SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' 
-                UNION SELECT * FROM surat_keterangan_domisili WHERE status_surat='selesai' 
-                UNION SELECT * FROM surat_keterangan_usaha WHERE status_surat='selesai' ORDER BY tanggal_surat";
+              $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' ORDER BY tanggal_surat";
             }else if($filter == '2'){
-              $query = "SELECT * FROM surat_keterangan WHERE status_surat='selesai' AND DATE(tanggal_surat)='{$_GET['tanggal']}'
-                UNION SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' AND DATE(tanggal_surat)='{$_GET['tanggal']}'
-                UNION SELECT * FROM surat_keterangan_domisili WHERE status_surat='selesai' AND DATE(tanggal_surat)='{$_GET['tanggal']}'
-                UNION SELECT * FROM surat_keterangan_usaha WHERE status_surat='selesai' AND DATE(tanggal_surat)='{$_GET['tanggal']}' ORDER BY tanggal_surat";
+              $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' AND DATE(surat_keterangan.tanggal_surat)='{$_GET['tanggal']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' AND DATE(surat_keterangan_berkelakuan_baik.tanggal_surat)='{$_GET['tanggal']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' AND DATE(surat_keterangan_domisili.tanggal_surat)='{$_GET['tanggal']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' AND DATE(surat_keterangan_usaha.tanggal_surat)='{$_GET['tanggal']}' ORDER BY tanggal_surat";
             }else if($filter == '3'){
-              $query = "SELECT * FROM surat_keterangan WHERE status_surat='selesai' AND MONTH(tanggal_surat)='{$_GET['bulan']}' AND YEAR(tanggal_surat)='{$_GET['tahun']}'
-                UNION SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' AND MONTH(tanggal_surat)='{$_GET['bulan']}' AND YEAR(tanggal_surat)='{$_GET['tahun']}'
-                UNION SELECT * FROM surat_keterangan_domisili WHERE status_surat='selesai' AND MONTH(tanggal_surat)='{$_GET['bulan']}' AND YEAR(tanggal_surat)='{$_GET['tahun']}'
-                UNION SELECT * FROM surat_keterangan_usaha WHERE status_surat='selesai' AND MONTH(tanggal_surat)='{$_GET['bulan']}' AND YEAR(tanggal_surat)='{$_GET['tahun']}' ORDER BY tanggal_surat";
+              $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' AND MONTH(surat_keterangan.tanggal_surat)='{$_GET['bulan']}' AND YEAR(surat_keterangan.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' AND MONTH(surat_keterangan_berkelakuan_baik.tanggal_surat)='{$_GET['bulan']}' AND YEAR(surat_keterangan_berkelakuan_baik.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' AND MONTH(surat_keterangan_domisili.tanggal_surat)='{$_GET['bulan']}' AND YEAR(surat_keterangan_domisili.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' AND MONTH(surat_keterangan_usaha.tanggal_surat)='{$_GET['bulan']}' AND YEAR(surat_keterangan_usaha.tanggal_surat)='{$_GET['tahun']}' ORDER BY tanggal_surat";
             }else if($filter == '4'){
-              $query = "SELECT * FROM surat_keterangan WHERE status_surat='selesai' AND YEAR(tanggal_surat)='{$_GET['tahun']}'
-                UNION SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' AND YEAR(tanggal_surat)='{$_GET['tahun']}'
-                UNION SELECT * FROM surat_keterangan_domisili WHERE status_surat='selesai' AND YEAR(tanggal_surat)='{$_GET['tahun']}'
-                UNION SELECT * FROM surat_keterangan_usaha WHERE status_surat='selesai' AND YEAR(tanggal_surat)='{$_GET['tahun']}' ORDER BY tanggal_surat";
+              $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' AND YEAR(surat_keterangan.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' AND YEAR(surat_keterangan_berkelakuan_baik.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' AND YEAR(surat_keterangan_domisili.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' AND YEAR(surat_keterangan_usaha.tanggal_surat)='{$_GET['tahun']}' ORDER BY tanggal_surat";
             }
           }else{
-            $query = "SELECT * FROM surat_keterangan WHERE status_surat='selesai' 
-              UNION SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' 
-              UNION SELECT * FROM surat_keterangan_domisili WHERE status_surat='selesai' 
-              UNION SELECT * FROM surat_keterangan_usaha WHERE status_surat='selesai' ORDER BY tanggal_surat";
+            $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' ORDER BY tanggal_surat";
           } 
         ?>
         <table class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
@@ -243,9 +243,9 @@
                   echo "<td>".$data['no_surat']."</td>";
                   $tgl = date('d-m-Y', strtotime($data['tanggal_surat']));
                   echo "<td>".$tgl."</td>";
-                  echo "<td>".$data['nik']."</td>";
+                  echo "<td>".$data['nama']."</td>";
                   echo "<td>".$data['jenis_surat']."</td>";
-                  echo "<td>".$data['nik']."</td>";
+                  echo "<td>Dsn. ".$data['dusun'].", RT".$data['rt']."/RW".$data['rw']."</td>";
                   echo "</tr>";
                 }
               }else{
