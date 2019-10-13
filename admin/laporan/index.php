@@ -1,7 +1,22 @@
 <?php
+  include ('../../config/koneksi.php');
   include ('../part/akses.php');
   include ('../part/header.php');
 ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type='text/javascript'>
+  $(window).load(function(){
+    $("#ktp").change(function() {
+      console.log($("#ktp option:selected").val());
+      if ($("#ktp option:selected").val() == 'Tidak Ada') {
+        $('#no_ktp').prop('hidden', 'true');
+      } else {
+        $('#no_ktp').prop('hidden', false);
+      }
+    });
+  });
+</script>
 
 <aside class="main-sidebar">
   <section class="sidebar">
@@ -64,7 +79,25 @@
 </aside>
 <div class="content-wrapper">
   <section class="content-header">
-    <h1>Laporan Surat Administrasi Desa - Surat Keluar</h1>
+    <?php
+      if(isset($_GET['filter']) && ! empty($_GET['filter'])){
+        $filter = $_GET['filter'];
+        if($filter == '1'){
+          echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar</h1>';
+        }else if($filter == '2'){
+          $tgl = date('d-m-y', strtotime($_GET['tanggal']));
+          echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar (Tanggal '.$tgl.')</b>';
+        }else if($filter == '3'){
+          $nama_bulan = array('', 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+          echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar (Bulan '.$nama_bulan[$_GET['bulan']].' '.$_GET['tahun'].')</b>';
+        }else if($filter == '4'){
+          echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar (Tahun '.$_GET['tahun'].')</b>';
+        }
+      }else{
+        echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar</h1>';
+      } 
+    ?>
+    <h1></h1>
     <ol class="breadcrumb">
       <li><a href="../dashboard/"><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
       <li class="active">Laporan</li>
@@ -73,68 +106,174 @@
   <section class="content">      
     <div class="row">
       <div class="col-md-12">
-        <?php 
-          if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+        <div class="col-md-9">
+          <?php
+            if(isset($_GET['filter']) && ! empty($_GET['filter'])){
+              $filter = $_GET['filter'];
+              if($filter == '1'){
+                echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php"><i class="fas fa-print"></i> Cetak Laporan</a>';
+              }else if($filter == '2'){
+                $tgl = date('d-m-y', strtotime($_GET['tanggal']));
+                echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php?filter=2&tanggal='.$_GET['tanggal'].'"><i class="fas fa-print"></i> Cetak Laporan</a>';
+              }else if($filter == '3'){
+                $nama_bulan = array('', 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+                echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php?filter=3&bulan='.$_GET['bulan'].'&tahun='.$_GET['tahun'].'"><i class="fas fa-print"></i> Cetak Laporan</a>';
+              }else if($filter == '4'){
+                echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php?filter=4&tahun='.$_GET['tahun'].'"><i class="fas fa-print"></i> Cetak Laporan</a>';
+              }
+            }else{
+              echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php"><i class="fas fa-print"></i> Cetak Laporan</a>';
+            }
+          ?>
+        </div>
+        <div class="col-md-3" align="right">
+          <a name="filter" target="output" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-filter"></i> Filter</a>
+          <a href="../laporan/" name="filter" class="btn btn-danger btn-md"><i class="fas fa-eraser"></i> Reset Filter</a>
+        </div><br>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form method="get" action="">
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label>Filter Berdasarkan</label>
+                    <select class="form-control" name="filter" id="filter">
+                      <option value="1">Semua Waktu</option>
+                      <option value="2">Per Tanggal</option>
+                      <option value="3">Per Bulan</option>
+                      <option value="4">Per Tahun</option>
+                    </select>
+                  </div>
+                  <div class="form-group" id="form-tanggal">
+                    <label>Tanggal</label><br>
+                    <input class="form-control" type="date" name="tanggal">
+                  </div>
+                  <div class="form-group" id="form-bulan">
+                    <label>Bulan</label><br>
+                    <select class="form-control" name="bulan">
+                      <option value="">Pilih</option>
+                      <option value="1">Januari</option>
+                      <option value="2">Februari</option>
+                      <option value="3">Maret</option>
+                      <option value="4">April</option>
+                      <option value="5">Mei</option>
+                      <option value="6">Juni</option>
+                      <option value="7">Juli</option>
+                      <option value="8">Agustus</option>
+                      <option value="9">September</option>
+                      <option value="10">Oktober</option>
+                      <option value="11">November</option>
+                      <option value="12">Desember</option>
+                    </select>
+                  </div>
+                  <div class="form-group" id="form-tahun">
+                    <label>Tahun</label><br>
+                    <select class="form-control" name="tahun">
+                      <option value="">Pilih</option>
+                      <?php
+                        $query = "SELECT YEAR(tanggal_surat) AS tahun FROM surat_keterangan GROUP BY YEAR(tanggal_surat)";
+                        $sql = mysqli_query($connect, $query);
+                        while($data = mysqli_fetch_array($sql)){
+                          echo '<option value="'.$data['tahun'].'">'.$data['tahun'].'</option>';
+                        }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Tampilkan</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div><br><br>
+        <?php
+          if(isset($_GET['filter']) && ! empty($_GET['filter'])){
+            $filter = $_GET['filter'];
+            if($filter == '1'){
+              $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' ORDER BY tanggal_surat";
+            }else if($filter == '2'){
+              $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' AND DATE(surat_keterangan.tanggal_surat)='{$_GET['tanggal']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' AND DATE(surat_keterangan_berkelakuan_baik.tanggal_surat)='{$_GET['tanggal']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' AND DATE(surat_keterangan_domisili.tanggal_surat)='{$_GET['tanggal']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' AND DATE(surat_keterangan_usaha.tanggal_surat)='{$_GET['tanggal']}' ORDER BY tanggal_surat";
+            }else if($filter == '3'){
+              $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' AND MONTH(surat_keterangan.tanggal_surat)='{$_GET['bulan']}' AND YEAR(surat_keterangan.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' AND MONTH(surat_keterangan_berkelakuan_baik.tanggal_surat)='{$_GET['bulan']}' AND YEAR(surat_keterangan_berkelakuan_baik.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' AND MONTH(surat_keterangan_domisili.tanggal_surat)='{$_GET['bulan']}' AND YEAR(surat_keterangan_domisili.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' AND MONTH(surat_keterangan_usaha.tanggal_surat)='{$_GET['bulan']}' AND YEAR(surat_keterangan_usaha.tanggal_surat)='{$_GET['tahun']}' ORDER BY tanggal_surat";
+            }else if($filter == '4'){
+              $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' AND YEAR(surat_keterangan.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' AND YEAR(surat_keterangan_berkelakuan_baik.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' AND YEAR(surat_keterangan_domisili.tanggal_surat)='{$_GET['tahun']}'
+                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' AND YEAR(surat_keterangan_usaha.tanggal_surat)='{$_GET['tahun']}' ORDER BY tanggal_surat";
+            }
+          }else{
+            $query = "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' 
+              UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai' ORDER BY tanggal_surat";
+          } 
         ?>
-        <a name="cetak" target="output" class="btn btn-primary btn-md" href='cetak-laporan.php'><i class="fa fa-print"></i> Cetak Laporan</a>
-        <?php  
-          } else {
-            
-          }
-        ?>
-        <br><br>
-        <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
+        <table class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th><strong>No. Surat</strong></th>
-              <th><strong>Tanggal</strong></th>
-              <th><strong>Nama</strong></th>
-              <th><strong>Jenis Surat</strong></th>
-              <th><strong>Alamat</strong></th>
+                <th>No. Surat</th>
+                <th>Tanggal</th>
+                <th>Nama</th>
+                <th>Jenis Surat</th>
+                <th>Alamat</th>
             </tr>
           </thead>
           <tbody>
             <?php
-              include ('../../config/koneksi.php');
-
-              $no = 1;
-              $qTampil = mysqli_query($connect, "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' 
-                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' 
-                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' 
-                UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_usaha.* FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai'");
-              foreach($qTampil as $row){
-            ?>
-            <tr>
-              <td><?php echo $row['no_surat']; ?></td>
-              <?php
-                $tanggal = date('d', strtotime($row['tanggal_surat']));
-                $bulan = date('F', strtotime($row['tanggal_surat']));
-                $tahun = date('Y', strtotime($row['tanggal_surat']));
-                $bulanIndo = array(
-                  'January' => 'Januari',
-                  'February' => 'Februari',
-                  'March' => 'Maret',
-                  'April' => 'April',
-                  'May' => 'Mei',
-                  'June' => 'Juni',
-                  'July' => 'Juli',
-                  'August' => 'Agustus',
-                  'September' => 'September',
-                  'October' => 'Oktober',
-                  'November' => 'November',
-                  'December' => 'Desember'
-                );
-              ?>
-              <td><?php echo $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?></td>
-              <td><?php echo $row['nama']; ?></td>
-              <td><?php echo $row['jenis_surat']; ?></td>
-              <td><?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?></td>
-            </tr>
-            <?php
+              $sql = mysqli_query($connect, $query);
+              $row = mysqli_num_rows($sql);
+              if($row > 0){
+                while($data = mysqli_fetch_array($sql)){
+                  echo "<tr>";
+                  echo "<td>".$data['no_surat']."</td>";
+                  $tgl = date('d-m-Y', strtotime($data['tanggal_surat']));
+                  echo "<td>".$tgl."</td>";
+                  echo "<td>".$data['nama']."</td>";
+                  echo "<td>".$data['jenis_surat']."</td>";
+                  echo "<td>Dsn. ".$data['dusun'].", RT".$data['rt']."/RW".$data['rw']."</td>";
+                  echo "</tr>";
+                }
+              }else{
+                echo "<tr><td colspan='5' align='center'>Data tidak ditemukan.</td></tr>";
               }
             ?>
           </tbody>
-        </table>
+        </table><br>
+        <script>
+          $(document).ready(function(){
+            $('#form-tanggal, #form-bulan, #form-tahun').hide();
+            $('#filter').change(function(){
+              if($(this).val() == '1'){
+                $('#form-tanggal, #form-bulan, #form-tahun').hide();
+              }else if($(this).val() == '2'){
+                $('#form-bulan, #form-tahun').hide();
+                $('#form-tanggal').show();
+              }else if($(this).val() == '3'){
+                $('#form-tanggal').hide();
+                $('#form-bulan, #form-tahun').show();
+              }else{
+                $('#form-tanggal, #form-bulan').hide();
+                $('#form-tahun').show();
+              }
+              $('#form-tanggal input, #form-bulan select, #form-tahun select').val('');
+            })
+          })
+        </script>
       </div>
     </div>
   </section>
