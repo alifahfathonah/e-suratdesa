@@ -7,24 +7,25 @@
 	<link rel="shortcut icon" href="../../assets/img/mini-logo.png">
 	<title>CETAK LAPORAN</title>
 	<style type="text/css" media="print">
-	    @page { margin: 0; }
-  		body { 
-  			margin-top: 2cm;
-  			margin-left: 2cm;
-  			margin-right: 2cm;
-  			margin-bottom: 2cm;
+	    @page {
+        margin: 2cm;
+        color: none;
+      }
+  		body {
   			font-family: "Times New Roman", Times, serif;
   		}
+      hr{
+      border-bottom: 1px solid #000000;
+      height:0px;
+    }
 	</style>
 </head>
 <body>
-	<div class="header">
-		<div align="center" style="font-size: 20pt;"><b>LAPORAN</b></div>
-		<div align="center" style="font-size: 20pt;"><b>SURAT ADMINISTRASI DESA - SURAT KELUAR</b></div>
-		<div align="center" style="font-size: 20pt;"><b>DESA KEDAWONG</b></div>
-		<hr>
-	</div><br>
-	<table width="100%" border="1" cellpadding="10" style="border-collapse:collapse;">
+  <div class="header">
+    <div align="center" style="font-size: 12pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Kedawong</b></div>
+    <hr>
+  </div><br>
+	<table width="100%" border="1" cellpadding="5" style="border-collapse:collapse;">
 		<thead>
             <tr>
               <th><strong>No. Surat</strong></th>
@@ -38,7 +39,6 @@
             <?php
               include ('../../config/koneksi.php');
 
-              $no = 1;
               $qTampil = mysqli_query($connect, "SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai' 
                 UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' 
                 UNION SELECT penduduk.nama, penduduk.dusun, penduduk.rw, penduduk.rt, surat_keterangan_domisili.* FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai' 
@@ -76,9 +76,9 @@
             ?>
           </tbody>
 	</table>
-<script>
-	window.print();
-</script>
+  <script>
+  	window.print();
+  </script>
 </body>
 </html>
 <?php  
