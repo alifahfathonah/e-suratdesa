@@ -19,6 +19,8 @@
 	    @page { margin: 0; }
   		body { 
   			margin: 1cm;
+  			margin-left: 2cm;
+  			margin-right: 2cm;
   			font-family: "Times New Roman", Times, serif;
   		}
 	</style>
@@ -36,7 +38,7 @@
 				<hr>
 			</div>
 		</div>
-		<br><br>
+		<br>
 		<div align="center"><u><h4 class="kop">SURAT KETERANGAN</h4></u></div>
 		<div align="center"><h4 class="kop3">Nomor :&nbsp;&nbsp;&nbsp;<?php echo $row['no_surat']; ?></h4></div>
 	</table>
@@ -121,7 +123,7 @@
 			</tr>
 		</table>
 	</div>
-	<br><br>
+	<br>
 	<table width="100%">
 		<tr></tr>
 		<tr></tr>
@@ -132,10 +134,11 @@
 		<tr></tr>
 		<tr></tr>
 		<tr>
-			<td width="23%"></td>
+			<td width="10%"></td>
 			<td width="30%"></td>
+			<td width="10%"></td>
 			<td align="center">
-				<?php echo $rows['kabupaten']; ?>, 
+				<?php echo $rows['nama_desa']; ?>, 
 				<?php
 					$tanggal = date('d F Y');
 					$bulan = date('F', strtotime($tanggal));
@@ -164,8 +167,9 @@
 		  	while($row = mysqli_fetch_array($qCek)){
 		?>
 		<tr>
-			<td width="23%"></td>
-			<td width="30%"></td>
+			<td></td>
+			<td></td>
+			<td></td>
 			<td align="center"><?php echo $row['jabatan'] . " " . $rows['nama_desa']; ?></td>
 		</tr>
 		<tr></tr>
@@ -209,7 +213,8 @@
 		<tr></tr>
 		<tr></tr>
 		<tr>
-			<td>
+			<td></td>
+			<td></td>
 			<td></td>
 			<td align="center"><b><?php echo $row['nama_pejabat_desa']; ?></b></td>
 		</tr>

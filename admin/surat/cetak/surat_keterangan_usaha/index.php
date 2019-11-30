@@ -3,7 +3,7 @@
   	include ('../../../../config/koneksi.php');
 
   	$id = $_GET['id'];
-  	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.atribut_umum, surat_keterangan_usaha.keperluan, surat_keterangan_usaha.id_pejabat_desa FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.id_sku='$id'");
+  	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.usaha, surat_keterangan_usaha.keperluan, surat_keterangan_usaha.id_pejabat_desa FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.id_sku='$id'");
   	while($row = mysqli_fetch_array($qCek)){
 
   		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
@@ -19,6 +19,8 @@
 	    @page { margin: 0; }
   		body { 
   			margin: 1cm;
+  			margin-left: 2cm;
+  			margin-right: 2cm;
   			font-family: "Times New Roman", Times, serif;
   		}
 	</style>
@@ -30,13 +32,13 @@
 		<div class="header">
 			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH KABUPATEN <?php echo $rows['kabupaten']; ?></h4>
 			<h4 class="kop" style="text-transform: uppercase">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
-			<h4 class="kop" style="text-transform: uppercase">DESA <?php echo $rows['nama_desa']; ?></h4>
-			<h5 class="kop2"><?php echo $rows['alamat']; ?> Ds. <?php echo $rows['nama_desa']; ?>, Kec. <?php echo $rows['kecamatan']; ?>, Kab. <?php echo $rows['kabupaten'] . " " . $rows['kode_pos']; ?></h5>
+			<h4 class="kop" style="text-transform: uppercase">KEPALA DESA <?php echo $rows['nama_desa']; ?></h4>
+			<h5 class="kop2"><?php echo $rows['alamat'] . " Telp. " . $rows['no_telpon'] . " Kode Pos " . $rows['kode_pos']; ?></h5>
 			<div style="text-align: center;">
 				<hr>
 			</div>
 		</div>
-		<br><br>
+		<br>
 		<div align="center"><u><h4 class="kop">SURAT KETERANGAN USAHA</h4></u></div>
 		<div align="center"><h4 class="kop3">Nomor :&nbsp;&nbsp;&nbsp;<?php echo $row['no_surat']; ?></h4></div>
 	</table>
@@ -45,19 +47,19 @@
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini Penjabat Kepala Desa <?php echo $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, Kabupaten <?php echo $rows['kabupaten']; ?>, Provinsi <?php echo $rows['provinsi']; ?> menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini, Kepala Desa <?php echo $rows['nama_desa']; ?> Kecamatan <?php echo $rows['kecamatan']; ?> Kabupaten <?php echo $rows['kabupaten']; ?>, menerangkan dengan sebenarnya bahwa :
 				</td>
 			</tr>
 		</table>
 		<br><br>
 		<table width="100%" class="indentasi">
 			<tr>
-				<td width="25%">NIK</td>
-				<td width="75%">:&nbsp;&nbsp;&nbsp;<?php echo $row['nik']; ?></td>
-			</tr>
-			<tr>
 				<td>N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['nama']; ?></td>
+			</tr>
+			<tr>
+				<td>Jenis Kelamin</td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['jenis_kelamin']; ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tgl_lahir']);
@@ -84,20 +86,20 @@
 				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
 			</tr>
 			<tr>
-				<td>Jenis Kelamin</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['jenis_kelamin']; ?></td>
-			</tr>
-			<tr>
-				<td>Alamat</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?></td>
-			</tr>
-			<tr>
 				<td>Agama</td>
 				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['agama']; ?></td>
 			</tr>
 			<tr>
 				<td>Pekerjaan</td>
 				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['pekerjaan']; ?></td>
+			</tr>
+			<tr>
+				<td width="25%">NIK</td>
+				<td width="75%">:&nbsp;&nbsp;&nbsp;<?php echo $row['nik']; ?></td>
+			</tr>
+			<tr>
+				<td>Alamat</td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?></td>
 			</tr>
 			<tr>
 				<td>Kewarganegaraan</td>
@@ -107,12 +109,40 @@
 		<br><br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Bahwa benar-benar penduduk kami Dusun <?php echo $row['dusun']; ?>, Desa <?php echo $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, Kabupaten <?php echo $rows['kabupaten']; ?>. Adapun Nama diatas benar-benar memiliki usaha <b><?php echo $row['atribut_umum']; ?></b>.</td>
+				<td><b><u>MENERANGKAN BAHWA :</u></b></td>
 			</tr>
 		</table><br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Surat Keterangan ini dipergunakan untuk <u><b><?php echo $row['keperluan']; ?></u></b></td>
+				<td width="2%"></td>
+				<td width="98%">&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Nama tersebut di atas benar-benar warga desa kami alamat tersebut di atas.</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Nama tersebut di atas benar-benar mempunyai usaha di *Alamat Usaha*.</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Usahanya berupa :</td>
+			</tr>
+		</table>
+		<table width="100%">
+			<tr>
+				<td class="indentasi" style="text-align:center; text-transform: uppercase;"><b><u><?php echo '"' . $row['usaha'] . '"'; ?></u></b></td>
+			</tr>
+		</table>
+		<table width="100%">
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr>
+				<td width="2%"></td>
+				<td width="98%">&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Surat Keterangan ini dipergunakan untuk :</td>
+			</tr>
+		</table>
+		<table width="100%">
+			<tr>
+				<td class="indentasi" style="text-align:center; text-transform: uppercase;"><b><u><?php echo '"' . $row['keperluan'] . '"'; ?></u></b></td>
 			</tr>
 		</table><br>
 		<table width="100%">
@@ -122,7 +152,7 @@
 			</tr>
 		</table>
 	</div>
-	<br><br>
+	<br>
 	<table width="100%">
 		<tr></tr>
 		<tr></tr>
@@ -133,10 +163,11 @@
 		<tr></tr>
 		<tr></tr>
 		<tr>
-			<td width="23%"></td>
+			<td width="10%"></td>
 			<td width="30%"></td>
+			<td width="10%"></td>
 			<td align="center">
-				<?php echo $rows['kabupaten']; ?>, 
+				<?php echo $rows['nama_desa']; ?>, 
 				<?php
 					$tanggal = date('d F Y');
 					$bulan = date('F', strtotime($tanggal));
@@ -162,12 +193,13 @@
 			$id_pejabat_desa = $row['id_pejabat_desa'];
 		  	$qCek = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_keterangan_usaha.id_pejabat_desa = '$id_pejabat_desa' AND surat_keterangan_usaha.id_sku='$id'");
 
-		  	while($row = mysqli_fetch_array($qCek)){
+		  	while($rowss = mysqli_fetch_array($qCek)){
 		?>
 		<tr>
-			<td width="23%"></td>
-			<td width="30%"></td>
-			<td align="center"><?php echo $row['jabatan']; ?> <?php echo $rows['nama_desa']; ?></td>
+			<td></td>
+			<td align="center">TTD. bersangkutan</td>
+			<td></td>
+			<td align="center"><?php echo $rowss['jabatan']; ?> <?php echo $rows['nama_desa']; ?></td>
 		</tr>
 		<tr></tr>
 		<tr></tr>
@@ -210,9 +242,10 @@
 		<tr></tr>
 		<tr></tr>
 		<tr>
-			<td>
 			<td></td>
-			<td align="center"><b><?php echo $row['nama_pejabat_desa']; ?></b></td>
+			<td align="center" style="text-transform: uppercase"><b><u><?php echo $row['nama']; ?></u></b></td>
+			<td></td>
+			<td align="center"><b><u><?php echo $rowss['nama_pejabat_desa']; ?></u></b></td>
 		</tr>
 		<?php 
 			} 
