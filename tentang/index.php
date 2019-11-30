@@ -56,10 +56,10 @@
 			<div class="card-body">
 				<div class="card-text">
 					<p>
-						<label style="font-weight: 700;font-size: 25px"><i class="fas fa-info-circle"></i> APLIKASI SURAT</label>
+						<label style="font-weight: 700;font-size: 25px"><i class="fas fa-info-circle"></i> APA ITU e-SuratDesa?</label>
 						<hr>
 						<blockquote>
-							Web Aplikasi untuk pelayanan surat administrasi desa yang dikembangkan oleh <b><a href="#" style="text-decoration:none">Kelompok 12 PI FTI UNHASY - 2019</a></b> untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
+							Web Aplikasi untuk pelayanan surat administrasi desa yang dikembangkan oleh <b><a href="#" style="text-decoration:none">adiidx</a></b> untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
 							<br>
 							<br>
 						</blockquote>
@@ -70,24 +70,12 @@
 					</p>
 					<hr>
 					<b>©</b> e-<b>SuratDesa</b> 2019. Hak Cipta Dilindungi.
-					<br>
-					<br>
-					Trademark By <b><a href="#" style="text-decoration:none">Kelompok 12 PI FTI UNHASY - 2019.</a></b>
 				</div>
 				<br><br><br>
 				<div class="row text-center">
-					<div class="col-md-3"></div>
-					<div class="col-md-2">
-						<img src="../assets/img/adi.jpg" class="img-circle">
-						<p class="text-muted"><b>Programmer</b></p>
-					</div>
-					<div class="col-md-2">
-						<img src="../assets/img/supri.jpg" class="img-circle">
-						<p class="text-muted"><b>Desain <i>Interface</i></b></p>
-					</div>
-					<div class="col-md-2">
-						<img src="../assets/img/ervan.jpg" class="img-circle">
-						<p class="text-muted"><b>Analisis dan Perancangan</b></p>
+					<div class="col-md-12">
+						<img src="../assets/img/adi.jpg" class="img-circle"><br><br>
+						<p class="text-muted">Trademark By <b><a href="#" style="text-decoration:none">adiidx.</a></b></p>
 					</div>
 					<div class="col-md-3"></div>
 				</div>

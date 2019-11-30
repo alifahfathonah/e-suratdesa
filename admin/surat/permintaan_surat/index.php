@@ -97,7 +97,7 @@
                       <td><?php echo $row['jenis_surat']; ?></td>
                       <td><a class="btn btn-danger btn-sm" href='#'><i class="fa fa-spinner"> <?php echo $row['status_surat']; ?></i></a></td>
                       <td><?php echo $row['tanggal_surat']; ?></td>
-                      <td><a href='#myModal' class='btn btn-primary btn-sm' data-toggle='modal' data-id="<?php echo $row['id_sk']; ?>"><i class="far fa-eye"></i></a>
+                      <td>
                         <?php  
                           if($row['jenis_surat']=="Surat Keterangan"){
                         ?>
@@ -125,38 +125,6 @@
             ?>
           </tbody>
         </table>
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <div class="fetched-data"></div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-              </div>
-            </div>
-          </div>
-        </div>
-   
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript">
-          $(document).ready(function(){
-            $('#myModal').on('show.bs.modal', function (e){
-              var id_surat = $(e.relatedTarget).data('id');
-              $.ajax({
-                type : 'post',
-                url : 'detail-surat.php',
-                data :  'id_surat='+ id_surat,
-                success : function(data){
-                  $('.fetched-data').html(data);
-                }
-              });
-            });
-          });
-        </script>
       </div>
     </div>
   </section>

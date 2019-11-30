@@ -30,8 +30,8 @@
 		<div class="header">
 			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH KABUPATEN <?php echo $rows['kabupaten']; ?></h4>
 			<h4 class="kop" style="text-transform: uppercase">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
-			<h4 class="kop" style="text-transform: uppercase">DESA <?php echo $rows['nama_desa']; ?></h4>
-			<h5 class="kop2"><?php echo $rows['alamat']; ?> Ds. <?php echo $rows['nama_desa']; ?>, Kec. <?php echo $rows['kecamatan']; ?>, Kab. <?php echo $rows['kabupaten'] . " " . $rows['kode_pos']; ?></h5>
+			<h4 class="kop" style="text-transform: uppercase">KEPALA DESA <?php echo $rows['nama_desa']; ?></h4>
+			<h5 class="kop2"><?php echo $rows['alamat'] . " Telp. " . $rows['no_telpon'] . " Kode Pos " . $rows['kode_pos']; ?></h5>
 			<div style="text-align: center;">
 				<hr>
 			</div>
@@ -45,19 +45,19 @@
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini Penjabat Kepala Desa <?php echo $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, Kabupaten <?php echo $rows['kabupaten']; ?>, Provinsi <?php echo $rows['provinsi']; ?>, menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini, Kepala Desa <?php echo $rows['nama_desa']; ?> Kecamatan <?php echo $rows['kecamatan']; ?> Kabupaten <?php echo $rows['kabupaten']; ?>, menerangkan dengan sebenarnya bahwa :
 				</td>
 			</tr>
 		</table>
 		<br><br>
 		<table width="100%" class="indentasi">
 			<tr>
-				<td width="25%">NIK</td>
-				<td width="75%">:&nbsp;&nbsp;&nbsp;<?php echo $row['nik']; ?></td>
-			</tr>
-			<tr>
 				<td>N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['nama']; ?></td>
+			</tr>
+			<tr>
+				<td>Jenis Kelamin</td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['jenis_kelamin']; ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tgl_lahir']);
@@ -84,20 +84,20 @@
 				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
 			</tr>
 			<tr>
-				<td>Jenis Kelamin</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['jenis_kelamin']; ?></td>
-			</tr>
-			<tr>
-				<td>Alamat</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?></td>
-			</tr>
-			<tr>
 				<td>Agama</td>
 				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['agama']; ?></td>
 			</tr>
 			<tr>
 				<td>Pekerjaan</td>
 				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['pekerjaan']; ?></td>
+			</tr>
+			<tr>
+				<td width="25%">NIK</td>
+				<td width="75%">:&nbsp;&nbsp;&nbsp;<?php echo $row['nik']; ?></td>
+			</tr>
+			<tr>
+				<td>Alamat</td>
+				<td>:&nbsp;&nbsp;&nbsp;<?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?></td>
 			</tr>
 			<tr>
 				<td>Kewarganegaraan</td>
