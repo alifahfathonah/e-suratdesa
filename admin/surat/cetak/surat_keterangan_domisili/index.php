@@ -30,7 +30,7 @@
 	<table width="100%">
 		<tr><img src="../../../../assets/img/logo-jombang-90x90.png" alt="" class="logo"></tr>
 		<div class="header">
-			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH KABUPATEN <?php echo $rows['kabupaten']; ?></h4>
+			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH KABUPATEN <?php echo $rows['kota']; ?></h4>
 			<h4 class="kop" style="text-transform: uppercase">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
 			<h4 class="kop" style="text-transform: uppercase">KEPALA DESA <?php echo $rows['nama_desa']; ?></h4>
 			<h5 class="kop2"><?php echo $rows['alamat'] . " Telp. " . $rows['no_telpon'] . " Kode Pos " . $rows['kode_pos']; ?></h5>
@@ -47,7 +47,7 @@
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini, Kepala Desa <?php echo $rows['nama_desa']; ?> Kecamatan <?php echo $rows['kecamatan']; ?> Kabupaten <?php echo $rows['kabupaten']; ?>, menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini, Kepala Desa <?php echo $rows['nama_desa']; ?> Kecamatan <?php echo $rows['kecamatan']; ?> Kabupaten <?php echo $rows['kota']; ?>, menerangkan dengan sebenarnya bahwa :
 				</td>
 			</tr>
 		</table>
@@ -109,7 +109,7 @@
 		<br><br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Bahwa benar-benar penduduk kami Dusun <?php echo $row['dusun']; ?>, Desa <?php echo $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, Kabupaten <?php echo $rows['kabupaten']; ?>. Bahwa nama yang bersangkutan berdomisili di <b><u><?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?></u></b>.</td>
+				<td class="indentasi">Bahwa benar-benar penduduk kami Dusun <?php echo $row['dusun']; ?>, Desa <?php echo $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, Kabupaten <?php echo $rows['kota']; ?>. Bahwa nama yang bersangkutan berdomisili di <b><u><?php echo "Dusun. " . $row['dusun'] . ", RT" . $row['rt'] . "/RW" . $row['rw']; ?></u></b>.</td>
 			</tr>
 		</table><br>
 		<table width="100%">
