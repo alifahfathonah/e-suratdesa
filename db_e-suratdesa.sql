@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2019 at 08:55 AM
+-- Generation Time: Dec 06, 2019 at 07:06 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -61,8 +61,8 @@ CREATE TABLE `pejabat_desa` (
 --
 
 INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `nik_pejabat_desa`, `jabatan`) VALUES
-(1, 'NUR SALIM, S.S., S.IP.', '3517081412970002', 'PJ Kepala Desa'),
-(2, 'ALI MAHFUD, S.Pd.', '3517081412970003', 'Sekretaris Desa');
+(1, 'h. moh. saifuddin', '3517081412970002', 'kepala desa'),
+(2, 'slamet fitrianto', '3517081412970003', 'plt. kepala desa');
 
 -- --------------------------------------------------------
 
@@ -78,9 +78,13 @@ CREATE TABLE `penduduk` (
   `tgl_lahir` date NOT NULL,
   `jenis_kelamin` varchar(10) NOT NULL,
   `agama` varchar(15) NOT NULL,
+  `jalan` varchar(50) NOT NULL,
   `dusun` varchar(50) NOT NULL,
-  `rw` varchar(5) NOT NULL,
   `rt` varchar(5) NOT NULL,
+  `rw` varchar(5) NOT NULL,
+  `desa` varchar(50) NOT NULL,
+  `kecamatan` varchar(50) NOT NULL,
+  `kota` varchar(50) NOT NULL,
   `no_kk` varchar(20) NOT NULL,
   `pend_kk` varchar(20) NOT NULL,
   `pend_terakhir` varchar(20) NOT NULL,
@@ -98,11 +102,8 @@ CREATE TABLE `penduduk` (
 -- Dumping data for table `penduduk`
 --
 
-INSERT INTO `penduduk` (`id_penduduk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `dusun`, `rw`, `rt`, `no_kk`, `pend_kk`, `pend_terakhir`, `pend_ditempuh`, `pekerjaan`, `status_perkawinan`, `status_dlm_keluarga`, `kewarganegaraan`, `nama_ayah`, `nama_ibu`, `gol_darah`) VALUES
-(13, '1927', 'a', 'a', '2019-10-03', 'Perempuan', 'aa', 'Babatan', '001', '001', 'a', 'SLTP/SEDERAJAT', 'SLTP/SEDERAJAT', 'SLTA/SEDERAJAT', 'a', 'Menikah', 'Ayah', 'WNA', 'a', 'a', 'A'),
-(9, '3517112233440001', 'Adi Fahrian Hidayat', 'Jombang', '2000-02-11', 'Laki-laki', 'Islam', 'Babatan', '003', '006', '3517112233449999', 'SD/SEDERAJAT', 'SLTA/SEDERAJAT', 'SLTA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'Belum Menikah', 'Anak', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB'),
-(10, '3517112233440002', 'Supriyanto', 'Jombang', '2000-02-12', 'Laki-laki', 'Islam', 'Kedawong', '003', '006', '3517112233449999', 'SD/SEDERAJAT', 'SLTA/SEDERAJAT', 'SLTA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'Belum Menikah', 'Anak', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB'),
-(11, '3517112233440003', 'Ahmad Ervan Satria', 'Pontianak', '2000-02-13', 'Laki-laki', 'Islam', 'Bote', '003', '006', '3517112233449999', 'SD/SEDERAJAT', 'SLTA/SEDERAJAT', 'SLTA/SEDERAJAT', 'PELAJAR/MAHASISWA', 'Belum Menikah', 'Anak', 'WNI', 'AYAAAAAH', 'IBUUUUU', 'AB');
+INSERT INTO `penduduk` (`id_penduduk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `jalan`, `dusun`, `rt`, `rw`, `desa`, `kecamatan`, `kota`, `no_kk`, `pend_kk`, `pend_terakhir`, `pend_ditempuh`, `pekerjaan`, `status_perkawinan`, `status_dlm_keluarga`, `kewarganegaraan`, `nama_ayah`, `nama_ibu`, `gol_darah`) VALUES
+(9, '3517112233440001', 'adi fahrian hidayat', 'jombang', '2000-02-11', 'laki-laki', 'islam', 'jl. sate ayam no. 49', 'menturus', '003', '006', 'menturus', 'kudu', 'kabupaten jombang', '3517112233449999', 'sd/sederajat', 'sd/sederajat', 'sd/sederajat', 'pelajar/mahasiswa', 'belum menikah', 'anak', 'wni', 'ayaaah', 'ibuuu', 'ab');
 
 -- --------------------------------------------------------
 
@@ -114,8 +115,9 @@ CREATE TABLE `profil_desa` (
   `id_profil_desa` int(11) NOT NULL,
   `nama_desa` varchar(50) NOT NULL,
   `alamat` varchar(100) NOT NULL,
+  `no_telpon` varchar(20) NOT NULL,
   `kecamatan` varchar(50) NOT NULL,
-  `kabupaten` varchar(50) NOT NULL,
+  `kota` varchar(50) NOT NULL,
   `provinsi` varchar(20) NOT NULL,
   `kode_pos` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -124,8 +126,8 @@ CREATE TABLE `profil_desa` (
 -- Dumping data for table `profil_desa`
 --
 
-INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`) VALUES
-(1, 'Kedawong', 'Jl. Gajahmada No. 49', 'Diwek', 'Jombang', 'Jawa Timur', '61471');
+INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `no_telpon`, `kecamatan`, `kota`, `provinsi`, `kode_pos`) VALUES
+(1, 'menturus', 'jl. moestopo no. 05', '082330827777', 'kudu', 'kabupaten jombang', 'jawa timur', '61454');
 
 -- --------------------------------------------------------
 
@@ -138,7 +140,6 @@ CREATE TABLE `surat_keterangan` (
   `jenis_surat` varchar(50) NOT NULL,
   `no_surat` varchar(20) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
-  `atribut_umum` varchar(30) DEFAULT NULL,
   `keperluan` varchar(50) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_pejabat_desa` int(11) DEFAULT NULL,
@@ -150,14 +151,8 @@ CREATE TABLE `surat_keterangan` (
 -- Dumping data for table `surat_keterangan`
 --
 
-INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(120, 'Surat Keterangan', '1927', '3517112233440001', NULL, 'Melamar Pekerjaan', '2020-01-01 17:56:22', 1, 'SELESAI', 1),
-(121, 'Surat Keterangan', '1927', '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-10 17:56:29', 2, 'SELESAI', 1),
-(122, 'Surat Keterangan', '1927', '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-12 18:10:04', 2, 'SELESAI', 1),
-(123, 'Surat Keterangan', '1927', '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-13 07:03:50', 1, 'SELESAI', 1),
-(124, 'Surat Keterangan', NULL, '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-13 13:38:35', NULL, 'PENDING', 1),
-(125, 'Surat Keterangan', NULL, '3517112233440003', NULL, 'Melamar Pekerjaan', '2019-10-13 13:45:19', NULL, 'PENDING', 1),
-(126, 'Surat Keterangan', NULL, '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-13 13:46:41', NULL, 'PENDING', 1);
+INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(127, 'Surat Keterangan', '1', '3517112233440001', 'melamar pekerjaan', '2019-12-06 15:44:10', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -170,7 +165,6 @@ CREATE TABLE `surat_keterangan_berkelakuan_baik` (
   `jenis_surat` varchar(50) NOT NULL,
   `no_surat` varchar(20) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
-  `atribut_umum` varchar(30) DEFAULT NULL,
   `keperluan` varchar(50) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_pejabat_desa` int(11) DEFAULT NULL,
@@ -182,11 +176,8 @@ CREATE TABLE `surat_keterangan_berkelakuan_baik` (
 -- Dumping data for table `surat_keterangan_berkelakuan_baik`
 --
 
-INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `jenis_surat`, `no_surat`, `nik`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Keterangan Berkelakuan Baik', '1927', '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-12 09:10:17', 1, 'SELESAI', 1),
-(2, 'Surat Keterangan Berkelakuan Baik', '1927', '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-13 08:35:48', 1, 'SELESAI', 1),
-(3, 'Surat Keterangan Berkelakuan Baik', NULL, '3517112233440003', NULL, 'Melamar Pekerjaan', '2019-10-13 13:45:29', NULL, 'PENDING', 1),
-(4, 'Surat Keterangan Berkelakuan Baik', NULL, '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-13 13:48:40', NULL, 'PENDING', 1);
+INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(4, 'Surat Keterangan Berkelakuan Baik', '2', '3517112233440001', 'melamar pekerjaan', '2019-12-06 15:44:17', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -199,7 +190,6 @@ CREATE TABLE `surat_keterangan_domisili` (
   `jenis_surat` varchar(50) NOT NULL,
   `no_surat` varchar(20) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
-  `atribut_umum` varchar(30) DEFAULT NULL,
   `keperluan` varchar(50) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_pejabat_desa` int(11) DEFAULT NULL,
@@ -211,10 +201,81 @@ CREATE TABLE `surat_keterangan_domisili` (
 -- Dumping data for table `surat_keterangan_domisili`
 --
 
-INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `nik`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Keterangan Domisili', '1927', '3517112233440001', NULL, 'Melamar Pekerjaan', '2020-02-01 02:00:56', 1, 'SELESAI', 1),
-(2, 'Surat Keterangan Domisili', NULL, '3517112233440002', NULL, 'Melamar Pekerjaan', '2019-10-13 09:37:48', NULL, 'PENDING', 1),
-(3, 'Surat Keterangan Domisili', NULL, '3517112233440001', NULL, 'Melamar Pekerjaan', '2019-10-13 13:47:24', NULL, 'PENDING', 1);
+INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(4, 'Surat Keterangan Domisili', '3', '3517112233440001', 'melamar pekerjaan', '2019-12-06 15:44:25', 1, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
+--
+
+CREATE TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor` (
+  `id_skkkb` int(11) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `no_surat` varchar(20) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `roda` varchar(20) NOT NULL,
+  `merk_type` varchar(30) DEFAULT NULL,
+  `jenis_model` varchar(30) DEFAULT NULL,
+  `tahun_pembuatan` varchar(30) DEFAULT NULL,
+  `cc` varchar(30) DEFAULT NULL,
+  `warna_cat` varchar(30) NOT NULL,
+  `no_rangka` varchar(30) NOT NULL,
+  `no_mesin` varchar(30) NOT NULL,
+  `no_polisi` varchar(30) NOT NULL,
+  `no_bpkb` varchar(30) NOT NULL,
+  `atas_nama_pemilik` varchar(30) NOT NULL,
+  `jalan_pemilik` varchar(50) NOT NULL,
+  `dusun_pemilik` varchar(50) NOT NULL,
+  `rt_pemilik` varchar(5) NOT NULL,
+  `rw_pemilik` varchar(5) NOT NULL,
+  `desa_pemilik` varchar(50) NOT NULL,
+  `kecamatan_pemilik` varchar(50) NOT NULL,
+  `kota_pemilik` varchar(50) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
+--
+
+INSERT INTO `surat_keterangan_kepemilikan_kendaraan_bermotor` (`id_skkkb`, `jenis_surat`, `no_surat`, `nik`, `roda`, `merk_type`, `jenis_model`, `tahun_pembuatan`, `cc`, `warna_cat`, `no_rangka`, `no_mesin`, `no_polisi`, `no_bpkb`, `atas_nama_pemilik`, `jalan_pemilik`, `dusun_pemilik`, `rt_pemilik`, `rw_pemilik`, `desa_pemilik`, `kecamatan_pemilik`, `kota_pemilik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Kepemilikan Kendaraan Bermotor', '5', '3517112233440001', '2 (dua)', 'honda', 'sepeda motor', '2017', '1900', 'pink', 'asd12345', 'asd12345', 's 0000 s', 'asd123', 'john takpor', 'jl. soto no. 13', 'menturus', '002', '003', 'menturus', 'kudu', 'kabupaten jombang', 'peminjaman', '2019-12-06 15:50:25', 1, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_perhiasan`
+--
+
+CREATE TABLE `surat_keterangan_perhiasan` (
+  `id_skp` int(11) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `no_surat` varchar(20) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `jenis_perhiasan` varchar(20) NOT NULL,
+  `perhiasan` varchar(50) NOT NULL,
+  `berat` varchar(5) NOT NULL,
+  `toko_perhiasan` varchar(50) NOT NULL,
+  `tempat_toko_perhiasan` varchar(50) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_keterangan_perhiasan`
+--
+
+INSERT INTO `surat_keterangan_perhiasan` (`id_skp`, `jenis_surat`, `no_surat`, `nik`, `jenis_perhiasan`, `perhiasan`, `berat`, `toko_perhiasan`, `tempat_toko_perhiasan`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Perhiasan', '6', '3517112233440001', 'emas', 'cincin', '3', 'sumber makmur', 'planet namex', 'penjualan perhiasan', '2019-12-06 18:23:46', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -227,7 +288,14 @@ CREATE TABLE `surat_keterangan_usaha` (
   `jenis_surat` varchar(50) NOT NULL,
   `no_surat` varchar(20) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
-  `atribut_umum` varchar(30) DEFAULT NULL,
+  `usaha` varchar(30) DEFAULT NULL,
+  `jalan_usaha` varchar(50) NOT NULL,
+  `dusun_usaha` varchar(50) NOT NULL,
+  `rt_usaha` varchar(5) NOT NULL,
+  `rw_usaha` varchar(5) NOT NULL,
+  `desa_usaha` varchar(50) NOT NULL,
+  `kecamatan_usaha` varchar(50) NOT NULL,
+  `kota_usaha` varchar(50) NOT NULL,
   `keperluan` varchar(50) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_pejabat_desa` int(11) DEFAULT NULL,
@@ -239,9 +307,76 @@ CREATE TABLE `surat_keterangan_usaha` (
 -- Dumping data for table `surat_keterangan_usaha`
 --
 
-INSERT INTO `surat_keterangan_usaha` (`id_sku`, `jenis_surat`, `no_surat`, `nik`, `atribut_umum`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Keterangan Usaha', '1927', '3517112233440001', 'Toko BAngunan', 'Melamar Pekerjaan', '2019-10-13 02:01:06', 1, 'SELESAI', 1),
-(2, 'Surat Keterangan Usaha', NULL, '3517112233440001', 'Toko BAngunan', 'Melamar Pekerjaan', '2019-10-13 09:37:55', NULL, 'PENDING', 1);
+INSERT INTO `surat_keterangan_usaha` (`id_sku`, `jenis_surat`, `no_surat`, `nik`, `usaha`, `jalan_usaha`, `dusun_usaha`, `rt_usaha`, `rw_usaha`, `desa_usaha`, `kecamatan_usaha`, `kota_usaha`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(3, 'Surat Keterangan Usaha', '4', '3517112233440001', 'toko bangunan', 'jl. gule no. 12', 'menturus', '003', '002', 'menturus', 'kudu', 'kabupaten jombang', 'peminjaman', '2019-12-06 15:46:37', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_lapor_hajatan`
+--
+
+CREATE TABLE `surat_lapor_hajatan` (
+  `id_slh` int(11) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `no_surat` varchar(20) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `bukti_ktp` varchar(30) DEFAULT NULL,
+  `bukti_kk` varchar(30) DEFAULT NULL,
+  `jenis_hajat` varchar(30) NOT NULL,
+  `status_hubungan` varchar(20) NOT NULL,
+  `hari` varchar(20) NOT NULL,
+  `tanggal` datetime NOT NULL,
+  `jenis_hiburan` varchar(50) NOT NULL,
+  `pemilik` varchar(30) NOT NULL,
+  `jalan_pemilik` varchar(50) NOT NULL,
+  `dusun_pemilik` varchar(50) NOT NULL,
+  `rt_pemilik` varchar(5) NOT NULL,
+  `rw_pemilik` varchar(5) NOT NULL,
+  `desa_pemilik` varchar(50) NOT NULL,
+  `kecamatan_pemilik` varchar(50) NOT NULL,
+  `kota_pemilik` varchar(50) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_lapor_hajatan`
+--
+
+INSERT INTO `surat_lapor_hajatan` (`id_slh`, `jenis_surat`, `no_surat`, `nik`, `bukti_ktp`, `bukti_kk`, `jenis_hajat`, `status_hubungan`, `hari`, `tanggal`, `jenis_hiburan`, `pemilik`, `jalan_pemilik`, `dusun_pemilik`, `rt_pemilik`, `rw_pemilik`, `desa_pemilik`, `kecamatan_pemilik`, `kota_pemilik`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Lapor Hajatan', '7', '3517112233440001', '3517112233440001', '-', 'pernikahan', 'anak', 'senin', '2019-12-09 00:00:00', 'debus', 'john takpor', 'jl. kare ayam no. 14', 'menturus', '002', '003', 'menturus', 'kudu', 'kabupaten jombang', '2019-12-06 18:24:56', 1, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_pengantar_skck`
+--
+
+CREATE TABLE `surat_pengantar_skck` (
+  `id_sps` int(11) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `no_surat` varchar(20) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `bukti_ktp` varchar(30) DEFAULT NULL,
+  `bukti_kk` varchar(30) DEFAULT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `keterangan` varchar(50) NOT NULL,
+  `masa_berlaku` varchar(20) DEFAULT NULL,
+  `tanggal_surat` datetime DEFAULT CURRENT_TIMESTAMP,
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_pengantar_skck`
+--
+
+INSERT INTO `surat_pengantar_skck` (`id_sps`, `jenis_surat`, `no_surat`, `nik`, `bukti_ktp`, `bukti_kk`, `keperluan`, `keterangan`, `masa_berlaku`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Pengantar SKCK', '8', '3517112233440001', '3517112233440001', '-', 'permohonan skck', 'persyaratan melamar pekerjaan', '-', '2019-12-06 18:26:32', 2, 'SELESAI', 1);
 
 --
 -- Indexes for dumped tables
@@ -300,6 +435,18 @@ ALTER TABLE `surat_keterangan_domisili`
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
 
 --
+-- Indexes for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
+--
+ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
+  ADD PRIMARY KEY (`id_skkkb`);
+
+--
+-- Indexes for table `surat_keterangan_perhiasan`
+--
+ALTER TABLE `surat_keterangan_perhiasan`
+  ADD PRIMARY KEY (`id_skp`);
+
+--
 -- Indexes for table `surat_keterangan_usaha`
 --
 ALTER TABLE `surat_keterangan_usaha`
@@ -307,6 +454,18 @@ ALTER TABLE `surat_keterangan_usaha`
   ADD KEY `idx_nik` (`nik`),
   ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_lapor_hajatan`
+--
+ALTER TABLE `surat_lapor_hajatan`
+  ADD PRIMARY KEY (`id_slh`);
+
+--
+-- Indexes for table `surat_pengantar_skck`
+--
+ALTER TABLE `surat_pengantar_skck`
+  ADD PRIMARY KEY (`id_sps`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -326,7 +485,7 @@ ALTER TABLE `pejabat_desa`
 -- AUTO_INCREMENT for table `penduduk`
 --
 ALTER TABLE `penduduk`
-  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `profil_desa`
 --
@@ -336,7 +495,7 @@ ALTER TABLE `profil_desa`
 -- AUTO_INCREMENT for table `surat_keterangan`
 --
 ALTER TABLE `surat_keterangan`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 --
 -- AUTO_INCREMENT for table `surat_keterangan_berkelakuan_baik`
 --
@@ -346,12 +505,32 @@ ALTER TABLE `surat_keterangan_berkelakuan_baik`
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
+--
+ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
+  MODIFY `id_skkkb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `surat_keterangan_perhiasan`
+--
+ALTER TABLE `surat_keterangan_perhiasan`
+  MODIFY `id_skp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `surat_keterangan_usaha`
 --
 ALTER TABLE `surat_keterangan_usaha`
-  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `surat_lapor_hajatan`
+--
+ALTER TABLE `surat_lapor_hajatan`
+  MODIFY `id_slh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `surat_pengantar_skck`
+--
+ALTER TABLE `surat_pengantar_skck`
+  MODIFY `id_sps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --

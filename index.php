@@ -63,7 +63,7 @@
         foreach($qTampilDesa as $row){
     ?>
 	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong><br>
-	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong>KABUPATEN <?php echo $row['kabupaten']; ?></strong></a><hr>
+	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong><?php echo $row['kota']; ?></strong></a><hr>
 	<?php  
 		}
 	?>
