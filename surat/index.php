@@ -85,7 +85,7 @@
 		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</h5>
-		        		<a href="#" class="btn btn-info">BUAT SURAT</a>
+		        		<a href="surat_keterangan_kepemilikan_kendaraan_bermotor/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -94,7 +94,7 @@
 		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN PERHIASAN</h5><br>
-		        		<a href="#" class="btn btn-info">BUAT SURAT</a>
+		        		<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -112,7 +112,7 @@
 		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT LAPOR HAJATAN</h5><br><br>
-		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
+		        		<a href="surat_lapor_hajatan/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -121,7 +121,7 @@
 		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT PENGANTAR SKCK</h5><br><br>
-		        		<a href="#" class="btn btn-info">BUAT SURAT</a>
+		        		<a href="surat_pengantar_skck/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
 		  	</div>

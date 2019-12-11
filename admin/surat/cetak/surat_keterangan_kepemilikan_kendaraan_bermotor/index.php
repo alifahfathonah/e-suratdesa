@@ -118,50 +118,56 @@
 				</td>
 			</tr>
 		</table>
-		<table width="100%" class="indentasi">
+		<table width="100%">
 			<tr>
-				<td width="30%">Merk / Type</td>
-				<td width="70%" style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<?php echo $row['merk_type']; ?></td>
+				<td width="35%" class="indentasi">Merk / Type</td>
+				<td width="2%">:</td>
+				<td width="63%" style="text-transform: uppercase;"><?php echo $row['merk_type']; ?></td>
 			</tr>
 			<tr>
-				<td>Jenis Model</td>
-				<td style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<?php echo $row['jenis_model']; ?></td>
+				<td class="indentasi">Jenis Model</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo $row['jenis_model']; ?></td>
 			</tr>
 			<tr>
-				<td>Tahun Pembuatan / CC</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['tahun_pembuatan'] . "/" . $row['cc']; ?></td>
+				<td class="indentasi">Tahun Pembuatan / CC</td>
+				<td>:</td>
+				<td><?php echo $row['tahun_pembuatan'] . "/" . $row['cc']; ?></td>
 			</tr>
 			<tr>
-				<td>Warna Cat</td>
-				<td style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<?php echo $row['warna_cat']; ?></td>
+				<td class="indentasi">Warna Cat</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo $row['warna_cat']; ?></td>
 			</tr>
 			<tr>
-				<td>No. Rangka</td>
-				<td style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<?php echo $row['no_rangka']; ?></td>
+				<td class="indentasi">No. Rangka</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo $row['no_rangka']; ?></td>
 			</tr>
 			<tr>
-				<td>No. Mesin</td>
-				<td style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<?php echo $row['no_mesin']; ?></td>
+				<td class="indentasi">No. Mesin</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo $row['no_mesin']; ?></td>
 			</tr>
 			<tr>
-				<td>No. POLISI</td>
-				<td style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<?php echo $row['no_polisi']; ?></td>
+				<td class="indentasi">No. POLISI</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo $row['no_polisi']; ?></td>
 			</tr>
 			<tr>
-				<td>No. B P K B</td>
-				<td style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<?php echo $row['no_bpkb']; ?></td>
+				<td class="indentasi">No. B P K B</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo $row['no_bpkb']; ?></td>
 			</tr>
 			<tr>
-				<td>Atas Nama Pemilik</td>
-				<td style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<b><?php echo $row['atas_nama_pemilik']; ?></b></td>
+				<td class="indentasi">Atas Nama Pemilik</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><b><?php echo $row['atas_nama_pemilik']; ?></b></td>
 			</tr>
 			<tr>
-				<td>Alamat</td>
-				<td style="text-transform: capitalize;">:&nbsp;&nbsp;&nbsp;<?php echo $row['jalan_pemilik'] . ", RT" . $row['rt_pemilik'] . "/RW" . $row['rw_pemilik'] . ", Dusun " . $row['dusun_pemilik'] . ","; ?></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td style="text-transform: capitalize;">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "Desa " . $row['desa_pemilik'] . ", Kecamatan " . $row['kecamatan_pemilik'] . ", " . $row['kota_pemilik']; ?></td>
+				<td class="indentasi">Alamat</td>
+				<td>:</td>
+				<td style="text-transform: capitalize;"><?php echo $row['alamat_pemilik']; ?></td>
 			</tr>
 		</table>
 		<table width="100%">

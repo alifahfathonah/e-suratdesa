@@ -8,9 +8,13 @@
         $tgl_lahir = $_POST['ftgl_lahir'];
         $jenis_kelamin = $_POST['fjenis_kelamin'];
         $agama = $_POST['fagama'];
+        $jalan = $_POST['fjalan'];
         $dusun = $_POST['fdusun'];
-        $rw = $_POST['frw'];
         $rt = $_POST['frt'];
+        $rw = $_POST['frw'];
+        $desa = $_POST['fdesa'];
+        $kecamatan = $_POST['fkecamatan'];
+        $kota = $_POST['fkota'];
         $no_kk = $_POST['fno_kk'];
         $pend_kk = $_POST['fpend_kk'];
         $pend_terakhir = $_POST['fpend_terakhir'];
@@ -29,7 +33,7 @@
         if($row > 0){
             header('location:index.php?pesan=gagal-menambah');
         }else{
-            $qTambahPenduduk = "INSERT INTO penduduk VALUES(NULL, '$nik', '$nama', '$tempat_lahir', '$tgl_lahir', '$jenis_kelamin', '$agama', '$dusun', '$rw', '$rt', '$no_kk', '$pend_kk', '$pend_terakhir', '$pend_ditempuh', '$pekerjaan', '$status_perkawinan', '$status_dlm_keluarga', '$kewarganegaraan', '$nama_ayah', '$nama_ibu', '$gol_darah')";
+            $qTambahPenduduk = "INSERT INTO penduduk VALUES(NULL, '$nik', '$nama', '$tempat_lahir', '$tgl_lahir', '$jenis_kelamin', '$agama', '$jalan', '$dusun', '$rw', '$rt', '$desa', '$kecamatan', '$kota', '$no_kk', '$pend_kk', '$pend_terakhir', '$pend_ditempuh', '$pekerjaan', '$status_perkawinan', '$status_dlm_keluarga', '$kewarganegaraan', '$nama_ayah', '$nama_ibu', '$gol_darah')";
             $tambahPenduduk = mysqli_query($connect, $qTambahPenduduk);
             if($tambahPenduduk){
                 header("location:index.php");

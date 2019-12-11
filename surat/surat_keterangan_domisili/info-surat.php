@@ -29,19 +29,19 @@
 					<form method="post" action="simpan-surat.php">
 						<h6 class="container-fluid" align="right"><i class="fas fa-user"></i> Informasi Pribadi</h6><hr width="97%">
 						<div class="row">
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">NIK</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik" class="form-control" value="<?php echo $data['nik']; ?>" readonly>
-						           	</div>
-						        </div>
-						  	</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
 						           	<label class="col-sm-5" style="font-weight: 500;">Nama Lengkap</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama" class="form-control" value="<?php echo $data['nama']; ?>" readonly>
+						               	<input type="text" name="fnama" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['nama']; ?>" readonly>
+						           	</div>
+						        </div>
+							</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-5" style="font-weight: 500;">Jenis Kelamin</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fjenis_kelamin" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['jenis_kelamin']; ?>" readonly>
 						           	</div>
 						        </div>
 							</div>
@@ -50,66 +50,71 @@
 						           	<label class="col-sm-5" style="font-weight: 500;">Tempat, Tgl Lahir</label>
 						           	<div class="col-sm-12">
 						           		<?php
-
-						           		?>
-						               	<input type="text" name="ftempat_tgl_lahir" class="form-control" value="<?php echo $data['tempat_lahir'], ", ", date("d F Y", strtotime($data['tgl_lahir'])); ?>" readonly>
+											$tgl_lhr = date($data['tgl_lahir']);
+											$tgl = date('d ', strtotime($tgl_lhr));
+											$bln = date('F', strtotime($tgl_lhr));
+											$thn = date(' Y', strtotime($tgl_lhr));
+											$blnIndo = array(
+											    'January' => 'Januari',
+											    'February' => 'Februari',
+											    'March' => 'Maret',
+											    'April' => 'April',
+											    'May' => 'Mei',
+											    'June' => 'Juni',
+											    'July' => 'Juli',
+											    'August' => 'Agustus',
+											    'September' => 'September',
+											    'October' => 'Oktober',
+											    'November' => 'November',
+											    'December' => 'Desember'
+											);
+										?>
+						               	<input type="text" name="ftempat_tgl_lahir" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['tempat_lahir'], ", ", $tgl . $blnIndo[$bln] . $thn; ?>" readonly>
 						           	</div>
 						        </div>
 							</div>
-							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Jenis Kelamin</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fjenis_kelamin" class="form-control" value="<?php echo $data['jenis_kelamin']; ?>" readonly>
-						           	</div>
-						        </div>
-							</div>
-						</div>
-						<div class="row">
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Alamat</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="falamat" class="form-control" value="<?php echo 'Dsn. ', $data['dusun'], ", RT", $data['rt'], "/RW", $data['rw']; ?>" readonly>
-						           	</div>
-						        </div>
-						  	</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
 						           	<label class="col-sm-5" style="font-weight: 500;">Agama</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fagama" class="form-control" value="<?php echo $data['agama']; ?>" readonly>
-						           	</div>
-						        </div>
-							</div>
-							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Pekerjaan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fpekerjaan" class="form-control" value="<?php echo $data['pekerjaan']; ?>" readonly>
-						           	</div>
-						        </div>
-							</div>
-							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Kewarganegaraan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fkewarganegaraan" class="form-control" value="<?php echo $data['kewarganegaraan']; ?>" readonly>
+						               	<input type="text" name="fagama" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['agama']; ?>" readonly>
 						           	</div>
 						        </div>
 							</div>
 						</div>
-						<br>
-						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
 						<div class="row">
-						  	<div class="col-sm-12">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Keperluan Surat</label>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-5" style="font-weight: 500;">Pekerjaan</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fkeperluan" class="form-control" placeholder="Masukkan Keperluan Surat" required>
+						               	<input type="text" name="fpekerjaan" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['pekerjaan']; ?>" readonly>
+						           	</div>
+						        </div>
+							</div>
+							<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-5" style="font-weight: 500;">NIK</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fnik" class="form-control" value="<?php echo $data['nik']; ?>" readonly>
 						           	</div>
 						        </div>
 						  	</div>
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-5" style="font-weight: 500;">Alamat</label>
+						           	<div class="col-sm-12">
+						               	<textarea type="text" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $data['jalan'] . ", RT" . $data['rt'] . "/RW" . $data['rw'] . ", Dusun " . $data['dusun'] . ",\nDesa " . $data['desa'] . ", Kecamatan " . $data['kecamatan'] . ", " . $data['kota']; ?></textarea>
+						           	</div>
+						        </div>
+						  	</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-5" style="font-weight: 500;">Kewarganegaraan</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fkewarganegaraan" class="form-control" style="text-transform: uppercase;" value="<?php echo $data['kewarganegaraan']; ?>" readonly>
+						           	</div>
+						        </div>
+							</div>
 						</div>
 						<hr width="97%">
 						<div class="container-fluid">

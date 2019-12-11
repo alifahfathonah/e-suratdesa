@@ -129,7 +129,7 @@
 			<tr>
 				<td></td>
 				<td>-</td>
-				<td>Nama tersebut di atas benar-benar mempunyai usaha di <a style="text-transform: capitalize;"><?php echo $row['jalan_usaha'] . ", RT" . $row['rt_usaha'] . "/RW" . $row['rw_usaha'] . ", Dusun " . $row['dusun_usaha'] . ", Desa " . $row['desa_usaha'] . ", Kecamatan " . $row['kecamatan_usaha'] . ", " . $row['kota_usaha']; ?></a>.</td>
+				<td>Nama tersebut di atas benar-benar mempunyai usaha di <a style="text-transform: capitalize;"><?php echo $row['alamat_usaha']; ?></a>.</td>
 			</tr>
 			<tr>
 				<td></td>

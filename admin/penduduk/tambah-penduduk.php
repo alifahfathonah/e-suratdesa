@@ -1,6 +1,7 @@
 <?php 
   include ('../part/akses.php');
   include ('../part/header.php');
+  include ('../../config/koneksi.php');
 ?> 
 
 <aside class="main-sidebar">
@@ -97,15 +98,14 @@
                       <label class="col-sm-4 control-label">NIK</label>
                       <div class="col-sm-8">
                         <input type="text" name="fnik" maxlength="16" onkeypress="return hanyaAngka(event)" class="form-control" placeholder="NIK" required>
-                          <script>
-                            function hanyaAngka(evt) {
-                                var charCode = (evt.which) ? evt.which : event.keyCode
-                                if (charCode > 31 && (charCode < 48 || charCode > 57))
-                           
-                                return false;
-                                return true;
-                            }
-                          </script>
+                        <script>
+                          function hanyaAngka(evt){
+                            var charCode = (evt.which) ? evt.which : event.keyCode
+                            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                            return false;
+                            return true;
+                          }
+                        </script>
                       </div>
                     </div>
                     <div class="form-group">
@@ -143,24 +143,25 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label">Dusun</label>
+                      <label class="col-sm-4 control-label">Jalan</label>
                       <div class="col-sm-8">
-                        <select name="fdusun" class="form-control" required>
-                          <option value="">-- Dusun --</option>
-                          <option value="Babatan">Babatan</option>
-                          <option value="Bote">Bote</option>
-                          <option value="Kedawong">Kedawong</option>
-                        </select>
+                        <input type="text" name="fjalan" class="form-control" placeholder="Jalan" required>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label">RW</label>
+                      <label class="col-sm-4 control-label">Dusun</label>
                       <div class="col-sm-8">
-                        <select name="frw" class="form-control" required>
-                          <option value="">-- RW --</option>
-                          <option value="001">001</option>
-                          <option value="002">002</option>
-                          <option value="003">003</option>
+                        <select name="fdusun" class="form-control" style="text-transform: capitalize;" required>
+                          <option value="">-- Dusun --</option>
+                          <?php
+                            $qTampilDusun = "SELECT * FROM dusun";
+                            $tampilDusun = mysqli_query($connect, $qTampilDusun);
+                            while($rows = mysqli_fetch_assoc($tampilDusun)){
+                          ?>
+                          <option value="<?php echo $rows['nama_dusun']; ?>"><?php echo $rows['nama_dusun']; ?></option>
+                          <?php 
+                            }
+                          ?>
                         </select>
                       </div>
                     </div>
@@ -179,15 +180,44 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label">Nomor KK</label>
+                      <label class="col-sm-4 control-label">RW</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fno_kk" class="form-control" placeholder="Nomor KK" required>
+                        <select name="frw" class="form-control" required>
+                          <option value="">-- RW --</option>
+                          <option value="001">001</option>
+                          <option value="002">002</option>
+                          <option value="003">003</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Desa</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fdesa" class="form-control" placeholder="Desa" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Kecamatan</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fkecamatan" class="form-control" placeholder="Kecamatan" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Kota</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fkota" class="form-control" placeholder="Kota" required>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Nomor KK</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fno_kk" maxlength="16" onkeypress="return hanyaAngka(event)" class="form-control" placeholder="Nomor KK" required>
+                      </div>
+                    </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Pendidikan di KK</label>
                       <div class="col-sm-8">

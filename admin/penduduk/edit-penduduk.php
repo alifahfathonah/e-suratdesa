@@ -92,19 +92,27 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">NIK</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnik" class="form-control" value="<?php echo $row['nik']; ?>" required>
+                        <input type="text" name="fnik" maxlength="16" onkeypress="return hanyaAngka(event)" class="form-control" value="<?php echo $row['nik']; ?>" required>
+                        <script>
+                          function hanyaAngka(evt){
+                            var charCode = (evt.which) ? evt.which : event.keyCode
+                            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                            return false;
+                            return true;
+                          }
+                        </script>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama" class="form-control" placeholder="Nama" value="<?php echo $row['nama']; ?>" required>
+                        <input type="text" name="fnama" class="form-control" style="text-transform: capitalize;" placeholder="Nama" value="<?php echo $row['nama']; ?>" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Tempat Lahir</label>
                       <div class="col-sm-8">
-                        <input type="text" name="ftempat_lahir" class="form-control" value="<?php echo $row['tempat_lahir']; ?>" required>
+                        <input type="text" name="ftempat_lahir" class="form-control" style="text-transform: capitalize;" value="<?php echo $row['tempat_lahir']; ?>" required>
                       </div>
                     </div>
                     <div class="form-group">
@@ -126,28 +134,36 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Agama</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fagama" class="form-control" placeholder="Agama" value="<?php echo $row['agama']; ?>" required>
+                        <input type="text" name="fagama" class="form-control" style="text-transform: capitalize;" placeholder="Agama" value="<?php echo $row['agama']; ?>" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Jalan</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fjalan" class="form-control" style="text-transform: capitalize;" placeholder="Jalan" value="<?php echo $row['jalan']; ?>" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Dusun</label>
                       <div class="col-sm-8">
-                        <select name="fdusun" class="form-control" value="<?php echo $row['dusun']; ?>" required>
+                        <select name="fdusun" class="form-control" style="text-transform: capitalize;" required>
                           <option value="">-- Dusun --</option>
-                          <option <?php if($row['dusun'] == 'Babatan'){ echo 'selected'; } ?> value="Babatan">Babatan</option>
-                          <option <?php if($row['dusun'] == 'Bote'){ echo 'selected'; } ?> value="Bote">Bote</option>
-                          <option <?php if($row['dusun'] == 'Kedawong'){ echo 'selected'; } ?> value="Kedawong">Kedawong</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-4 control-label">RW</label>
-                      <div class="col-sm-8">
-                        <select name="frw" class="form-control" value="<?php echo $row['rw']; ?>" required>
-                          <option value="">-- RW --</option>
-                          <option <?php if($row['rw'] == '001'){ echo 'selected'; } ?> value="001">001</option>
-                          <option <?php if($row['rw'] == '002'){ echo 'selected'; } ?> value="002">002</option>
-                          <option <?php if($row['rw'] == '003'){ echo 'selected'; } ?> value="003">003</option>
+                          <?php
+                            $selectedDusun = $row['dusun'];
+                            $qTampilDusun = "SELECT * FROM dusun";
+                            $tampilDusun = mysqli_query($connect, $qTampilDusun);
+                            while($rows = mysqli_fetch_assoc($tampilDusun)){
+                              if($rows['nama_dusun'] == $selectedDusun){
+                          ?>
+                          <option value="<?php echo $rows['nama_dusun']; ?>" selected="selected"><?php echo $rows['nama_dusun']; ?></option>
+                          <?php
+                              }else{
+                          ?>
+                          <option value="<?php echo $rows['nama_dusun']; ?>"><?php echo $rows['nama_dusun']; ?></option>
+                          <?php
+                              }
+                            }
+                          ?>
                         </select>
                       </div>
                     </div>
@@ -166,15 +182,44 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label">Nomor KK</label>
+                      <label class="col-sm-4 control-label">RW</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fno_kk" class="form-control" placeholder="Nomor KK" value="<?php echo $row['no_kk']; ?>" required>
+                        <select name="frw" class="form-control" value="<?php echo $row['rw']; ?>" required>
+                          <option value="">-- RW --</option>
+                          <option <?php if($row['rw'] == '001'){ echo 'selected'; } ?> value="001">001</option>
+                          <option <?php if($row['rw'] == '002'){ echo 'selected'; } ?> value="002">002</option>
+                          <option <?php if($row['rw'] == '003'){ echo 'selected'; } ?> value="003">003</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Desa</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fdesa" class="form-control" style="text-transform: capitalize;" placeholder="Desa" value="<?php echo $row['desa']; ?>" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Kecamatan</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fkecamatan" class="form-control" style="text-transform: capitalize;" placeholder="Kecamatan" value="<?php echo $row['kecamatan']; ?>" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Kota</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fkota" class="form-control" style="text-transform: capitalize;" placeholder="Kota" value="<?php echo $row['kota']; ?>" required>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Nomor KK</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="fno_kk" maxlength="16" onkeypress="return hanyaAngka(event)" class="form-control" placeholder="Nomor KK" value="<?php echo $row['no_kk']; ?>" required>
+                      </div>
+                    </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Pendidikan di KK</label>
                       <div class="col-sm-8">
@@ -235,7 +280,7 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Pekerjaan</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fpekerjaan" class="form-control" placeholder="Pekerjaan" value="<?php echo $row['pekerjaan']; ?>" required>
+                        <input type="text" name="fpekerjaan" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan" value="<?php echo $row['pekerjaan']; ?>" required>
                       </div>
                     </div>
                     <div class="form-group">
@@ -274,13 +319,13 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama Ayah</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama_ayah" class="form-control" value="<?php echo $row['nama_ayah']; ?>" required>
+                        <input type="text" name="fnama_ayah" class="form-control" style="text-transform: capitalize;" value="<?php echo $row['nama_ayah']; ?>" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama Ibu</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama_ibu" class="form-control" value="<?php echo $row['nama_ibu']; ?>" required>
+                        <input type="text" name="fnama_ibu" class="form-control" style="text-transform: capitalize;" value="<?php echo $row['nama_ibu']; ?>" required>
                       </div>
                     </div>
                     <div class="form-group">

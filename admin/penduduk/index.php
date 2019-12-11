@@ -129,7 +129,7 @@
             <tr>
               <td><?php echo $no++; ?></td>
               <td><?php echo $row['nik']; ?></td>
-              <td><?php echo $row['nama']; ?></td>
+              <td style="text-transform: capitalize;"><?php echo $row['nama']; ?></td>
               <?php
                 $tanggal = date('d', strtotime($row['tgl_lahir']));
                 $bulan = date('F', strtotime($row['tgl_lahir']));
@@ -149,10 +149,10 @@
                     'December' => 'Desember'
                 );
               ?>
-              <td><?php echo $row['tempat_lahir'] . ", " . $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?></td>
-              <td><?php echo $row['jenis_kelamin']; ?></td>
-              <td><?php echo $row['agama']; ?></td>
-              <td><?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?></td>
+              <td style="text-transform: capitalize;"><?php echo $row['tempat_lahir'] . ", " . $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?></td>
+              <td style="text-transform: capitalize;"><?php echo $row['jenis_kelamin']; ?></td>
+              <td style="text-transform: capitalize;"><?php echo $row['agama']; ?></td>
+              <td style="text-transform: capitalize;"><?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?></td>
               <?php 
                 if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
               ?>
