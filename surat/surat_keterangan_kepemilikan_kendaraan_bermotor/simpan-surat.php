@@ -13,9 +13,9 @@
         $no_mesin = $_POST['fno_mesin'];
         $no_polisi = $_POST['fno_polisi'];
         $no_bpkb = $_POST['fno_bpkb'];
-        $atas_nama_pemilik = $_POST['fatas_nama_pemilik'];
-        $alamat_pemilik = $_POST['falamat_pemilik'];
-        $keperluan = $_POST['fkeperluan'];
+        $atas_nama_pemilik = addslashes($_POST['fatas_nama_pemilik']);
+        $alamat_pemilik = addslashes($_POST['falamat_pemilik']);
+        $keperluan = addslashes($_POST['fkeperluan']);
         $status_surat = "PENDING";
         $id_profil_desa = "1";
 

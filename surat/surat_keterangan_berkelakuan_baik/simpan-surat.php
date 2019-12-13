@@ -4,7 +4,7 @@
     if (isset($_POST['submit'])){
         $jenis_surat = "Surat Keterangan Berkelakuan Baik";
         $nik = $_POST['fnik'];
-        $keperluan = $_POST['fkeperluan'];
+        $keperluan = addslashes($_POST['fkeperluan']);
         $status_surat = "PENDING";
         $id_profil_desa = "1";
 

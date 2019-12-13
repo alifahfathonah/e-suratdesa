@@ -328,18 +328,6 @@
                         <input type="text" name="fnama_ibu" class="form-control" style="text-transform: capitalize;" value="<?php echo $row['nama_ibu']; ?>" required>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label class="col-sm-4 control-label">Golongan Darah</label>
-                      <div class="col-sm-8">
-                        <select name="fgol_darah" class="form-control" required>
-                          <option value="">-- Golongan Darah --</option>
-                          <option <?php if($row['gol_darah'] == 'A'){ echo 'selected'; } ?> value="A">A</option>
-                          <option <?php if($row['gol_darah'] == 'B'){ echo 'selected'; } ?> value="B">B</option>
-                          <option <?php if($row['gol_darah'] == 'AB'){ echo 'selected'; } ?> value="AB">AB</option>
-                          <option <?php if($row['gol_darah'] == 'O'){ echo 'selected'; } ?> value="O">O</option>
-                        </select>
-                      </div>
-                    </div>
                   </div>
                   <div class="box-footer pull-right">
                     <input type="reset" class="btn btn-default" value="Batal">

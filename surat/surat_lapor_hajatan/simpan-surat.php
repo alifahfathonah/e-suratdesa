@@ -6,12 +6,12 @@
         $nik = $_POST['fnik'];
         $bukti_ktp = $_POST['fbukti_ktp'];
         $bukti_kk = $_POST['fbukti_kk'];
-        $jenis_hajat = $_POST['fjenis_hajat'];
-        $hari = $_POST['fhari'];
+        $jenis_hajat = addslashes($_POST['fjenis_hajat']);
+        $hari = addslashes($_POST['fhari']);
         $tanggal = $_POST['ftanggal'];
-        $jenis_hiburan = $_POST['fjenis_hiburan'];
-        $pemilik = $_POST['fpemilik'];
-        $alamat_pemilik = $_POST['falamat_pemilik'];
+        $jenis_hiburan = addslashes($_POST['fjenis_hiburan']);
+        $pemilik = addslashes($_POST['fpemilik']);
+        $alamat_pemilik = addslashes($_POST['falamat_pemilik']);
         $status_surat = "PENDING";
         $id_profil_desa = "1";
 

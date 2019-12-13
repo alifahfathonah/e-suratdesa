@@ -111,13 +111,13 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama" class="form-control" placeholder="Nama" required>
+                        <input type="text" name="fnama" class="form-control" style="text-transform: capitalize;" placeholder="Nama" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Tempat Lahir</label>
                       <div class="col-sm-8">
-                        <input type="text" name="ftempat_lahir" class="form-control" placeholder="Tempat Lahir" required>                   
+                        <input type="text" name="ftempat_lahir" class="form-control" style="text-transform: capitalize;" placeholder="Tempat Lahir" required>                   
                       </div>
                     </div>
                     <div class="form-group">
@@ -139,13 +139,13 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Agama</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fagama" class="form-control" placeholder="Agama" required>
+                        <input type="text" name="fagama" class="form-control" style="text-transform: capitalize;" placeholder="Agama" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Jalan</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fjalan" class="form-control" placeholder="Jalan" required>
+                        <input type="text" name="fjalan" class="form-control" style="text-transform: capitalize;" placeholder="Jalan" required>
                       </div>
                     </div>
                     <div class="form-group">
@@ -193,19 +193,19 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Desa</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fdesa" class="form-control" placeholder="Desa" required>
+                        <input type="text" name="fdesa" class="form-control" style="text-transform: capitalize;" placeholder="Desa" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Kecamatan</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fkecamatan" class="form-control" placeholder="Kecamatan" required>
+                        <input type="text" name="fkecamatan" class="form-control" style="text-transform: capitalize;" placeholder="Kecamatan" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Kota</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fkota" class="form-control" placeholder="Kota" required>
+                        <input type="text" name="fkota" class="form-control" style="text-transform: capitalize;" placeholder="Kota" required>
                       </div>
                     </div>
                   </div>
@@ -278,7 +278,7 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Pekerjaan</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fpekerjaan" class="form-control" placeholder="Pekerjaan" required>
+                        <input type="text" name="fpekerjaan" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan" required>
                       </div>
                     </div>
                     <div class="form-group">
@@ -317,25 +317,13 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama Ayah</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama_ayah" class="form-control" placeholder="Nama Ayah" required>
+                        <input type="text" name="fnama_ayah" class="form-control" style="text-transform: capitalize;" placeholder="Nama Ayah" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Nama Ibu</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fnama_ibu" class="form-control" placeholder="Nama Ibu" required>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-4 control-label">Golongan Darah</label>
-                      <div class="col-sm-8">
-                        <select name="fgol_darah" class="form-control" required>
-                          <option value="">-- Golongan Darah --</option>
-                          <option value="A">A</option>
-                          <option value="B">B</option>
-                          <option value="AB">AB</option>
-                          <option value="O">O</option>
-                        </select>
+                        <input type="text" name="fnama_ibu" class="form-control" style="text-transform: capitalize;" placeholder="Nama Ibu" required>
                       </div>
                     </div>
                   </div>

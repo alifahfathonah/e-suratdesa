@@ -7,9 +7,9 @@
         $jenis_perhiasan = $_POST['fjenis_perhiasan'];
         $nama_perhiasan = $_POST['fnama_perhiasan'];
         $berat = $_POST['fberat'];
-        $toko_perhiasan = $_POST['ftoko_perhiasan'];
-        $lokasi_toko_perhiasan = $_POST['flokasi_toko_perhiasan'];
-        $keperluan = $_POST['fkeperluan'];
+        $toko_perhiasan = addslashes($_POST['ftoko_perhiasan']);
+        $lokasi_toko_perhiasan = addslashes($_POST['flokasi_toko_perhiasan']);
+        $keperluan = addslashes($_POST['fkeperluan']);
         $status_surat = "PENDING";
         $id_profil_desa = "1";
 

@@ -6,8 +6,8 @@
         $nik = $_POST['fnik'];
         $bukti_ktp = $_POST['fbukti_ktp'];
         $bukti_kk = $_POST['fbukti_kk'];
-        $keperluan = $_POST['fkeperluan'];
-        $keterangan = $_POST['fketerangan'];
+        $keperluan = addslashes($_POST['fkeperluan']);
+        $keterangan = addslashes($_POST['fketerangan']);
         $status_surat = "PENDING";
         $id_profil_desa = "1";
 
