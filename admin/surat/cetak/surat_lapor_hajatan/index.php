@@ -134,14 +134,15 @@
 		<br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Orang tersebut akan punya hajat : <a style="text-transform: uppercase;"><?php echo $row['jenis_hajat']; ?></a> <?php echo $row['status_hubungan'] ; ?>nya yang dilaksanakan pada :
+				<td class="indentasi">Orang tersebut akan punya hajat : <a style="text-transform: uppercase;"><?php echo $row['jenis_hajat']; ?></a> yang dilaksanakan pada :
 				</td>
 			</tr>
 		</table><br>
-		<table width="100%" class="indentasi" style="text-transform: capitalize;" style="text-transform: capitalize;">
+		<table width="100%" style="text-transform: capitalize;" style="text-transform: capitalize;">
 			<tr>
-				<td width="25%">Hari</td>
-				<td width="75%">:&nbsp;&nbsp;&nbsp;<?php echo $row['hari']; ?></td>
+				<td width="25%" class="indentasi">Hari</td>
+				<td width="2%">:</td>
+				<td width="73%"><?php echo $row['hari']; ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tanggal']);
@@ -164,24 +165,24 @@
 				);
 			?>
 			<tr>
-				<td>Tanggal</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $tgl . $blnIndo[$bln] . $thn; ?></td>
+				<td class="indentasi">Tanggal</td>
+				<td>:</td>
+				<td><?php echo $tgl . $blnIndo[$bln] . $thn; ?></td>
 			</tr>
 			<tr>
-				<td>Jenis Hiburan</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['jenis_hiburan']; ?></td>
+				<td class="indentasi">Jenis Hiburan</td>
+				<td>:</td>
+				<td><?php echo $row['jenis_hiburan']; ?></td>
 			</tr>
 			<tr>
-				<td>Pemilik</td>
-				<td style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<?php echo $row['pemilik']; ?></td>
+				<td class="indentasi">Pemilik</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><b><?php echo $row['pemilik']; ?></b></td>
 			</tr>
 			<tr>
-				<td>Alamat</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['jalan_pemilik'] . ", RT" . $row['rt_pemilik'] . "/RW" . $row['rw_pemilik'] . ", Dusun " . $row['dusun_pemilik'] . ","; ?></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "Desa " . $row['desa_pemilik'] . ", Kecamatan " . $row['kecamatan_pemilik'] . ", " . $row['kota_pemilik']; ?></td>
+				<td class="indentasi">Alamat</td>
+				<td>:</td>
+				<td><?php echo $row['alamat_pemilik']; ?></td>
 			</tr>
 		</table><br>
 		<table width="100%">

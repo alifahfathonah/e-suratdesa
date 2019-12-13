@@ -21,7 +21,7 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN DOMISILI</b></h5></a>
+							<a class="col-sm-6"><h5><b>SURAT KETERANGAN</b></h5></a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>
@@ -115,6 +115,54 @@
 						           	</div>
 						        </div>
 							</div>
+						</div>
+						<br>
+						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Bukti KTP / KK</h6><hr width="97%">
+						<div class="row">
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Bukti KTP</label>
+						           	<div class="col-sm-12">
+				                        <script>
+				                          	function hanyaAngka(evt){
+				                            	var charCode = (evt.which) ? evt.which : event.keyCode
+				                            	if (charCode > 31 && (charCode < 48 || charCode > 57))
+				                            	return false;
+				                            	return true;
+				                          	}
+				                        </script>
+						               	<input type="text" name="fbukti_ktp" class="form-control" maxlength="16" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nomor KTP" required>
+						           	</div>
+						        </div>
+						  	</div>
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Bukti KK (Opsional)</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fbukti_kk" class="form-control" maxlength="16" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nomor KK (Opsional)">
+						           	</div>
+						        </div>
+						  	</div>
+						</div>
+						<br>
+						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
+						<div class="row">
+						  	<div class="col-sm-12">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Keperluan Surat</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fkeperluan" class="form-control" style="text-transform: capitalize;" value="Permohonan SKCK" readonly>
+						           	</div>
+						        </div>
+						  	</div>
+						  	<div class="col-sm-12">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Keterangan Surat</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fketerangan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Keterangan Surat" required>
+						           	</div>
+						        </div>
+						  	</div>
 						</div>
 						<hr width="97%">
 						<div class="container-fluid">

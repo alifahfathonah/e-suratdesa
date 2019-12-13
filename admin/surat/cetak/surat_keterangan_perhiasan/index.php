@@ -124,7 +124,7 @@
 			<tr>
 				<td width="3%"></td>
 				<td width="3%">-</td>
-				<td width="94%">Menurut pengakuannya orang tersebut diatas benar-benar mempunyai sebuah perhiasan <a style="text-transform: capitalize;"><?php echo $row['jenis_perhiasan']; ?></a> yang berupa <a style="text-transform: uppercase;"><?php echo $row['perhiasan']; ?></a> <?php echo $row['jenis_perhiasan']; ?> dengan berat ± <?php echo $row['berat']; ?> Gram, yang berasal dari toko emas <a style="text-transform: uppercase;"><b><?php echo $row['toko_perhiasan']; ?></b></a> di 	<a style="text-transform: uppercase;"><?php echo $row['tempat_toko_perhiasan']; ?></a>, adapun barang tersebut akan diJual.</td>
+				<td width="94%">Menurut pengakuannya orang tersebut diatas benar-benar mempunyai sebuah perhiasan <a style="text-transform: capitalize;"><?php echo $row['jenis_perhiasan']; ?></a> yang berupa <a style="text-transform: uppercase;"><?php echo $row['nama_perhiasan']; ?></a> <?php echo $row['jenis_perhiasan']; ?> dengan berat ± <?php echo $row['berat']; ?> Gram, yang berasal dari toko emas <a style="text-transform: uppercase;"><b><?php echo $row['toko_perhiasan']; ?></b></a> di 	<a style="text-transform: uppercase;"><?php echo $row['lokasi_toko_perhiasan']; ?></a>, adapun barang tersebut akan diJual.</td>
 			</tr>
 			<tr>
 				<td></td>

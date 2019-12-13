@@ -31,7 +31,7 @@
 						<div class="row">
 							<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Nama Lengkap</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Nama Lengkap</label>
 						           	<div class="col-sm-12">
 						               	<input type="text" name="fnama" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['nama']; ?>" readonly>
 						           	</div>
@@ -39,7 +39,7 @@
 							</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Jenis Kelamin</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Jenis Kelamin</label>
 						           	<div class="col-sm-12">
 						               	<input type="text" name="fjenis_kelamin" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['jenis_kelamin']; ?>" readonly>
 						           	</div>
@@ -47,7 +47,7 @@
 							</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Tempat, Tgl Lahir</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Tempat, Tgl Lahir</label>
 						           	<div class="col-sm-12">
 						           		<?php
 											$tgl_lhr = date($data['tgl_lahir']);
@@ -75,7 +75,7 @@
 							</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Agama</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Agama</label>
 						           	<div class="col-sm-12">
 						               	<input type="text" name="fagama" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['agama']; ?>" readonly>
 						           	</div>
@@ -85,7 +85,7 @@
 						<div class="row">
 							<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Pekerjaan</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Pekerjaan</label>
 						           	<div class="col-sm-12">
 						               	<input type="text" name="fpekerjaan" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['pekerjaan']; ?>" readonly>
 						           	</div>
@@ -93,7 +93,7 @@
 							</div>
 							<div class="col-sm-6">
 						      	<div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">NIK</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">NIK</label>
 						           	<div class="col-sm-12">
 						               	<input type="text" name="fnik" class="form-control" value="<?php echo $data['nik']; ?>" readonly>
 						           	</div>
@@ -101,7 +101,7 @@
 						  	</div>
 						  	<div class="col-sm-6">
 						      	<div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Alamat</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Alamat</label>
 						           	<div class="col-sm-12">
 						               	<textarea type="text" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $data['jalan'] . ", RT" . $data['rt'] . "/RW" . $data['rw'] . ", Dusun " . $data['dusun'] . ",\nDesa " . $data['desa'] . ", Kecamatan " . $data['kecamatan'] . ", " . $data['kota']; ?></textarea>
 						           	</div>
@@ -109,7 +109,7 @@
 						  	</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-5" style="font-weight: 500;">Kewarganegaraan</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Kewarganegaraan</label>
 						           	<div class="col-sm-12">
 						               	<input type="text" name="fkewarganegaraan" class="form-control" style="text-transform: uppercase;" value="<?php echo $data['kewarganegaraan']; ?>" readonly>
 						           	</div>

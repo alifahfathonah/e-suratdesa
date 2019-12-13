@@ -99,14 +99,14 @@
          	<div class="inner">
          		<h3>
               <?php
-                $qTampil = mysqli_query($connect, "SELECT no_surat FROM surat_keterangan WHERE status_surat='pending' 
-                  UNION SELECT no_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='pending' 
-                  UNION SELECT no_surat FROM surat_keterangan_domisili WHERE status_surat='pending'
-                  UNION SELECT no_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='pending'
-                  UNION SELECT no_surat FROM surat_keterangan_perhiasan WHERE status_surat='pending'
-                  UNION SELECT no_surat FROM surat_keterangan_usaha WHERE status_surat='pending'
-                  UNION SELECT no_surat FROM surat_lapor_hajatan WHERE status_surat='pending'
-                  UNION SELECT no_surat FROM surat_pengantar_skck WHERE status_surat='pending'");
+                $qTampil = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='pending' 
+                  UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='pending' 
+                  UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='pending'");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
               ?>
@@ -124,14 +124,14 @@
          	<div class="inner">
          		<h3>
               <?php
-                $qTampil = mysqli_query($connect, "SELECT no_surat FROM surat_keterangan WHERE status_surat='selesai' 
-                  UNION SELECT no_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' 
-                  UNION SELECT no_surat FROM surat_keterangan_domisili WHERE status_surat='selesai'
-                  UNION SELECT no_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='selesai'
-                  UNION SELECT no_surat FROM surat_keterangan_perhiasan WHERE status_surat='selesai'
-                  UNION SELECT no_surat FROM surat_keterangan_usaha WHERE status_surat='selesai'
-                  UNION SELECT no_surat FROM surat_lapor_hajatan WHERE status_surat='selesai'
-                  UNION SELECT no_surat FROM surat_pengantar_skck WHERE status_surat='selesai'");
+                $qTampil = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='selesai' 
+                  UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' 
+                  UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
               ?>

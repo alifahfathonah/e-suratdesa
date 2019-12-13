@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.id_skbb='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_lapor_hajatan.* FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.id_slh='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -75,7 +75,7 @@
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan Berkelakuan Baik</h2>
+            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Lapor Hajatan</h2>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -173,6 +173,15 @@
                         <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></textarea>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Bukti KTP</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fbukti_ktp" style="text-transform: uppercase;" value="<?php echo $row['bukti_ktp']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div>
+                      <input type="hidden" name="id" value="<?php echo $row['id_slh']; ?>" class="form-control">
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -201,26 +210,82 @@
                         <input type="text" name="fkewarganegaraan" style="text-transform: uppercase;" value="<?php echo $row['kewarganegaraan']; ?>" class="form-control" readonly>
                       </div>
                     </div>
+                    <br><br>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Bukti KK</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fbukti_kk" style="text-transform: uppercase;" value="<?php echo $row['bukti_kk']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
+              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Hajatan</b></h5>
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
                 <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Keperluan</label>
+                      <label class="col-sm-3 control-label">Jenis Hajat</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fkeperluan" style="text-transform: capitalize;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
+                        <input type="text" name="fjenis_hajat" style="text-transform: uppercase;" value="<?php echo $row['jenis_hajat']; ?>" class="form-control" readonly>
                       </div>
                     </div>
-                    <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_skbb']; ?>" class="form-control">
+                    <?php
+                      $tgl_lhr = date($row['tanggal']);
+                      $tgl = date('d ', strtotime($tgl_lhr));
+                      $bln = date('F', strtotime($tgl_lhr));
+                      $thn = date(' Y', strtotime($tgl_lhr));
+                      $blnIndo = array(
+                          'January' => 'Januari',
+                          'February' => 'Februari',
+                          'March' => 'Maret',
+                          'April' => 'April',
+                          'May' => 'Mei',
+                          'June' => 'Juni',
+                          'July' => 'Juli',
+                          'August' => 'Agustus',
+                          'September' => 'September',
+                          'October' => 'Oktober',
+                          'November' => 'November',
+                          'December' => 'Desember'
+                      );
+                    ?>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tanggal</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftanggal" style="text-transform: capitalize;" value="<?php echo $tgl . $blnIndo[$bln] . $thn; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Pemilik Hiburan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fpemilik" style="text-transform: uppercase;" value="<?php echo $row['pemilik']; ?>" class="form-control" readonly>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Hari</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fhari" style="text-transform: capitalize;" value="<?php echo $row['hari']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Jenis Hiburan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fjenis_hiburan" style="text-transform: capitalize;" value="<?php echo $row['jenis_hiburan']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alamat Pemilik Hiburan</label>
+                      <div class="col-sm-9">
+                        <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['alamat_pemilik']; ?></textarea>
+                      </div>
+                    </div>
+                  </div>
                   <div class="box-body pull-right">
                     <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
                   </div>

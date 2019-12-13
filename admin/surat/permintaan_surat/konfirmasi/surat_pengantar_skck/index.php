@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.id_skbb='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_pengantar_skck.* FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.id_sps='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -75,7 +75,7 @@
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan Berkelakuan Baik</h2>
+            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Pengantar SKCK</h2>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -173,6 +173,15 @@
                         <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></textarea>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Bukti KTP</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fbukti_ktp" style="text-transform: uppercase;" value="<?php echo $row['bukti_ktp']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div>
+                      <input type="hidden" name="id" value="<?php echo $row['id_sps']; ?>" class="form-control">
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -201,6 +210,13 @@
                         <input type="text" name="fkewarganegaraan" style="text-transform: uppercase;" value="<?php echo $row['kewarganegaraan']; ?>" class="form-control" readonly>
                       </div>
                     </div>
+                    <br><br>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Bukti KK</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fbukti_kk" style="text-transform: uppercase;" value="<?php echo $row['bukti_kk']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -212,15 +228,20 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Keperluan</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fkeperluan" style="text-transform: capitalize;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
+                        <input type="text" name="fkeperluan" style="text-transform: uppercase;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
                       </div>
-                    </div>
-                    <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_skbb']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Keterangan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fketerangan" style="text-transform: uppercase;" value="<?php echo $row['keterangan']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                  </div>
                   <div class="box-body pull-right">
                     <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
                   </div>

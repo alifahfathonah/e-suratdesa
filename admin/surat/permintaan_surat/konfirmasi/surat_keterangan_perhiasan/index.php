@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.id_skbb='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_perhiasan.* FROM penduduk LEFT JOIN surat_keterangan_perhiasan ON surat_keterangan_perhiasan.nik = penduduk.nik WHERE surat_keterangan_perhiasan.id_skp='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -75,7 +75,7 @@
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan Berkelakuan Baik</h2>
+            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan Perhiasan</h2>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -173,6 +173,9 @@
                         <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></textarea>
                       </div>
                     </div>
+                    <div>
+                      <input type="hidden" name="id" value="<?php echo $row['id_skp']; ?>" class="form-control">
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -204,6 +207,48 @@
                   </div>
                 </div>
               </div>
+              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Perhiasan</b></h5>
+              <br><hr style="border-bottom: 1px solid #DCDCDC;">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Jenis Perhiasan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fjenis_perhiasan" style="text-transform: capitalize;" value="<?php echo $row['jenis_perhiasan']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Berat</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fberat" style="text-transform: capitalize;" value="<?php echo $row['berat'] . " Gram"; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Lokasi Toko Perhiasan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="flokasi_toko_perhiasan" style="text-transform: capitalize;" value="<?php echo $row['lokasi_toko_perhiasan']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nama Perhiasan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnama_perhiasan" style="text-transform: capitalize;" value="<?php echo $row['nama_perhiasan']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Toko Perhiasan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftoko_perhiasan" style="text-transform: capitalize;" value="<?php echo $row['toko_perhiasan']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
@@ -214,9 +259,6 @@
                       <div class="col-sm-9">
                         <input type="text" name="fkeperluan" style="text-transform: capitalize;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
                       </div>
-                    </div>
-                    <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_skbb']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>

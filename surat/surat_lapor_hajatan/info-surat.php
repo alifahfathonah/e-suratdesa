@@ -21,7 +21,7 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN DOMISILI</b></h5></a>
+							<a class="col-sm-6"><h5><b>SURAT KETERANGAN</b></h5></a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>
@@ -115,6 +115,100 @@
 						           	</div>
 						        </div>
 							</div>
+						</div>
+						<br>
+						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Bukti KTP / KK</h6><hr width="97%">
+						<div class="row">
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Bukti KTP</label>
+						           	<div class="col-sm-12">
+				                        <script>
+				                          	function hanyaAngka(evt){
+				                            	var charCode = (evt.which) ? evt.which : event.keyCode
+				                            	if (charCode > 31 && (charCode < 48 || charCode > 57))
+				                            	return false;
+				                            	return true;
+				                          	}
+				                        </script>
+						               	<input type="text" name="fbukti_ktp" class="form-control" maxlength="16" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nomor KTP" required>
+						           	</div>
+						        </div>
+						  	</div>
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Bukti KK (Opsional)</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fbukti_kk" class="form-control" maxlength="16" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nomor KK (Opsional)">
+						           	</div>
+						        </div>
+						  	</div>
+						</div>
+						<br>
+						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Hajatan</h6><hr width="97%">
+						<div class="row">
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Jenis Hajat</label>
+						           	<div class="col-sm-12">
+			                        	<select name="fjenis_hajat" class="form-control" required>
+			                          		<option value="">-- Jenis Hajat --</option>
+			                          		<option value="Pernikahan">Pernikahan</option>
+			                          		<option value="Khitanan">Khitanan</option>
+			                          		<option value="Tasyakuran">Tasyakuran</option>
+			                        	</select>
+			                      	</div>
+						        </div>
+						  	</div>
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Hari</label>
+						           	<div class="col-sm-12">
+			                        	<select name="fhari" class="form-control" required>
+			                          		<option value="">-- Hari --</option>
+			                          		<option value="Senin">Senin</option>
+			                          		<option value="Selasa">Selasa</option>
+			                          		<option value="Rabu">Rabu</option>
+			                          		<option value="Kamis">Kamis</option>
+			                          		<option value="Jum'at">Jum'at</option>
+			                          		<option value="Sabtu">Sabtu</option>
+			                          		<option value="Minggu">Minggu</option>
+			                        	</select>
+			                      	</div>
+						        </div>
+						  	</div>
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Tanggal</label>
+						           	<div class="col-sm-12">
+						               	<input type="date" name="ftanggal" class="form-control" required>
+						           	</div>
+						        </div>
+						  	</div>
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Jenis Hiburan</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fjenis_hiburan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Jenis Hiburan" required>
+						           	</div>
+						        </div>
+						  	</div>
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Pemilik Hiburan</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fpemilik" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Pemilik Hiburan" required>
+						           	</div>
+						        </div>
+						  	</div>
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Alamat Pemilik Hiburan</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="falamat_pemilik" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Alamat Pemilik Hiburan" required>
+						           	</div>
+						        </div>
+						  	</div>
 						</div>
 						<hr width="97%">
 						<div class="container-fluid">

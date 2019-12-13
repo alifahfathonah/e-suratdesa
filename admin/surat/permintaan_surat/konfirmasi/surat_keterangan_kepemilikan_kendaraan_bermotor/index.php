@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.id_skbb='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_kepemilikan_kendaraan_bermotor.* FROM penduduk LEFT JOIN surat_keterangan_kepemilikan_kendaraan_bermotor ON surat_keterangan_kepemilikan_kendaraan_bermotor.nik = penduduk.nik WHERE surat_keterangan_kepemilikan_kendaraan_bermotor.id_skkkb='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -75,7 +75,7 @@
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan Berkelakuan Baik</h2>
+            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan Kepemilikan Kendaraan Bermotor</h2>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -204,6 +204,78 @@
                   </div>
                 </div>
               </div>
+              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Kendaraan</b></h5>
+              <br><hr style="border-bottom: 1px solid #DCDCDC;">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Merk / Type</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fmerk_type" style="text-transform: uppercase;" value="<?php echo $row['merk_type']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tahun Pembuatan / CC</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftahun_pembuatan_cc" style="text-transform: capitalize;" value="<?php echo $row['tahun_pembuatan'] . " / " . $row['cc']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">No. Rangka</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fno_rangka" style="text-transform: uppercase;" value="<?php echo $row['no_rangka']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">No. Polisi</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fno_polisi" style="text-transform: uppercase;" value="<?php echo $row['no_polisi']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Atas Nama Pemilik</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fatas_nama_pemilik" style="text-transform: uppercase;" value="<?php echo $row['atas_nama_pemilik']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Jenis Model</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fjenis_model" style="text-transform: uppercase;" value="<?php echo $row['jenis_model']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Warna Cat</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fwarna_cat" style="text-transform: uppercase;" value="<?php echo $row['warna_cat']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">No. Mesin</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fno_mesin" style="text-transform: uppercase;" value="<?php echo $row['no_mesin']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">No. B P K B</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fno_bpkb" style="text-transform: uppercase;" value="<?php echo $row['no_bpkb']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alamat Pemilik</label>
+                      <div class="col-sm-9">
+                        <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['alamat_pemilik']; ?></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
@@ -216,7 +288,7 @@
                       </div>
                     </div>
                     <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_skbb']; ?>" class="form-control">
+                      <input type="hidden" name="id" value="<?php echo $row['id_skkkb']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>
