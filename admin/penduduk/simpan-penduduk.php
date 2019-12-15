@@ -14,7 +14,7 @@
         $rw = $_POST['frw'];
         $desa = $_POST['fdesa'];
         $kecamatan = $_POST['fkecamatan'];
-        $kota = $_POST['fkota'];
+        $kota = "Kabupaten " . $_POST['fkota'];
         $no_kk = $_POST['fno_kk'];
         $pend_kk = $_POST['fpend_kk'];
         $pend_terakhir = $_POST['fpend_terakhir'];

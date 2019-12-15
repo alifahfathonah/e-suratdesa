@@ -53,14 +53,16 @@
 				</td>
 			</tr>
 		</table>
-		<table width="100%" class="indentasi" style="text-transform: capitalize;">
+		<table width="100%" style="text-transform: capitalize;">
 			<tr>
-				<td width="25%">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
-				<td width="75%" style="text-transform: uppercase; font-weight: bold;">:&nbsp;&nbsp;&nbsp;<?php echo $row['nama']; ?></td>
+				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
+				<td width="2%">:</td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
 			</tr>
 			<tr>
-				<td>Jenis Kelamin</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['jenis_kelamin']; ?></td>
+				<td class="indentasi">Jenis Kelamin</td>
+				<td>:</td>
+				<td><?php echo $row['jenis_kelamin']; ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tgl_lahir']);
@@ -83,32 +85,34 @@
 				);
 			?>
 			<tr>
-				<td>Tempat/Tgl. Lahir</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
+				<td class="indentasi">Tempat/Tgl. Lahir</td>
+				<td>:</td>
+				<td><?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
 			</tr>
 			<tr>
-				<td>Agama</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['agama']; ?></td>
+				<td class="indentasi">Agama</td>
+				<td>:</td>
+				<td><?php echo $row['agama']; ?></td>
 			</tr>
 			<tr>
-				<td>Pekerjaan</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['pekerjaan']; ?></td>
+				<td class="indentasi">Pekerjaan</td>
+				<td>:</td>
+				<td><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
-				<td>NIK</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['nik']; ?></td>
+				<td class="indentasi">NIK</td>
+				<td>:</td>
+				<td><?php echo $row['nik']; ?></td>
 			</tr>
 			<tr>
-				<td>Alamat</td>
-				<td>:&nbsp;&nbsp;&nbsp;<?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ","; ?></td>
+				<td class="indentasi">Alamat</td>
+				<td>:</td>
+				<td><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></td>
 			</tr>
 			<tr>
-				<td></td>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></td>
-			</tr>
-			<tr>
-				<td>Kewarganegaraan</td>
-				<td style="text-transform: uppercase;">:&nbsp;&nbsp;&nbsp;<?php echo $row['kewarganegaraan']; ?></td>
+				<td class="indentasi">Kewarganegaraan</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
 			</tr>
 		</table>
 		<br>
