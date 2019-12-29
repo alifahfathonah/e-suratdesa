@@ -75,7 +75,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5><br><br>
+		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5><br>
 		        		<a href="surat_keterangan_domisili/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
@@ -102,7 +102,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br><br>
+		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
 		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>

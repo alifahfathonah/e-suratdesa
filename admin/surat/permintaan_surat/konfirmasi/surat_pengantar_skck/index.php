@@ -231,6 +231,19 @@
                         <input type="text" name="fkeperluan" style="text-transform: uppercase;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Masa Berlaku</label>
+                      <div class="col-sm-8">
+                        <select name="fmasa_berlaku" class="form-control" required>
+                          <option value="">-- Masa Berlaku--</option>
+                          <option value="-">-</option>
+                          <option value="1 Hari">1 Hari</option>
+                          <option value="3 Hari">3 Hari</option>
+                          <option value="7 Hari">7 Hari</option>
+                          <option value="30 Hari">30 Hari</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">

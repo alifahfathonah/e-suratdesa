@@ -15,23 +15,26 @@
 		$tgl_lahir  = $data->val($i, 4);
 		$jenis_kelamin  = $data->val($i, 5);
 		$agama  = $data->val($i, 6);
-		$dusun  = $data->val($i, 7);
-		$rw  = $data->val($i, 8);
+		$jalan  = addslashes($data->val($i, 7));
+		$dusun  = $data->val($i, 8);
 		$rt  = $data->val($i, 9);
-		$no_kk  = $data->val($i, 10);
-		$pend_kk  = $data->val($i, 11);
-		$pend_terakhir  = $data->val($i, 12);
-		$pend_ditempuh  = $data->val($i, 13);
-		$pekerjaan  = $data->val($i, 14);
-		$status_perkawinan  = $data->val($i, 15);
-		$status_dlm_keluarga  = $data->val($i, 16);
-		$kewarganegaraan  = $data->val($i, 17);
-		$nama_ayah  = $data->val($i, 18);
-		$nama_ibu  = $data->val($i, 19);
-		$gol_darah  = $data->val($i, 20);
+		$rw  = $data->val($i, 10);
+		$desa  = $data->val($i, 11);
+		$kecamatan  = $data->val($i, 12);
+		$kota  = $data->val($i, 13);
+		$no_kk  = $data->val($i, 14);
+		$pend_kk  = $data->val($i, 15);
+		$pend_terakhir  = $data->val($i, 16);
+		$pend_ditempuh  = $data->val($i, 17);
+		$pekerjaan  = $data->val($i, 18);
+		$status_perkawinan  = $data->val($i, 19);
+		$status_dlm_keluarga  = $data->val($i, 20);
+		$kewarganegaraan  = $data->val($i, 21);
+		$nama_ayah  = $data->val($i, 22);
+		$nama_ibu  = $data->val($i, 23);
 		
-		if($nik != "" && $nama != "" && $tempat_lahir != "" && $tgl_lahir != "" && $jenis_kelamin != "" && $agama != "" && $dusun != "" && $rw != "" && $rt != "" && $no_kk != "" && $pend_kk != "" && $pend_terakhir != "" && $pend_ditempuh != "" && $pekerjaan != "" && $status_perkawinan != "" && $status_dlm_keluarga != "" && $kewarganegaraan != "" && $nama_ayah != "" && $nama_ibu != "" && $gol_darah != ""){
-			mysqli_query($connect,"INSERT INTO penduduk VALUES(NULL, '$nik','$nama','$tempat_lahir','$tgl_lahir','$jenis_kelamin','$agama','$dusun','$rw','$rt','$no_kk','$pend_kk','$pend_terakhir','$pend_ditempuh','$pekerjaan','$status_perkawinan','$status_dlm_keluarga','$kewarganegaraan','$nama_ayah','$nama_ibu','$gol_darah')");
+		if($nik != "" && $nama != "" && $tempat_lahir != "" && $tgl_lahir != "" && $jenis_kelamin != "" && $agama != "" && $jalan != "" && $dusun != "" && $rt != "" && $rw != "" && $desa != "" && $kecamatan != "" && $kota != "" && $no_kk != "" && $pend_kk != "" && $pend_terakhir != "" && $pend_ditempuh != "" && $pekerjaan != "" && $status_perkawinan != "" && $status_dlm_keluarga != "" && $kewarganegaraan != "" && $nama_ayah != "" && $nama_ibu != ""){
+			mysqli_query($connect,"INSERT INTO penduduk VALUES(NULL, '$nik','$nama','$tempat_lahir','$tgl_lahir','$jenis_kelamin','$agama','$jalan','$dusun','$rt','$rw','$desa','$kecamatan','$kota','$no_kk','$pend_kk','$pend_terakhir','$pend_ditempuh','$pekerjaan','$status_perkawinan','$status_dlm_keluarga','$kewarganegaraan','$nama_ayah','$nama_ibu')");
 			$berhasil++;
 		}
 	}

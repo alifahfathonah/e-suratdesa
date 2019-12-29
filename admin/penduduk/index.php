@@ -89,7 +89,7 @@
           if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
         ?>
         <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Penduduk</a>
-        <a target="_blank" class="btn btn-info btn-md" href='export-excel.php'><i class="fas fa-file-export"></i> Export .XLS</a>
+        <a target="_blank" class="btn btn-info btn-md" href='export-penduduk.php'><i class="fas fa-file-export"></i> Export .XLS</a>
         <?php 
           } else {
 

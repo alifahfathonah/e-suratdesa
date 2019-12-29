@@ -7,10 +7,12 @@
 	<style type="text/css">
   	body{
   		font-family: sans-serif;
+      text-transform: capitalize;
   	}
   	table{
   		margin: 20px auto;
   		border-collapse: collapse;
+      text-transform: capitalize;
   	}
   	table th,
   	table td{
@@ -46,6 +48,16 @@
         <th><strong>Jenis Kelamin</strong></th>
         <th><strong>Agama</strong></th>
         <th><strong>Alamat</strong></th>
+        <th><strong>No. KK</strong></th>
+        <th><strong>Pendidikan di KK</strong></th>
+        <th><strong>Pendidikan Terakhir</strong></th>
+        <th><strong>Pendidikan Ditempuh</strong></th>
+        <th><strong>Pekerjaan</strong></th>
+        <th><strong>Status Perkawinan</strong></th>
+        <th><strong>Status dalam Keluarga</strong></th>
+        <th><strong>Kewarganegaraan</strong></th>
+        <th><strong>Nama Ayah</strong></th>
+        <th><strong>Nama Ibu</strong></th>
       </tr>
     </thead>
     <tbody>
@@ -83,7 +95,17 @@
         <td><?php echo $row['tempat_lahir'] . ", " . $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?></td>
         <td><?php echo $row['jenis_kelamin']; ?></td>
         <td><?php echo $row['agama']; ?></td>
-        <td><?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?></td>
+        <td><?php echo $row['jalan'] . ', RT' . $row['rt'] . '/RW' . $row['rw'] . ', Dusun ' . $row['dusun'] . ', Desa ' . $row['desa'] . ', Kecamatan ' . $row['kecamatan'] . ', ' . $row['kota']; ?></td>
+        <td class="str"><?php echo $row['no_kk']; ?></td>
+        <td><?php echo $row['pend_kk']; ?></td>
+        <td><?php echo $row['pend_terakhir']; ?></td>
+        <td><?php echo $row['pend_ditempuh']; ?></td>
+        <td><?php echo $row['pekerjaan']; ?></td>
+        <td><?php echo $row['status_perkawinan']; ?></td>
+        <td><?php echo $row['status_dlm_keluarga']; ?></td>
+        <td><?php echo $row['kewarganegaraan']; ?></td>
+        <td><?php echo $row['nama_ayah']; ?></td>
+        <td><?php echo $row['nama_ibu']; ?></td>
       </tr>
       <?php
         }
